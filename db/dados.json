@@ -98,13 +98,14 @@
       "id": "vzy5u73ihfmo68w420",
       "login": "gerente",
       "senha": "1234",
-      "nome": "Gerente",
+      "nome": "Gerente 1",
       "perfil": "gerente",
       "perms": [
         "dashboard",
         "funcionarios",
         "escala",
-        "feriados"
+        "feriados",
+        "usuarios"
       ]
     },
     {
