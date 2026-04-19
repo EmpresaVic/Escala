@@ -1,0 +1,122 @@
+{
+  "ef_func": [
+    {
+      "id": "hj32odcoctbmo68w41z",
+      "nome": "MOISES",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2020-03-01",
+      "desl": null
+    },
+    {
+      "id": "duoge3a3amjmo68w41z",
+      "nome": "MARIA PIEDADE",
+      "vtH": [
+        {
+          "vt": 12.9,
+          "desde": "2025-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2019-06-15",
+      "desl": null
+    },
+    {
+      "id": "5j7i8eu9ncmmo68w41z",
+      "nome": "VALDINEIA",
+      "vtH": [
+        {
+          "vt": 13.1,
+          "desde": "2025-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2021-02-01",
+      "desl": null
+    },
+    {
+      "id": "nw7dn7rz7jgmo68w41z",
+      "nome": "LUIZ",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2022-07-10",
+      "desl": null
+    },
+    {
+      "id": "2d2c8nmn1s2mo68w41z",
+      "nome": "KARINE",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2023-01-05",
+      "desl": null
+    }
+  ],
+  "ef_esc": {
+    "5j7i8eu9ncmmo68w41z_202604_2": "folga",
+    "5j7i8eu9ncmmo68w41z_202604_3": "falta"
+  },
+  "ef_fer": [
+    {
+      "data": "2026-04-03",
+      "nome": "Sexta-feira Santa"
+    },
+    {
+      "data": "2026-04-21",
+      "nome": "Tiradentes"
+    }
+  ],
+  "ef_users": [
+    {
+      "id": "z2649c9v1dmo68w420",
+      "login": "admin",
+      "senha": "admin123",
+      "nome": "Administrador",
+      "perfil": "admin",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "usuarios"
+      ]
+    },
+    {
+      "id": "vzy5u73ihfmo68w420",
+      "login": "gerente",
+      "senha": "1234",
+      "nome": "Gerente",
+      "perfil": "gerente",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados"
+      ]
+    },
+    {
+      "id": "mdfxn8y373dmo6aehd7",
+      "login": "teste",
+      "senha": "1234",
+      "nome": "teste",
+      "perfil": "operador",
+      "perms": [
+        "dashboard"
+      ]
+    }
+  ]
+}
