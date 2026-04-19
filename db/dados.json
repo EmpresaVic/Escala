@@ -90,7 +90,6 @@
       "perms": [
         "dashboard",
         "funcionarios",
-        "escala",
         "feriados",
         "usuarios"
       ]
