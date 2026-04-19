@@ -248,6 +248,13 @@ tr.inativo td { opacity: .55; }
   <div class="login-box">
     <div class="login-logo">Escala <span>VT</span></div>
     <div class="login-sub">Sistema de Gestão de Folgas</div>
+
+    <!-- GitHub status na tela de login -->
+    <div id="login-gh-status" style="display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;margin-bottom:18px;gap:10px;">
+      <span id="login-gh-txt" style="font-size:12px;color:var(--text-dim);">⚠️ GitHub não configurado</span>
+      <button onclick="abrirGHConfig()" style="background:transparent;border:1px solid var(--blue);color:var(--blue-light);padding:4px 10px;border-radius:6px;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;white-space:nowrap;">⚙️ Configurar</button>
+    </div>
+
     <div class="login-field">
       <label>Usuário</label>
       <input type="text" class="login-input" id="login-user" placeholder="Digite seu usuário" autocomplete="username" onkeydown="if(event.key==='Enter')document.getElementById('login-pass').focus()">
@@ -742,9 +749,23 @@ function iniciarAutoSync() {
 // ── Status helper ─────────────────────────────────────────────────────
 function setStatus(txt, cor) {
   var el = document.getElementById('gh-status');
-  if (!el) return;
-  el.textContent = txt;
-  el.style.color = cor || '#3a7a4a';
+  if (el) { el.textContent = txt; el.style.color = cor || '#3a7a4a'; }
+  // Atualiza também o status na tela de login
+  var ltxt = document.getElementById('login-gh-txt');
+  if (ltxt) { ltxt.textContent = txt; ltxt.style.color = cor || '#3a7a4a'; }
+}
+
+function atualizarStatusLogin() {
+  var ltxt = document.getElementById('login-gh-txt');
+  if (!ltxt) return;
+  if (GH.isConfigured()) {
+    var c = GH.getCfg();
+    ltxt.textContent = '✅ GitHub: ' + c.user + '/' + c.repo;
+    ltxt.style.color = '#3a7a4a';
+  } else {
+    ltxt.textContent = '⚠️ GitHub não configurado';
+    ltxt.style.color = '#c04a3a';
+  }
 }
 
 // ── Sincronizar completo ──────────────────────────────────────────────
@@ -796,6 +817,7 @@ async function salvarGHConfig() {
   var result = await GH.test();
   if (!result.ok) { st.textContent = '❌ ' + result.msg; st.style.color = '#c04a3a'; return; }
   st.textContent = '✅ ' + result.msg; st.style.color = '#3a7a4a';
+  atualizarStatusLogin();
   setTimeout(function() { fecharGHConfig(); sincronizar(); }, 1200);
 }
 function limparGHConfig() {
@@ -803,6 +825,7 @@ function limparGHConfig() {
   localStorage.removeItem(GH_CFG_KEY);
   _currentSha = null;
   fecharGHConfig();
+  atualizarStatusLogin();
   setStatus('⚠️ Sem GitHub', '#c04a3a');
   toast('GitHub desconectado. Usando armazenamento local.', 'in');
 }
@@ -1587,6 +1610,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   if (!GH.isConfigured()) {
     setStatus('⚠️ Configure o GitHub →', '#c04a3a');
   }
+  atualizarStatusLogin();
 
   // Mostra tela de login
   document.getElementById('login-screen').classList.add('open');
