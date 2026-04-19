@@ -117,6 +117,20 @@
       "perms": [
         "dashboard"
       ]
+    },
+    {
+      "id": "qo0909dmknfmo6cyhjx",
+      "login": "admin123",
+      "senha": "admin123",
+      "nome": "Administrador",
+      "perfil": "admin",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "usuarios"
+      ]
     }
   ]
 }
