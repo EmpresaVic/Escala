@@ -192,6 +192,23 @@
       "empresas": [
         "eedtw85lb7hmo7fioa1"
       ]
+    },
+    {
+      "id": "bg48hl4fk2kmo7fmjms",
+      "login": "victive",
+      "senha": "123",
+      "nome": "victive",
+      "perfil": "gerente",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "usuarios"
+      ],
+      "empresas": [
+        "bwckt2zfe8smo7fj6wx"
+      ]
     }
   ],
   "ef_empresas": [
