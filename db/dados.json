@@ -158,6 +158,23 @@
         "feriados",
         "usuarios"
       ]
+    },
+    {
+      "id": "oh6wpq7npxmo7flfsz",
+      "login": "victrus",
+      "senha": "123",
+      "nome": "victrus",
+      "perfil": "gerente",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "usuarios"
+      ],
+      "empresas": [
+        "r4757ib3oimo7fjujy"
+      ]
     }
   ],
   "ef_empresas": [
