@@ -175,6 +175,23 @@
       "empresas": [
         "r4757ib3oimo7fjujy"
       ]
+    },
+    {
+      "id": "bsed90ieobnmo7flzzk",
+      "login": "victria",
+      "senha": "123",
+      "nome": "victria",
+      "perfil": "gerente",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "usuarios"
+      ],
+      "empresas": [
+        "eedtw85lb7hmo7fioa1"
+      ]
     }
   ],
   "ef_empresas": [
