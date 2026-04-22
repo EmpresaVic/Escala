@@ -286,5 +286,20 @@
   ],
   "ef_disc_hist__hj32odcoctbmo68w41z": [],
   "ef_disc_hist__duoge3a3amjmo68w41z": [],
-  "ef_disc_hist__5j7i8eu9ncmmo68w41z": []
+  "ef_disc_hist__5j7i8eu9ncmmo68w41z": [],
+  "ef_regras_op": [
+    {
+      "id": "ynq9r23y7mhmoan4828",
+      "nome": "Agressão fisica ao funcionario",
+      "descricao": "Funcionário agrediu fisicamente dentro da empresa",
+      "etapas": [
+        {
+          "tipo": "demissao",
+          "label": "Demissão por Justa Causa",
+          "descricao": "Reincidência — demissão por justa causa.",
+          "diasSusp": 1
+        }
+      ]
+    }
+  ]
 }
