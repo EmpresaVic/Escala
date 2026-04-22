@@ -149,7 +149,7 @@
       "login": "super",
       "senha": "super123",
       "nome": "Super Admin",
-      "perfil": "superadmin",
+      "perfil": "",
       "empresas": [],
       "perms": [
         "dashboard",
