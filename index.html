@@ -271,6 +271,83 @@ tr.inativo td { opacity: .55; }
 ::-webkit-scrollbar-track { background: var(--surface2); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+
+/* ── DISCIPLINAR GRID ───────────────────────────────────────────────── */
+#disc-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+@media(max-width:860px){ #disc-grid { grid-template-columns:1fr; } }
+
+/* ── DISCIPLINAR ───────────────────────────────────────────────────── */
+.disc-step { display:flex; align-items:center; gap:12px; padding:12px 16px; border:1px solid var(--border); border-radius:10px; margin-bottom:10px; background:var(--surface); transition:all .18s; }
+.disc-step:hover { border-color:var(--gold-dim); box-shadow:0 2px 8px rgba(0,0,0,.07); }
+.disc-step-num { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; }
+.disc-step-body { flex:1; min-width:0; }
+.disc-step-title { font-weight:600; font-size:13px; color:var(--text); }
+.disc-step-desc { font-size:11px; color:var(--text-dim); margin-top:2px; }
+.disc-step-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+.hist-item { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; border:1px solid var(--border); border-radius:8px; margin-bottom:8px; background:var(--surface); }
+.hist-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+.hist-body { flex:1; min-width:0; }
+.hist-title { font-weight:600; font-size:13px; color:var(--text); }
+.hist-date { font-size:11px; color:var(--text-dim); margin-top:2px; }
+.hist-dias { font-size:12px; color:var(--text-dim); margin-top:3px; }
+.disc-alert { border-radius:10px; padding:14px 18px; margin-bottom:16px; font-size:13px; font-weight:600; border:1px solid; }
+.disc-alert-warn  { background:rgba(196,106,32,.1); border-color:rgba(196,106,32,.4); color:var(--orange); }
+.disc-alert-susp  { background:rgba(80,20,80,.1); border-color:rgba(80,20,80,.4); color:#7a1a7a; }
+.disc-alert-cause { background:rgba(192,74,58,.12); border-color:rgba(192,74,58,.45); color:var(--red); }
+.disc-alert-ok    { background:rgba(58,122,74,.08); border-color:rgba(58,122,74,.3); color:var(--green); }
+
+/* ── REGRA OPERACIONAL ──────────────────────────────────────────────── */
+#conduta-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+@media(max-width:860px){ #conduta-grid { grid-template-columns:1fr; } }
+.conduta-rule-box { border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:10px; background:var(--surface); transition:all .18s; }
+.conduta-rule-box:hover { border-color:var(--red); box-shadow:0 2px 8px rgba(0,0,0,.07); }
+.conduta-rule-title { font-weight:700; font-size:13px; color:var(--red); display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.conduta-rule-desc { font-size:11px; color:var(--text-dim); }
+.conduta-penalty-row { display:flex; align-items:center; gap:8px; margin-top:8px; }
+.conduta-penalty-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+.conduta-hist-item { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; border:1px solid var(--border); border-radius:8px; margin-bottom:8px; background:var(--surface); }
+.b-conduta { background:rgba(192,74,58,.12); color:var(--red); }
+.b-conduta-susp { background:rgba(80,20,80,.12); color:#7a1a7a; }
+.b-conduta-demissao { background:rgba(80,10,10,.15); color:#a01010; }
+.disc-alert-conduta { background:rgba(192,74,58,.08); border:1px solid rgba(192,74,58,.35); border-radius:10px; padding:14px 18px; margin-bottom:14px; font-size:13px; font-weight:600; color:var(--red); }
+
+/* ── VISÃO GERAL MULTI-EMPRESAS (superadmin) ───────────────────────── */
+.vg-toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.vg-toolbar .month-nav button { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 7px 13px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .15s; }
+.vg-toolbar .month-nav button:hover { border-color: var(--gold); color: var(--gold); }
+.vg-empresa-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,.07); overflow: hidden; transition: box-shadow .2s; }
+.vg-empresa-block:hover { box-shadow: 0 4px 18px rgba(0,0,0,.11); }
+.vg-empresa-hd { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 16px 20px; background: linear-gradient(90deg,rgba(160,120,40,.09),transparent); border-bottom: 1px solid var(--border); }
+.vg-empresa-nome { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--gold); display: flex; align-items: center; gap: 8px; }
+.vg-empresa-cnpj { font-size: 11px; color: var(--text-dim); }
+.vg-kpis { display: flex; gap: 0; border-bottom: 1px solid var(--border); background: var(--surface2); overflow-x: auto; }
+.vg-kpi { flex: 1; min-width: 90px; text-align: center; padding: 12px 8px; border-right: 1px solid var(--border); }
+.vg-kpi:last-child { border-right: none; }
+.vg-kpi .vk-val { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; line-height: 1.1; }
+.vg-kpi .vk-lbl { font-size: 10px; color: var(--text-dim); margin-top: 2px; text-transform: uppercase; letter-spacing: .4px; }
+.vg-kpi-blue .vk-val   { color: var(--blue);   }
+.vg-kpi-green .vk-val  { color: var(--green);  }
+.vg-kpi-red .vk-val    { color: var(--red);    }
+.vg-kpi-gold .vk-val   { color: var(--gold);   }
+.vg-kpi-purple .vk-val { color: var(--purple); }
+.vg-kpi-orange .vk-val { color: var(--orange); }
+.vg-kpi-teal .vk-val   { color: var(--teal);   }
+.vg-escala-wrap { overflow-x: auto; padding: 0; }
+.vg-empty { padding: 32px; text-align: center; color: var(--text-dim); font-size: 13px; }
+.vg-filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.vg-filter-bar label { font-size: 11px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; }
+.vg-filter-bar select { max-width: 220px; }
+.vg-sum-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.vg-sum-table th { background: var(--surface2); padding: 9px 14px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-dim); letter-spacing: .4px; text-transform: uppercase; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.vg-sum-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.vg-sum-table tr:last-child td { border-bottom: none; }
+.vg-sum-table tr:hover td { background: rgba(0,0,0,.02); }
+.vg-total-row td { background: rgba(160,120,40,.07) !important; font-weight: 700; border-top: 2px solid var(--gold); }
+.vg-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); overflow-x: auto; }
+.vg-tab { padding: 10px 18px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; background: transparent; color: var(--text-dim); font-family: 'DM Sans', sans-serif; border-bottom: 2px solid transparent; transition: all .15s; white-space: nowrap; }
+.vg-tab:hover { color: var(--text); background: rgba(0,0,0,.03); }
+.vg-tab.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 700; }
+.vg-panel { display: none; } .vg-panel.active { display: block; }
 </style>
 </head>
 <body>
@@ -278,6 +355,7 @@ tr.inativo td { opacity: .55; }
 <!-- ══════════════ LOGIN ══════════════ -->
 <div id="login-screen" class="open">
   <div class="login-box">
+    <div class="login-logo">Escala <span>VT</span></div>
     <div class="login-sub">Sistema de Gestão de Folgas e Vale Transporte</div>
 
     <!-- GitHub status na tela de login -->
@@ -292,7 +370,13 @@ tr.inativo td { opacity: .55; }
     </div>
     <div class="login-field">
       <label>Senha</label>
-      <input type="password" class="login-input" id="login-pass" placeholder="Digite sua senha" autocomplete="current-password" onkeydown="if(event.key==='Enter')fazerLogin()">
+      <input type="password" class="login-input" id="login-pass" placeholder="Digite sua senha" autocomplete="current-password" onkeydown="if(event.key==='Enter')focusEmpresaOrLogin()">
+    </div>
+    <div class="login-field" id="login-empresa-row" style="display:none">
+      <label>Empresa</label>
+      <select class="login-input" id="login-empresa">
+        <option value="">— Selecione a empresa —</option>
+      </select>
     </div>
     <div class="login-error" id="login-error"></div>
     <button class="login-btn" onclick="fazerLogin()">🔑 Entrar</button>
@@ -301,7 +385,10 @@ tr.inativo td { opacity: .55; }
 
 <!-- ══════════════ HEADER ══════════════ -->
 <header>
-  <div class="logo">Escala <span>VT</span></div>
+  <div>
+    <div class="logo">Escala <span>VT</span></div>
+    <div id="header-empresa-nome" style="font-size:11px;color:var(--text-dim);margin-top:1px;padding-left:1px;"></div>
+  </div>
   <nav id="main-nav"></nav>
   <div class="login-user-info">
     <span id="gh-status" style="font-size:12px;font-weight:500;white-space:nowrap;"></span>
@@ -382,7 +469,7 @@ tr.inativo td { opacity: .55; }
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th>Nome</th><th>VT Vigente</th><th>Status</th><th>Admissão</th><th>Desligamento</th><th>Ações</th>
+            <th>Nome</th><th>CPF 🔒</th><th>RG 🔒</th><th>VT Vigente</th><th>Status</th><th>Admissão</th><th>Desligamento</th><th>Ações</th>
           </tr></thead>
           <tbody id="func-tbody"></tbody>
         </table>
@@ -420,6 +507,138 @@ tr.inativo td { opacity: .55; }
     </div>
   </div>
 
+  <!-- DISCIPLINAR -->
+  <div class="page" id="page-disciplinar">
+    <div class="page-title">⚖️ Disciplinar</div>
+    <div class="page-sub">Regras de advertência, suspensão e histórico disciplinar por funcionário</div>
+
+    <div id="disc-grid">
+      <!-- COLUNA ESQUERDA: Regras -->
+      <div>
+        <div class="card">
+          <div class="card-title">Regra de Progressão Disciplinar</div>
+          <p style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">Configure a sequência de penalidades aplicadas a cada falta injustificada acumulada.</p>
+          <div id="disc-steps-list"></div>
+          <div class="divider"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="openDiscRulesModal()">✏️ Editar Regras</button>
+            <button class="btn btn-ghost" onclick="resetDiscRules()">↺ Restaurar Padrão</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: Histórico por funcionário -->
+      <div>
+        <div class="card">
+          <div class="card-title">Histórico Disciplinar</div>
+          <div class="field" style="margin-bottom:14px;">
+            <label>Funcionário</label>
+            <select id="disc-hist-func" onchange="rDiscHist()">
+              <option value="">— Selecione —</option>
+            </select>
+          </div>
+          <div id="disc-hist-body">
+            <div class="empty"><span class="ico">📋</span>Selecione um funcionário.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGRA OPERACIONAL — MULTI-REGRA -->
+  <div class="page" id="page-conduta">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:6px;">
+      <div>
+        <div class="page-title">🗣️ Regras Operacionais</div>
+        <div class="page-sub" style="margin-bottom:0;padding-left:0">Crie e gerencie regras disciplinares eventuais com controle de histórico por funcionário</div>
+      </div>
+      <button class="btn btn-red" onclick="openNovaRegraModal()">+ Nova Regra Operacional</button>
+    </div>
+
+    <!-- Abas das regras criadas -->
+    <div id="conduta-tabs-bar" style="display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;margin-bottom:20px;"></div>
+
+    <!-- Painel vazio quando não há regras -->
+    <div id="conduta-empty" style="display:none;">
+      <div class="card" style="text-align:center;padding:48px 24px;">
+        <div style="font-size:40px;margin-bottom:12px">📋</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text-dim);margin-bottom:8px">Nenhuma Regra Operacional criada</div>
+        <div style="font-size:13px;color:var(--text-dim);margin-bottom:20px">Clique em <strong>+ Nova Regra Operacional</strong> para começar.</div>
+        <button class="btn btn-red" onclick="openNovaRegraModal()">+ Nova Regra Operacional</button>
+      </div>
+    </div>
+
+    <!-- Painel da regra ativa -->
+    <div id="conduta-panel" style="display:none;">
+      <div id="conduta-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+
+        <!-- COLUNA ESQUERDA: Etapas da regra -->
+        <div>
+          <div class="card">
+            <div class="card-header" style="margin-bottom:12px;">
+              <div class="card-title" style="margin-bottom:0" id="conduta-regra-titulo">—</div>
+              <div style="display:flex;gap:6px;">
+                <button class="btn btn-ghost btn-sm" onclick="openEditRegraModal()">✏️ Editar</button>
+                <button class="btn btn-danger" onclick="deletarRegra()">🗑️</button>
+              </div>
+            </div>
+            <p id="conduta-regra-desc" style="font-size:12px;color:var(--text-dim);margin-bottom:16px;"></p>
+            <div id="conduta-rules-list"></div>
+          </div>
+        </div>
+
+        <!-- COLUNA DIREITA: Registrar ocorrência + histórico -->
+        <div>
+          <div class="card" style="margin-bottom:16px;">
+            <div class="card-title">Registrar Ocorrência</div>
+            <div class="field">
+              <label>Funcionário</label>
+              <select id="conduta-func-sel" onchange="atualizarCondutaStatus()">
+                <option value="">— Selecione —</option>
+              </select>
+            </div>
+            <div id="conduta-status-panel" style="display:none;margin-bottom:10px;"></div>
+            <div class="field">
+              <label>Envolvido / Testemunha (opcional)</label>
+              <select id="conduta-vitima-sel">
+                <option value="">— Não identificado / Externo —</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Data da Ocorrência</label>
+              <input type="date" id="conduta-data">
+            </div>
+            <div class="field">
+              <label>Descrição do Incidente</label>
+              <textarea id="conduta-obs" rows="3" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 13px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;width:100%;resize:vertical;" placeholder="Descreva brevemente o ocorrido…"></textarea>
+            </div>
+            <div class="field" id="conduta-susp-row" style="display:none;">
+              <label>Dias de Suspensão</label>
+              <input type="number" id="conduta-dias-susp" value="1" min="1" max="30">
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+              <button class="btn btn-red" onclick="registrarConduta()">⚠️ Registrar</button>
+              <button class="btn btn-ghost" onclick="imprimirConduta()">🖨️ Imprimir Comunicado</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Histórico da Regra por Funcionário</div>
+            <div class="field" style="margin-bottom:14px;">
+              <label>Funcionário</label>
+              <select id="conduta-hist-func" onchange="rCondutaHist()">
+                <option value="">— Selecione —</option>
+              </select>
+            </div>
+            <div id="conduta-hist-body">
+              <div class="empty"><span class="ico">🗣️</span>Selecione um funcionário.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FERIADOS -->
   <div class="page" id="page-feriados">
     <div class="page-title">Feriados</div>
@@ -448,6 +667,56 @@ tr.inativo td { opacity: .55; }
     </div>
   </div>
 
+  <!-- EMPRESAS (super-admin apenas) -->
+  <div class="page" id="page-empresas">
+    <div class="page-title">Empresas</div>
+    <div class="page-sub">Gerencie as empresas cadastradas no sistema</div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title" style="margin-bottom:0">Empresas Cadastradas</div>
+        <button class="btn btn-gold" onclick="openEmpresaModal()">+ Nova Empresa</button>
+      </div>
+      <div id="empresa-list"></div>
+    </div>
+  </div>
+
+  <!-- VISÃO GERAL MULTI-EMPRESAS (super-admin apenas) -->
+  <div class="page" id="page-visaogeral">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:6px;">
+      <div>
+        <div class="page-title">👁️ Visão Geral</div>
+        <div class="page-sub" style="margin-bottom:0;padding-left:0">Escala consolidada de todas as empresas</div>
+      </div>
+    </div>
+
+    <!-- Toolbar: mês + filtros -->
+    <div class="vg-toolbar">
+      <div class="month-nav">
+        <button onclick="vgChangeMonth(-1)">◀</button>
+        <span id="vg-month-disp" class="month-display"></span>
+        <button onclick="vgChangeMonth(1)">▶</button>
+        <button onclick="vgGoToday()" class="btn btn-gold btn-sm" style="margin-left:4px;">Hoje</button>
+      </div>
+      <div style="flex:1;min-width:180px;" class="vg-filter-bar">
+        <label>Empresa</label>
+        <select id="vg-empresa-sel" onchange="rVisaoGeral()">
+          <option value="">Todas as empresas</option>
+        </select>
+      </div>
+      <div class="vg-filter-bar">
+        <label>Status</label>
+        <select id="vg-status-sel" onchange="rVisaoGeral()">
+          <option value="ativo">Apenas ativos</option>
+          <option value="todos">Todos</option>
+        </select>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="window.print()" title="Imprimir visão geral">🖨️ Imprimir</button>
+    </div>
+
+    <!-- Conteúdo dinâmico -->
+    <div id="vg-content"></div>
+  </div>
+
 </main>
 
 <!-- ══════════════ MODAL FUNCIONÁRIO ══════════════ -->
@@ -460,6 +729,15 @@ tr.inativo td { opacity: .55; }
     <div class="sec-label">Dados Cadastrais</div>
     <div class="grid2">
       <div class="field full"><label>Nome</label><input type="text" id="f-nome" placeholder="NOME DO FUNCIONÁRIO"></div>
+      <div class="field">
+        <label>CPF <span style="color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0">(🔒 criptografado)</span></label>
+        <input type="text" id="f-cpf" placeholder="000.000.000-00" maxlength="14" oninput="maskCPF(this)">
+        <span id="f-cpf-err" style="font-size:11px;color:var(--red);display:none">CPF inválido</span>
+      </div>
+      <div class="field">
+        <label>RG <span style="color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0">(🔒 criptografado)</span></label>
+        <input type="text" id="f-rg" placeholder="00.000.000-0" maxlength="12" oninput="maskRG(this)">
+      </div>
       <div class="field"><label>VT por Dia (R$)</label><input type="number" id="f-vt" step="0.01" placeholder="12.20"></div>
       <div class="field"><label>Admissão</label><input type="date" id="f-admissao"></div>
       <div class="field"><label>Status</label>
@@ -508,6 +786,10 @@ tr.inativo td { opacity: .55; }
           <option value="operador">Operador</option>
         </select>
       </div>
+      <div class="field full" id="u-empresa-row">
+        <label>Empresas com Acesso</label>
+        <div id="u-empresa-list" style="display:flex;flex-direction:column;gap:6px;margin-top:4px;"></div>
+      </div>
     </div>
     <div class="divider"></div>
     <div class="sec-label">Permissões de Acesso</div>
@@ -519,9 +801,52 @@ tr.inativo td { opacity: .55; }
   </div>
 </div>
 
+<!-- ══════════════ MODAL EMPRESA ══════════════ -->
+<div class="modal-bd" id="modal-empresa">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3 id="me-title">Nova Empresa</h3>
+      <button class="modal-x" onclick="closeMod('modal-empresa')">×</button>
+    </div>
+    <div class="grid2">
+      <div class="field full"><label>Nome da Empresa</label><input type="text" id="emp-nome" placeholder="Ex: Restaurante Central"></div>
+      <div class="field full">
+        <label>CNPJ <span style="color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0">(🔒 criptografado)</span></label>
+        <input type="text" id="emp-cnpj" placeholder="00.000.000/0001-00" maxlength="18" oninput="maskCNPJ(this)">
+        <span id="emp-cnpj-err" style="font-size:11px;color:var(--red);display:none">CNPJ inválido</span>
+      </div>
+      <div class="field full"><label>Endereço (opcional)</label><input type="text" id="emp-end" placeholder="Endereço da empresa"></div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-ghost" onclick="closeMod('modal-empresa')">Cancelar</button>
+      <button class="btn btn-gold" onclick="saveEmpresa()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MODAL REGRAS DISCIPLINARES ══════════════ -->
+<div class="modal-bd" id="modal-disc-rules">
+  <div class="modal" style="width:640px">
+    <div class="modal-hd">
+      <h3>⚖️ Editar Regras de Progressão Disciplinar</h3>
+      <button class="modal-x" onclick="closeMod('modal-disc-rules')">×</button>
+    </div>
+    <p style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">Cada linha representa a penalidade aplicada à ocorrência de falta injustificada na ordem indicada. Arraste para reordenar (ordem importa).</p>
+    <div id="disc-rules-editor"></div>
+    <div class="divider"></div>
+    <div style="margin-bottom:18px;">
+      <button class="btn btn-ghost btn-sm" onclick="addDiscStep()">+ Adicionar etapa</button>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-ghost" onclick="closeMod('modal-disc-rules')">Cancelar</button>
+      <button class="btn btn-gold" onclick="saveDiscRules()">✓ Salvar Regras</button>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════ MODAL COMUNICADO ══════════════ -->
 <div class="modal-bd" id="modal-comunicado">
-  <div class="modal" style="width:600px">
+  <div class="modal" style="width:620px">
     <div class="modal-hd">
       <h3>Imprimir Comunicado de Falta</h3>
       <button class="modal-x" onclick="closeMod('modal-comunicado')">×</button>
@@ -539,11 +864,16 @@ tr.inativo td { opacity: .55; }
         <label>Funcionário</label>
         <select id="com-func"><option value="">Selecione…</option></select>
       </div>
+    </div>
+    <!-- Painel situação disciplinar (aparece ao selecionar funcionário) -->
+    <div id="com-disc-status" style="display:none;margin-bottom:14px;"></div>
+    <div class="grid2">
       <div class="field full">
         <label>Tipo de Comunicado</label>
         <select id="com-tipo">
           <option value="advertencia">Advertência por Falta sem Justificativa</option>
           <option value="suspensao">Suspensão por Falta sem Justificativa</option>
+          <option value="justa_causa">Comunicado de Justa Causa</option>
         </select>
       </div>
       <div class="field" id="com-dias-susp-row" style="display:none">
@@ -555,7 +885,7 @@ tr.inativo td { opacity: .55; }
     <div class="modal-ft">
       <button class="btn btn-ghost" onclick="closeMod('modal-comunicado')">Cancelar</button>
       <button class="btn btn-blue" onclick="previewComunicado()">👁️ Pré-visualizar</button>
-      <button class="btn btn-gold" onclick="imprimirComunicado()">🖨️ Imprimir</button>
+      <button class="btn btn-gold" onclick="imprimirComunicadoComRegistro()">🖨️ Imprimir e Registrar</button>
     </div>
   </div>
 </div>
@@ -583,6 +913,33 @@ tr.inativo td { opacity: .55; }
   </div>
   <div class="cmenu-item" id="cm-extra" onclick="applyCell('extra')" style="display:none">
     <div class="cmenu-dot" style="background:rgba(122,74,154,.15);border:1px solid var(--purple)"></div>Trabalhou (Dom/Feriado)
+  </div>
+</div>
+
+<!-- ══════════════ MODAL NOVA / EDITAR REGRA OPERACIONAL ══════════════ -->
+<div class="modal-bd" id="modal-conduta-rules">
+  <div class="modal" style="width:660px">
+    <div class="modal-hd">
+      <h3 id="conduta-modal-titulo">🗣️ Nova Regra Operacional</h3>
+      <button class="modal-x" onclick="closeMod('modal-conduta-rules')">×</button>
+    </div>
+    <div class="field" style="margin-bottom:18px;">
+      <label>Nome da Regra <span style="color:var(--red)">*</span></label>
+      <input type="text" id="conduta-regra-nome" placeholder="Ex: Agressão Verbal, Uso de Celular, Atraso Frequente…">
+    </div>
+    <div class="field" style="margin-bottom:20px;">
+      <label>Descrição (opcional)</label>
+      <input type="text" id="conduta-regra-descricao" placeholder="Descreva brevemente quando esta regra se aplica">
+    </div>
+    <div class="sec-label" style="margin-bottom:10px;">Etapas de Penalidade (em ordem progressiva)</div>
+    <div id="conduta-rules-editor"></div>
+    <div style="margin-bottom:18px;">
+      <button class="btn btn-ghost btn-sm" onclick="addCondutaStep()">+ Adicionar etapa</button>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-ghost" onclick="closeMod('modal-conduta-rules')">Cancelar</button>
+      <button class="btn btn-red" onclick="saveCondutaRules()">✓ Salvar Regra</button>
+    </div>
   </div>
 </div>
 
@@ -614,6 +971,131 @@ tr.inativo td { opacity: .55; }
 
 <script>
 // ══════════════════════════════════════════════════════════════════════
+//  🔐 CRYPTO ENGINE — AES-256-GCM via Web Crypto API
+//  CPF, RG e CNPJ são criptografados antes de salvar e
+//  descriptografados apenas na hora de exibir.
+// ══════════════════════════════════════════════════════════════════════
+
+// Chave derivada de uma passphrase fixa + salt fixo (PBKDF2).
+// Em produção, o ideal é a chave vir do servidor ou de um HSM.
+const CRYPTO_PASSPHRASE = 'EscalaVT_SecureKey_2025#v1';
+const CRYPTO_SALT = new Uint8Array([0xAB,0x3F,0xC7,0x12,0x88,0xE4,0x5D,0x9A,0x01,0xCC,0x77,0xB2,0x55,0x3E,0xFD,0x08]);
+
+let _cryptoKey = null;
+
+async function _getCryptoKey() {
+  if (_cryptoKey) return _cryptoKey;
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey(
+    'raw', enc.encode(CRYPTO_PASSPHRASE),
+    { name: 'PBKDF2' }, false, ['deriveKey']
+  );
+  _cryptoKey = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt: CRYPTO_SALT, iterations: 100000, hash: 'SHA-256' },
+    keyMaterial,
+    { name: 'AES-GCM', length: 256 },
+    false, ['encrypt', 'decrypt']
+  );
+  return _cryptoKey;
+}
+
+async function cryptoEncrypt(plaintext) {
+  if (!plaintext) return '';
+  try {
+    const key = await _getCryptoKey();
+    const iv  = crypto.getRandomValues(new Uint8Array(12));
+    const enc = new TextEncoder();
+    const ct  = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, enc.encode(plaintext));
+    // Resultado: base64(iv + ciphertext)
+    const combined = new Uint8Array(iv.length + ct.byteLength);
+    combined.set(iv, 0);
+    combined.set(new Uint8Array(ct), iv.length);
+    return btoa(String.fromCharCode(...combined));
+  } catch(e) { console.error('Encrypt error', e); return plaintext; }
+}
+
+async function cryptoDecrypt(b64) {
+  if (!b64) return '';
+  // Se não parece base64 criptografado (dados legados sem cripto), retorna direto
+  if (b64.length < 20) return b64;
+  try {
+    const key  = await _getCryptoKey();
+    const buf  = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+    const iv   = buf.slice(0, 12);
+    const ct   = buf.slice(12);
+    const dec  = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct);
+    return new TextDecoder().decode(dec);
+  } catch(e) {
+    // Dado não criptografado (migração) — retorna como está
+    return b64;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  VALIDAÇÃO CPF / CNPJ
+// ══════════════════════════════════════════════════════════════════════
+
+function validarCPF(cpf) {
+  const n = cpf.replace(/\D/g, '');
+  if (n.length !== 11) return false;
+  if (/^(\d)\1{10}$/.test(n)) return false;
+  let s = 0;
+  for (let i = 0; i < 9; i++) s += parseInt(n[i]) * (10 - i);
+  let r = (s * 10) % 11; if (r === 10 || r === 11) r = 0;
+  if (r !== parseInt(n[9])) return false;
+  s = 0;
+  for (let i = 0; i < 10; i++) s += parseInt(n[i]) * (11 - i);
+  r = (s * 10) % 11; if (r === 10 || r === 11) r = 0;
+  return r === parseInt(n[10]);
+}
+
+function validarCNPJ(cnpj) {
+  const n = cnpj.replace(/\D/g, '');
+  if (n.length !== 14) return false;
+  if (/^(\d)\1{13}$/.test(n)) return false;
+  const calc = (str, weights) => {
+    let s = 0;
+    for (let i = 0; i < weights.length; i++) s += parseInt(str[i]) * weights[i];
+    const r = s % 11; return r < 2 ? 0 : 11 - r;
+  };
+  const w1 = [5,4,3,2,9,8,7,6,5,4,3,2];
+  const w2 = [6,5,4,3,2,9,8,7,6,5,4,3,2];
+  if (calc(n, w1) !== parseInt(n[12])) return false;
+  if (calc(n, w2) !== parseInt(n[13])) return false;
+  return true;
+}
+
+// ── Máscaras de input ─────────────────────────────────────────────────
+function maskCPF(el) {
+  let v = el.value.replace(/\D/g, '').slice(0,11);
+  if (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+  else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+  else if (v.length > 3) v = v.replace(/(\d{3})(\d{1,3})/, '$1.$2');
+  el.value = v;
+  const err = document.getElementById('f-cpf-err');
+  if (err) { const raw = v.replace(/\D/g,''); err.style.display = (raw.length === 11 && !validarCPF(v)) ? '' : 'none'; }
+}
+
+function maskRG(el) {
+  let v = el.value.replace(/[^\dXx]/g, '').slice(0,9);
+  if (v.length > 8) v = v.replace(/(\d{2})(\d{3})(\d{3})(\w{1})/, '$1.$2.$3-$4');
+  else if (v.length > 5) v = v.replace(/(\d{2})(\d{3})(\d{1,3})/, '$1.$2.$3');
+  else if (v.length > 2) v = v.replace(/(\d{2})(\d{1,3})/, '$1.$2');
+  el.value = v;
+}
+
+function maskCNPJ(el) {
+  let v = el.value.replace(/\D/g, '').slice(0,14);
+  if (v.length > 12) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{1,2})/, '$1.$2.$3/$4-$5');
+  else if (v.length > 8) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{1,4})/, '$1.$2.$3/$4');
+  else if (v.length > 5) v = v.replace(/(\d{2})(\d{3})(\d{1,3})/, '$1.$2.$3');
+  else if (v.length > 2) v = v.replace(/(\d{2})(\d{1,3})/, '$1.$2');
+  el.value = v;
+  const err = document.getElementById('emp-cnpj-err');
+  if (err) { const raw = v.replace(/\D/g,''); err.style.display = (raw.length === 14 && !validarCNPJ(v)) ? '' : 'none'; }
+}
+
+// ══════════════════════════════════════════════════════════════════════
 //  ARMAZENAMENTO PERSISTENTE — GitHub API REST
 //  Dados salvos em db/dados.json no repositório configurado.
 //  Configuração (usuário/repo/branch/token) fica em localStorage.
@@ -627,14 +1109,29 @@ var GH_FILE     = 'db/dados.json';
 var _cache = {};
 var _currentSha = null;
 
-// ── Getters/setters que usam o cache ─────────────────────────────────
-const gF   = () => Array.isArray(_cache['ef_func'])  ? JSON.parse(JSON.stringify(_cache['ef_func']))  : [];
-const sF   = (d, cb) => DB.set('ef_func', d, cb);
-const gE   = () => (_cache['ef_esc'] && typeof _cache['ef_esc'] === 'object') ? JSON.parse(JSON.stringify(_cache['ef_esc'])) : {};
-const sE   = (d, cb) => DB.set('ef_esc', d, cb);
-const gFer = () => Array.isArray(_cache['ef_fer'])   ? JSON.parse(JSON.stringify(_cache['ef_fer']))   : [];
-const sFer = (d, cb) => DB.set('ef_fer', d, cb);
-const gU   = () => Array.isArray(_cache['ef_users']) ? JSON.parse(JSON.stringify(_cache['ef_users'])) : [];
+// Empresa atual selecionada após login
+var currentEmpresaId = null;
+
+// ── Helpers de empresa ────────────────────────────────────────────────
+const gEmpresas  = () => Array.isArray(_cache['ef_empresas']) ? JSON.parse(JSON.stringify(_cache['ef_empresas'])) : [];
+const sEmpresas  = (d, cb) => DB.set('ef_empresas', d, cb);
+function getEmpresa(id) { return gEmpresas().find(e => e.id === id) || null; }
+
+// ── Getters/setters que usam o cache + empresa ────────────────────────
+const _ek  = (key) => currentEmpresaId ? key + '_' + currentEmpresaId : key;
+const gF   = () => { const d = _cache[_ek('ef_func')];  return Array.isArray(d) ? JSON.parse(JSON.stringify(d))  : []; };
+const sF   = (d, cb) => DB.set(_ek('ef_func'), d, cb);
+const gE   = () => { const d = _cache[_ek('ef_esc')];   return (d && typeof d === 'object' && !Array.isArray(d)) ? JSON.parse(JSON.stringify(d)) : {}; };
+const sE   = (d, cb) => DB.set(_ek('ef_esc'), d, cb);
+const gFer = () => { const d = _cache[_ek('ef_fer')];   return Array.isArray(d) ? JSON.parse(JSON.stringify(d))  : []; };
+const sFer = (d, cb) => DB.set(_ek('ef_fer'), d, cb);
+const gU   = () => {
+  const allUsers = Array.isArray(_cache['ef_users']) ? JSON.parse(JSON.stringify(_cache['ef_users'])) : [];
+  // Super-admin vê todos; usuários normais só da empresa atual
+  if (!currentUser || currentUser.perfil === 'superadmin') return allUsers;
+  if (!currentEmpresaId) return allUsers;
+  return allUsers.filter(u => u.perfil === 'superadmin' || (u.empresas || []).includes(currentEmpresaId));
+};
 const sU   = (d, cb) => DB.set('ef_users', d, cb);
 
 // ── GitHub API ────────────────────────────────────────────────────────
@@ -725,13 +1222,24 @@ const DB = {
       _carregarLocalStorage();
     }
     // Garante tipos corretos
-    if (!Array.isArray(_cache['ef_func']))  _cache['ef_func']  = [];
-    if (!Array.isArray(_cache['ef_fer']))   _cache['ef_fer']   = [];
-    if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-    if (typeof _cache['ef_esc'] !== 'object' || Array.isArray(_cache['ef_esc'])) _cache['ef_esc'] = {};
+    if (!Array.isArray(_cache['ef_empresas'])) _cache['ef_empresas'] = [];
+    if (!Array.isArray(_cache['ef_users']))    _cache['ef_users']    = [];
+    // Garante que o usuário super sempre existe após carregar dados
+    var superOk = _cache['ef_users'].some(function(u){ return u.login === 'super' && u.perfil === 'superadmin'; });
+    if (!superOk) {
+      _cache['ef_users'].push({ id: (Math.random().toString(36).slice(2) + Date.now().toString(36)), login: 'super', senha: 'super123', nome: 'Super Admin', perfil: 'superadmin', empresas: [], perms: ['dashboard','funcionarios','escala','feriados','usuarios'] });
+    }
     if (callback) callback(null);
   }
 };
+
+function _garantirSuperUser() {
+  if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
+  var existe = _cache['ef_users'].some(function(u){ return u.login === 'super' && u.perfil === 'superadmin'; });
+  if (!existe) {
+    _cache['ef_users'].push({ id: (Math.random().toString(36).slice(2) + Date.now().toString(36)), login: 'super', senha: 'super123', nome: 'Super Admin', perfil: 'superadmin', empresas: [], perms: ['dashboard','funcionarios','escala','feriados','usuarios'] });
+  }
+}
 
 function _carregarLocalStorage() {
   try {
@@ -746,13 +1254,12 @@ function _carregarLocalStorage() {
       var u = localStorage.getItem('ef_users');  if (u) try { _cache['ef_users'] = JSON.parse(u); } catch(e){}
     }
   } catch(e) { _cache = {}; }
+  _garantirSuperUser();
 }
 
 async function _persistir(callback) {
-  if (!Array.isArray(_cache['ef_func']))  _cache['ef_func']  = [];
-  if (!Array.isArray(_cache['ef_fer']))   _cache['ef_fer']   = [];
-  if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-  if (typeof _cache['ef_esc'] !== 'object' || Array.isArray(_cache['ef_esc'])) _cache['ef_esc'] = {};
+  if (!Array.isArray(_cache['ef_empresas'])) _cache['ef_empresas'] = [];
+  if (!Array.isArray(_cache['ef_users']))    _cache['ef_users']    = [];
 
   if (GH.isConfigured()) {
     try {
@@ -784,7 +1291,7 @@ var _autoSyncInterval = null;
 var _ultimoHash = '';
 
 function _hashCache() {
-  return JSON.stringify(_cache).length + '_' + ((_cache['ef_func'] || []).length);
+  return JSON.stringify(_cache).length + '_' + ((_cache['ef_empresas'] || []).length);
 }
 
 async function _autoSync() {
@@ -794,15 +1301,13 @@ async function _autoSync() {
   try {
     var result = await GH.read();
     if (!result || !result.content) return;
-    var hashRemoto = JSON.stringify(result.content).length + '_' + ((result.content['ef_func'] || []).length);
+    var hashRemoto = JSON.stringify(result.content).length + '_' + ((result.content['ef_empresas'] || []).length);
     if (hashRemoto === _ultimoHash) return;
     _cache = result.content;
     _currentSha = result.sha;
     _ultimoHash = hashRemoto;
-    if (!Array.isArray(_cache['ef_func']))  _cache['ef_func']  = [];
-    if (!Array.isArray(_cache['ef_fer']))   _cache['ef_fer']   = [];
-    if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-    if (typeof _cache['ef_esc'] !== 'object' || Array.isArray(_cache['ef_esc'])) _cache['ef_esc'] = {};
+    if (!Array.isArray(_cache['ef_empresas'])) _cache['ef_empresas'] = [];
+    if (!Array.isArray(_cache['ef_users']))    _cache['ef_users']    = [];
     // Rerender silencioso
     rdash(); rfunc(); resc(); rUsers();
     var now = new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
@@ -844,10 +1349,8 @@ async function sincronizar() {
   if (!GH.isConfigured()) {
     setStatus('⚠️ Configure o GitHub', '#c04a3a');
     _carregarLocalStorage();
-    if (!Array.isArray(_cache['ef_func']))  _cache['ef_func']  = [];
-    if (!Array.isArray(_cache['ef_fer']))   _cache['ef_fer']   = [];
-    if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-    if (typeof _cache['ef_esc'] !== 'object' || Array.isArray(_cache['ef_esc'])) _cache['ef_esc'] = {};
+    if (!Array.isArray(_cache['ef_empresas'])) _cache['ef_empresas'] = [];
+    if (!Array.isArray(_cache['ef_users']))    _cache['ef_users']    = [];
     rdash(); rfunc(); resc(); rUsers();
     return;
   }
@@ -908,30 +1411,60 @@ const MODULOS = [
   { id: 'funcionarios', label: '👤 Funcionários'    },
   { id: 'escala',       label: '📅 Escala de Folga' },
   { id: 'feriados',     label: '🏖️ Feriados'        },
+  { id: 'disciplinar',  label: '⚖️ Disciplinar'     },
+  { id: 'conduta',      label: '🗣️ Regra Operacional' },
   { id: 'usuarios',     label: '👥 Usuários'        },
 ];
+// Módulos exclusivos do superadmin
+const MOD_EMPRESAS    = { id: 'empresas',    label: '🏢 Empresas'    };
+const MOD_VISAO_GERAL = { id: 'visaogeral',  label: '👁️ Visão Geral' };
 
 // ══════════════════════════════════════════════════════════════════════
 //  SEED
 // ══════════════════════════════════════════════════════════════════════
 function seed() {
-  if (!gF().length) {
-    _cache['ef_func'] = [
+  // Seed de empresas
+  if (!gEmpresas().length) {
+    const empId = uid();
+    _cache['ef_empresas'] = [
+      { id: empId, nome: 'Empresa Padrão', cnpj: '', end: '' }
+    ];
+    // Seed de funcionários para a empresa padrão
+    _cache['ef_func_' + empId] = [
       { id: uid(), nome: 'MOISES',        vtH: [{ vt: 12.2, desde: '2025-01-01' }], status: 'ativo', adm: '2020-03-01', desl: null },
       { id: uid(), nome: 'MARIA PIEDADE', vtH: [{ vt: 12.9, desde: '2025-01-01' }], status: 'ativo', adm: '2019-06-15', desl: null },
       { id: uid(), nome: 'VALDINEIA',     vtH: [{ vt: 13.1, desde: '2025-01-01' }], status: 'ativo', adm: '2021-02-01', desl: null },
       { id: uid(), nome: 'LUIZ',          vtH: [{ vt: 12.2, desde: '2025-01-01' }], status: 'ativo', adm: '2022-07-10', desl: null },
       { id: uid(), nome: 'KARINE',        vtH: [{ vt: 12.2, desde: '2025-01-01' }], status: 'ativo', adm: '2023-01-05', desl: null },
     ];
+    _cache['ef_fer_' + empId] = [{ data: '2026-04-03', nome: 'Sexta-feira Santa' }, { data: '2026-04-21', nome: 'Tiradentes' }];
+    _cache['ef_esc_' + empId] = {};
+    // Seed de usuários
+    if (!Array.isArray(_cache['ef_users']) || !_cache['ef_users'].length) {
+      _cache['ef_users'] = [
+        { id: uid(), login: 'super',   senha: 'super123',  nome: 'Super Admin',   perfil: 'superadmin', empresas: [], perms: MODULOS.map(m => m.id) },
+        { id: uid(), login: 'admin',   senha: 'admin123',  nome: 'Administrador', perfil: 'admin',      empresas: [empId], perms: MODULOS.map(m => m.id) },
+        { id: uid(), login: 'gerente', senha: '1234',      nome: 'Gerente',       perfil: 'gerente',    empresas: [empId], perms: ['dashboard','funcionarios','escala','feriados'] },
+      ];
+    }
+  } else {
+    // Migração: usuários sem campo empresas
+    if (Array.isArray(_cache['ef_users'])) {
+      const emps = gEmpresas();
+      _cache['ef_users'] = _cache['ef_users'].map(u => {
+        if (!u.empresas) u.empresas = emps.map(e => e.id);
+        return u;
+      });
+    }
   }
-  if (!gFer().length) {
-    _cache['ef_fer'] = [{ data: '2026-04-03', nome: 'Sexta-feira Santa' }, { data: '2026-04-21', nome: 'Tiradentes' }];
-  }
-  if (!gU().length) {
-    _cache['ef_users'] = [
-      { id: uid(), login: 'admin',   senha: 'admin123', nome: 'Administrador', perfil: 'admin',   perms: MODULOS.map(m => m.id) },
-      { id: uid(), login: 'gerente', senha: '1234',     nome: 'Gerente',       perfil: 'gerente', perms: ['dashboard','funcionarios','escala','feriados'] },
-    ];
+
+  // Garante que o usuário super sempre existe (independente do estado dos dados)
+  if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
+  const superExists = _cache['ef_users'].some(u => u.login === 'super' && u.perfil === 'superadmin');
+  if (!superExists) {
+    _cache['ef_users'].push(
+      { id: uid(), login: 'super', senha: 'super123', nome: 'Super Admin', perfil: 'superadmin', empresas: [], perms: MODULOS.map(m => m.id) }
+    );
   }
 }
 
@@ -943,7 +1476,7 @@ const PT_DAYS   = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
 let CY = new Date().getFullYear(), CM = new Date().getMonth();
 let DY = new Date().getFullYear(), DM = new Date().getMonth(); // Dashboard month filter
 let editFid = null, cmFid = null, cmY = null, cmM = null, cmD = null, cmEl = null, cmSpecial = false;
-let editUid = null;
+let editUid = null, editEmpId = null;
 let currentUser = null;
 
 function uid()  { return Math.random().toString(36).slice(2) + Date.now().toString(36); }
@@ -1019,6 +1552,8 @@ function getFaltasDias(func, y, m) {
 // ══════════════════════════════════════════════════════════════════════
 //  AUTH
 // ══════════════════════════════════════════════════════════════════════
+
+// Passo 1: valida usuario/senha e mostra combo de empresas se necessário
 async function fazerLogin() {
   const login = document.getElementById('login-user').value.trim().toLowerCase();
   const senha = document.getElementById('login-pass').value;
@@ -1030,48 +1565,120 @@ async function fazerLogin() {
   btn.textContent = '⏳ Verificando...';
   btn.disabled = true;
 
-  // Carrega dados do GitHub (ou localStorage) antes de validar
   try { await DB.loadAll(function(){}); } catch(e) {}
 
   btn.textContent = '🔑 Entrar';
   btn.disabled = false;
 
-  const users = gU();
-  const user  = users.find(u => u.login.toLowerCase() === login && u.senha === senha);
+  const allUsers = Array.isArray(_cache['ef_users']) ? _cache['ef_users'] : [];
+  const user = allUsers.find(u => u.login.toLowerCase() === login && u.senha === senha);
   if (!user) { err.textContent = '⚠️ Usuário ou senha incorretos.'; return; }
+
+  // Superadmin: acessa todas as empresas
+  if (user.perfil === 'superadmin') {
+    _entrarSistema(user, null);
+    return;
+  }
+
+  const empIds = user.empresas || [];
+  const empresas = gEmpresas().filter(e => empIds.includes(e.id));
+
+  if (!empresas.length) {
+    err.textContent = '⚠️ Usuário sem empresa vinculada. Contate o administrador.';
+    return;
+  }
+
+  if (empresas.length === 1) {
+    _entrarSistema(user, empresas[0].id);
+    return;
+  }
+
+  // Múltiplas empresas: mostra combo
+  const sel = document.getElementById('login-empresa');
+  sel.innerHTML = '<option value="">— Selecione a empresa —</option>' +
+    empresas.map(e => `<option value="${e.id}">${e.nome}</option>`).join('');
+  document.getElementById('login-empresa-row').style.display = '';
   err.textContent = '';
-  currentUser = user;
+
+  // Troca botão para confirmar empresa
+  btn.textContent = '🏢 Confirmar Empresa';
+  btn.onclick = function() {
+    const empId = document.getElementById('login-empresa').value;
+    if (!empId) { document.getElementById('login-error').textContent = '⚠️ Selecione a empresa.'; return; }
+    _entrarSistema(user, empId);
+    btn.textContent = '🔑 Entrar';
+    btn.onclick = fazerLogin;
+  };
+}
+
+function focusEmpresaOrLogin() {
+  const row = document.getElementById('login-empresa-row');
+  if (row && row.style.display !== 'none') document.querySelector('.login-btn').click();
+  else fazerLogin();
+}
+
+function _entrarSistema(user, empId) {
+  currentUser = { ...user, _empId: empId || '' };
+  currentEmpresaId = empId;
+
   document.getElementById('login-screen').classList.remove('open');
   document.getElementById('user-display').textContent = user.nome || user.login;
+  document.getElementById('login-empresa-row').style.display = 'none';
+
+  // Exibe empresa no header
+  const emp = empId ? getEmpresa(empId) : null;
+  const hEmp = document.getElementById('header-empresa-nome');
+  if (hEmp) hEmp.textContent = emp ? '🏢 ' + emp.nome : '🌐 Todas as empresas';
+
+  // Garante estrutura de dados da empresa
+  if (empId) {
+    if (!Array.isArray(_cache['ef_func_' + empId]))  _cache['ef_func_' + empId]  = [];
+    if (!Array.isArray(_cache['ef_fer_' + empId]))   _cache['ef_fer_' + empId]   = [];
+    if (typeof _cache['ef_esc_' + empId] !== 'object' || Array.isArray(_cache['ef_esc_' + empId])) _cache['ef_esc_' + empId] = {};
+  }
+
   buildNav();
-  // Navigate to first permitted page
-  const firstPerm = MODULOS.find(m => hasPerm(m.id));
+  const firstPerm = (user.perfil === 'superadmin' ? [MOD_EMPRESAS, ...MODULOS] : MODULOS).find(m => hasPerm(m.id));
   if (firstPerm) go(firstPerm.id); else go('dashboard');
   sincronizar();
 }
 
 function fazerLogout() {
   currentUser = null;
+  currentEmpresaId = null;
   document.getElementById('login-user').value = '';
   document.getElementById('login-pass').value = '';
   document.getElementById('login-error').textContent = '';
+  document.getElementById('login-empresa-row').style.display = 'none';
   document.getElementById('login-screen').classList.add('open');
   document.getElementById('user-display').textContent = '—';
+  const hEmp = document.getElementById('header-empresa-nome');
+  if (hEmp) hEmp.textContent = '';
+  // Redefine botão
+  const btn = document.querySelector('.login-btn');
+  btn.textContent = '🔑 Entrar';
+  btn.onclick = fazerLogin;
+  setTimeout(() => document.getElementById('login-user').focus(), 200);
 }
 
 function hasPerm(modId) {
   if (!currentUser) return false;
+  if (currentUser.perfil === 'superadmin') return true;
+  if (modId === 'empresas' || modId === 'visaogeral') return false;
   if (currentUser.perfil === 'admin') return true;
   return (currentUser.perms || []).includes(modId);
 }
 
 function buildNav() {
   const nav = document.getElementById('main-nav');
-  const icons = { dashboard:'🏠', funcionarios:'👤', escala:'📅', feriados:'🏖️', usuarios:'👥' };
-  const labels = { dashboard:'Dashboard', funcionarios:'Funcionários', escala:'Escala', feriados:'Feriados', usuarios:'Usuários' };
-  nav.innerHTML = MODULOS
+  const icons  = { dashboard:'🏠', funcionarios:'👤', escala:'📅', feriados:'🏖️', disciplinar:'⚖️', conduta:'🗣️', usuarios:'👥', empresas:'🏢', visaogeral:'👁️' };
+  const labels = { dashboard:'Dashboard', funcionarios:'Funcionários', escala:'Escala', feriados:'Feriados', disciplinar:'Disciplinar', conduta:'Regra Operacional', usuarios:'Usuários', empresas:'Empresas', visaogeral:'Visão Geral' };
+  const todos = currentUser?.perfil === 'superadmin'
+    ? [MOD_EMPRESAS, MOD_VISAO_GERAL, ...MODULOS]
+    : MODULOS;
+  nav.innerHTML = todos
     .filter(m => hasPerm(m.id))
-    .map(m => `<button onclick="go('${m.id}',this)">${icons[m.id]} ${labels[m.id]}</button>`)
+    .map(m => `<button onclick="go('${m.id}',this)">${icons[m.id] || ''} ${labels[m.id] || m.id}</button>`)
     .join('');
 }
 
@@ -1094,7 +1701,11 @@ function go(pg, btn) {
   if (pg === 'funcionarios') rfunc();
   if (pg === 'escala')       resc();
   if (pg === 'feriados')     rfer();
+  if (pg === 'disciplinar')  rDisc();
+  if (pg === 'conduta')      rConduta();
   if (pg === 'usuarios')     rUsers();
+  if (pg === 'empresas')     rEmpresas();
+  if (pg === 'visaogeral')   rVisaoGeral();
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -1258,13 +1869,29 @@ function rdash() {
 // ══════════════════════════════════════════════════════════════════════
 //  FUNCIONÁRIOS
 // ══════════════════════════════════════════════════════════════════════
-function rfunc() {
+async function rfunc() {
   const funcs = gF();
   const tb = document.getElementById('func-tbody');
-  if (!funcs.length) { tb.innerHTML = '<tr><td colspan="6"><div class="empty"><span class="ico">👤</span>Nenhum funcionário.</div></td></tr>'; return; }
-  tb.innerHTML = funcs.map(f => `
+  if (!funcs.length) { tb.innerHTML = '<tr><td colspan="8"><div class="empty"><span class="ico">👤</span>Nenhum funcionário.</div></td></tr>'; return; }
+
+  // Decrypt CPF para exibição
+  const cpfMap = {};
+  await Promise.all(funcs.map(async f => {
+    cpfMap[f.id] = f.cpf_enc ? await cryptoDecrypt(f.cpf_enc) : '';
+  }));
+
+  tb.innerHTML = funcs.map(f => {
+    const cpfDisplay = cpfMap[f.id]
+      ? `<span title="CPF descriptografado" style="font-size:11px;color:var(--green)">🔒 ${cpfMap[f.id]}</span>`
+      : '<span style="font-size:11px;color:var(--text-dim)">—</span>';
+    const rgDisplay = f.rg_enc
+      ? `<span title="RG criptografado" style="font-size:11px;color:var(--text-dim)">🔒 ••••••</span>`
+      : '<span style="font-size:11px;color:var(--text-dim)">—</span>';
+    return `
     <tr class="${f.status === 'inativo' ? 'inativo' : ''}">
       <td style="font-weight:600">${f.nome}</td>
+      <td>${cpfDisplay}</td>
+      <td>${rgDisplay}</td>
       <td style="font-weight:700;color:var(--gold)">${fmtBRL(vtAtual(f))}</td>
       <td><span class="badge ${f.status === 'ativo' ? 'b-green' : 'b-red'}">${f.status === 'ativo' ? 'Ativo' : 'Desligado'}</span></td>
       <td style="color:var(--text-dim);font-size:12px">${fmtD(f.adm)}</td>
@@ -1273,7 +1900,8 @@ function rfunc() {
         <button class="btn btn-ghost btn-sm" onclick="openFuncModal('${f.id}')">✏️ Editar</button>
         <button class="btn btn-danger" onclick="delFunc('${f.id}')">🗑️</button>
       </div></td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
 }
 
 function openFuncModal(id) {
@@ -1281,6 +1909,9 @@ function openFuncModal(id) {
   const isEd = !!id;
   document.getElementById('mf-title').textContent = isEd ? 'Editar Funcionário' : 'Novo Funcionário';
   document.getElementById('mf-hist').style.display = isEd ? 'block' : 'none';
+  // Reset validation
+  const cpfErr = document.getElementById('f-cpf-err');
+  if (cpfErr) cpfErr.style.display = 'none';
   if (isEd) {
     const f = gF().find(x => x.id === id);
     document.getElementById('f-nome').value       = f.nome;
@@ -1291,9 +1922,15 @@ function openFuncModal(id) {
     document.getElementById('f-desl-row').style.display = f.status === 'inativo' ? '' : 'none';
     document.getElementById('f-nvt').value        = '';
     document.getElementById('f-nvt-desde').value  = today();
+    // Decrypt sensitive fields
+    const cpfEl = document.getElementById('f-cpf');
+    const rgEl  = document.getElementById('f-rg');
+    cpfEl.value = ''; rgEl.value = '';
+    if (f.cpf_enc) cryptoDecrypt(f.cpf_enc).then(v => { cpfEl.value = v; });
+    if (f.rg_enc)  cryptoDecrypt(f.rg_enc).then(v  => { rgEl.value  = v; });
     renderVtHist(f);
   } else {
-    ['f-nome','f-vt','f-admissao','f-desligamento','f-nvt'].forEach(id => document.getElementById(id).value = '');
+    ['f-nome','f-vt','f-admissao','f-desligamento','f-nvt','f-cpf','f-rg'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('f-admissao').value = today();
     document.getElementById('f-status').value  = 'ativo';
     document.getElementById('f-desl-row').style.display = 'none';
@@ -1346,14 +1983,31 @@ function rmVtHist(histIdx) {
   sF(funcs); renderVtHist(funcs[idx]); toast('Entrada removida.', 'in');
 }
 
-function saveFunc() {
+async function saveFunc() {
   const nome   = document.getElementById('f-nome').value.trim().toUpperCase();
   const vt     = parseFloat(document.getElementById('f-vt').value);
   const status = document.getElementById('f-status').value;
   const adm    = document.getElementById('f-admissao').value;
   const desl   = document.getElementById('f-desligamento').value;
+  const cpfRaw = document.getElementById('f-cpf').value.trim();
+  const rgRaw  = document.getElementById('f-rg').value.trim();
+
   if (!nome) { toast('Informe o nome.', 'er'); return; }
   if (!vt || isNaN(vt) || vt <= 0) { toast('Informe um valor de VT válido.', 'er'); return; }
+
+  // Validação CPF (se preenchido)
+  if (cpfRaw) {
+    if (!validarCPF(cpfRaw)) {
+      const err = document.getElementById('f-cpf-err');
+      if (err) err.style.display = '';
+      toast('CPF inválido. Verifique os dígitos.', 'er'); return;
+    }
+  }
+
+  // Criptografa dados sensíveis
+  const cpf_enc = cpfRaw ? await cryptoEncrypt(cpfRaw) : '';
+  const rg_enc  = rgRaw  ? await cryptoEncrypt(rgRaw)  : '';
+
   const funcs = gF();
   if (editFid) {
     const idx = funcs.findIndex(f => f.id === editFid);
@@ -1361,10 +2015,12 @@ function saveFunc() {
       funcs[idx].nome   = nome; funcs[idx].status = status;
       funcs[idx].adm    = adm;
       funcs[idx].desl   = status === 'inativo' ? (desl || null) : null;
+      funcs[idx].cpf_enc = cpf_enc;
+      funcs[idx].rg_enc  = rg_enc;
       if (!funcs[idx].vtH || !funcs[idx].vtH.length) funcs[idx].vtH = [{ vt, desde: adm || today() }];
     }
   } else {
-    funcs.push({ id: uid(), nome, vtH: [{ vt, desde: adm || today() }], status, adm: adm || today(), desl: null });
+    funcs.push({ id: uid(), nome, vtH: [{ vt, desde: adm || today() }], status, adm: adm || today(), desl: null, cpf_enc, rg_enc });
   }
   sF(funcs); closeMod('modal-func'); rfunc();
   toast(editFid ? 'Funcionário atualizado!' : 'Funcionário cadastrado!', 'ok');
@@ -1499,6 +2155,608 @@ function printEscala() { window.print(); }
 function printVT()     { window.print(); }
 
 // ══════════════════════════════════════════════════════════════════════
+//  MÓDULO DISCIPLINAR — Regras e Histórico
+// ══════════════════════════════════════════════════════════════════════
+
+// ── Accessors ─────────────────────────────────────────────────────────
+function gDiscRules() {
+  if (!_cache['ef_disc_rules']) {
+    _cache['ef_disc_rules'] = defaultDiscRules();
+  }
+  return _cache['ef_disc_rules'];
+}
+function sDiscRules(v) { _cache['ef_disc_rules'] = v; _persistir(); }
+
+// Histórico disciplinar: por empresa + funcionário
+function gDiscHist(fid) {
+  const empId = currentUser?._empId || '';
+  const key = 'ef_disc_hist_' + empId + '_' + fid;
+  if (!_cache[key]) _cache[key] = [];
+  return _cache[key];
+}
+function sDiscHist(fid, v) {
+  const empId = currentUser?._empId || '';
+  const key = 'ef_disc_hist_' + empId + '_' + fid;
+  _cache[key] = v;
+  _persistir();
+}
+
+// ── Regras padrão ─────────────────────────────────────────────────────
+function defaultDiscRules() {
+  return [
+    { tipo: 'advertencia', label: '1ª Advertência',         diasSusp: 0,  descricao: 'Primeira falta injustificada — advertência escrita.' },
+    { tipo: 'advertencia', label: '2ª Advertência',         diasSusp: 0,  descricao: 'Segunda falta injustificada — advertência com confirmação.' },
+    { tipo: 'suspensao',   label: 'Suspensão (1 dia)',      diasSusp: 1,  descricao: 'Terceira falta — suspensão disciplinar de 1 dia.' },
+    { tipo: 'suspensao',   label: 'Suspensão (3 dias)',     diasSusp: 3,  descricao: 'Quarta falta — suspensão disciplinar de 3 dias.' },
+    { tipo: 'suspensao',   label: 'Suspensão (5 dias)',     diasSusp: 5,  descricao: 'Quinta falta — suspensão disciplinar de 5 dias.' },
+    { tipo: 'justa_causa', label: 'Justa Causa',            diasSusp: 0,  descricao: 'Sexta falta ou mais — demissão por justa causa (art. 482 CLT).' },
+  ];
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────
+const DISC_COLORS = {
+  advertencia: { bg:'rgba(196,106,32,.12)', color:'var(--orange)', icon:'⚠️' },
+  suspensao:   { bg:'rgba(80,20,80,.12)',   color:'#7a1a7a',       icon:'🚫' },
+  justa_causa: { bg:'rgba(192,74,58,.12)', color:'var(--red)',     icon:'⛔' },
+};
+
+function discStepNumStyle(tipo) {
+  const m = DISC_COLORS[tipo] || DISC_COLORS.advertencia;
+  return `background:${m.bg};color:${m.color};`;
+}
+
+// Conta quantos comunicados registrados o funcionário tem (exclui rascunhos)
+function discContarRegistros(fid) {
+  return gDiscHist(fid).filter(h => h.registrado).length;
+}
+
+// Dado o número de registros passados, retorna a próxima etapa da regra
+function discProximaEtapa(fid) {
+  const rules = gDiscRules();
+  const count = discContarRegistros(fid);
+  if (count >= rules.length) return rules[rules.length - 1]; // repete última
+  return rules[count];
+}
+
+// ── Render módulo disciplinar ──────────────────────────────────────────
+function rDisc() {
+  // Popula select de funcionários
+  const sel = document.getElementById('disc-hist-func');
+  if (sel) {
+    const fid = sel.value;
+    sel.innerHTML = '<option value="">— Selecione —</option>' +
+      gF().map(f => `<option value="${f.id}" ${f.id === fid ? 'selected' : ''}>${f.nome}</option>`).join('');
+    if (fid) rDiscHist();
+  }
+  rDiscStepsList();
+}
+
+function rDiscStepsList() {
+  const rules = gDiscRules();
+  const c = document.getElementById('disc-steps-list');
+  if (!c) return;
+  c.innerHTML = rules.map((r, i) => {
+    const col = DISC_COLORS[r.tipo] || DISC_COLORS.advertencia;
+    const badge = r.tipo === 'suspensao'
+      ? `<span class="disc-step-badge" style="background:${col.bg};color:${col.color}">${r.diasSusp} dia(s) suspensão</span>`
+      : `<span class="disc-step-badge" style="background:${col.bg};color:${col.color}">${r.tipo === 'justa_causa' ? 'Justa Causa' : 'Advertência'}</span>`;
+    return `<div class="disc-step">
+      <div class="disc-step-num" style="${discStepNumStyle(r.tipo)}">${i+1}</div>
+      <div class="disc-step-body">
+        <div class="disc-step-title">${col.icon} ${r.label}</div>
+        <div class="disc-step-desc">${r.descricao}</div>
+      </div>
+      ${badge}
+    </div>`;
+  }).join('');
+}
+
+function rDiscHist() {
+  const fid = document.getElementById('disc-hist-func')?.value;
+  const c = document.getElementById('disc-hist-body');
+  if (!fid || !c) { if(c) c.innerHTML = '<div class="empty"><span class="ico">📋</span>Selecione um funcionário.</div>'; return; }
+  const hist = gDiscHist(fid);
+  const count = discContarRegistros(fid);
+  const rules = gDiscRules();
+  const proxima = rules[count] || rules[rules.length - 1];
+  const func = gF().find(f => f.id === fid);
+  const col = DISC_COLORS[proxima.tipo] || DISC_COLORS.advertencia;
+
+  let statusHtml = '';
+  if (count === 0) {
+    statusHtml = `<div class="disc-alert disc-alert-ok">✅ ${func?.nome || ''} — Sem ocorrências registradas.</div>`;
+  } else {
+    statusHtml = `<div class="disc-alert" style="background:${col.bg.replace('.12','.08')};border-color:${col.bg.replace('rgba','rgba').replace('.12','.35')};color:${col.color}">
+      ${col.icon} ${func?.nome || ''} — ${count} comunicado(s) registrado(s). Próxima ocorrência: <strong>${proxima.label}</strong>
+    </div>`;
+  }
+
+  if (!hist.length) {
+    c.innerHTML = statusHtml + '<div style="text-align:center;padding:24px;color:var(--text-dim);font-size:13px">Sem histórico disciplinar registrado.</div>';
+    return;
+  }
+
+  c.innerHTML = statusHtml + hist.slice().reverse().map((h, idx) => {
+    const realIdx = hist.length - 1 - idx;
+    const col2 = DISC_COLORS[h.tipo] || DISC_COLORS.advertencia;
+    const susp = h.diasSusp ? ` — ${h.diasSusp} dia(s)` : '';
+    return `<div class="hist-item">
+      <div class="hist-icon">${col2.icon}</div>
+      <div class="hist-body">
+        <div class="hist-title" style="color:${col2.color}">${h.label}${susp}</div>
+        <div class="hist-date">📅 ${h.data} — Mês ref.: ${h.mesRef}</div>
+        ${h.dias?.length ? `<div class="hist-dias">Dias: ${h.dias.join(', ')}</div>` : ''}
+        ${h.obs ? `<div class="hist-dias" style="font-style:italic">${h.obs}</div>` : ''}
+      </div>
+      <button class="btn btn-danger" style="margin-left:8px;align-self:flex-start" onclick="remDiscHist('${fid}',${realIdx})" title="Remover este registro">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function remDiscHist(fid, idx) {
+  if (!confirm('Remover este registro do histórico disciplinar?')) return;
+  const hist = gDiscHist(fid);
+  hist.splice(idx, 1);
+  sDiscHist(fid, hist);
+  rDiscHist();
+  toast('Registro disciplinar removido.', 'in');
+}
+
+// ── Modal edição de regras ─────────────────────────────────────────────
+let _editRules = [];
+
+function openDiscRulesModal() {
+  _editRules = JSON.parse(JSON.stringify(gDiscRules()));
+  renderDiscRulesEditor();
+  document.getElementById('modal-disc-rules').classList.add('open');
+}
+
+function renderDiscRulesEditor() {
+  const c = document.getElementById('disc-rules-editor');
+  c.innerHTML = _editRules.map((r, i) => `
+    <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface2);">
+      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;padding-top:22px;">
+        <button onclick="moveDiscStep(${i},-1)" style="background:var(--surface);border:1px solid var(--border);border-radius:5px;width:24px;height:22px;cursor:pointer;font-size:13px;line-height:1;" ${i===0?'disabled':''}>↑</button>
+        <span style="font-size:11px;color:var(--text-dim);font-weight:700;">${i+1}</span>
+        <button onclick="moveDiscStep(${i},1)"  style="background:var(--surface);border:1px solid var(--border);border-radius:5px;width:24px;height:22px;cursor:pointer;font-size:13px;line-height:1;" ${i===_editRules.length-1?'disabled':''}>↓</button>
+      </div>
+      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="field" style="margin-bottom:0">
+          <label>Tipo</label>
+          <select onchange="_editRules[${i}].tipo=this.value;_editRules[${i}].diasSusp=(this.value==='suspensao'?(_editRules[${i}].diasSusp||1):0);renderDiscRulesEditor()">
+            <option value="advertencia" ${r.tipo==='advertencia'?'selected':''}>Advertência</option>
+            <option value="suspensao"   ${r.tipo==='suspensao'  ?'selected':''}>Suspensão</option>
+            <option value="justa_causa" ${r.tipo==='justa_causa'?'selected':''}>Justa Causa</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label>Rótulo</label>
+          <input type="text" value="${r.label}" oninput="_editRules[${i}].label=this.value" placeholder="Ex: 1ª Advertência">
+        </div>
+        ${r.tipo==='suspensao' ? `
+        <div class="field" style="margin-bottom:0">
+          <label>Dias de Suspensão</label>
+          <input type="number" value="${r.diasSusp}" min="1" max="30" oninput="_editRules[${i}].diasSusp=parseInt(this.value)||1">
+        </div>` : '<div></div>'}
+        <div class="field" style="margin-bottom:0;grid-column:1/-1">
+          <label>Descrição</label>
+          <input type="text" value="${r.descricao}" oninput="_editRules[${i}].descricao=this.value" placeholder="Descrição desta etapa">
+        </div>
+      </div>
+      <button class="btn btn-danger" style="margin-top:22px" onclick="removeDiscStep(${i})" title="Remover etapa">✕</button>
+    </div>
+  `).join('');
+}
+
+function moveDiscStep(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= _editRules.length) return;
+  [_editRules[i], _editRules[j]] = [_editRules[j], _editRules[i]];
+  renderDiscRulesEditor();
+}
+
+function addDiscStep() {
+  _editRules.push({ tipo: 'advertencia', label: 'Nova Etapa', diasSusp: 0, descricao: 'Descreva esta etapa.' });
+  renderDiscRulesEditor();
+}
+
+function removeDiscStep(i) {
+  if (_editRules.length <= 1) { toast('Deve existir ao menos 1 etapa.', 'er'); return; }
+  _editRules.splice(i, 1);
+  renderDiscRulesEditor();
+}
+
+function saveDiscRules() {
+  sDiscRules(JSON.parse(JSON.stringify(_editRules)));
+  closeMod('modal-disc-rules');
+  rDiscStepsList();
+  rDiscHist();
+  toast('Regras disciplinares salvas!', 'ok');
+}
+
+function resetDiscRules() {
+  if (!confirm('Restaurar as regras padrão? As regras atuais serão substituídas.')) return;
+  sDiscRules(defaultDiscRules());
+  rDiscStepsList();
+  rDiscHist();
+  toast('Regras restauradas para o padrão.', 'ok');
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  MÓDULO REGRAS OPERACIONAIS — MULTI-REGRA
+//  Cada regra tem: id, nome, descricao, etapas[]
+//  Histórico: por empresa + regra_id + funcionario_id
+// ══════════════════════════════════════════════════════════════════════
+
+let _condutaRegraAtiva = null;
+
+// ── Accessors ─────────────────────────────────────────────────────────
+function gRegrasOp() {
+  if (!Array.isArray(_cache['ef_regras_op'])) _cache['ef_regras_op'] = [];
+  return _cache['ef_regras_op'];
+}
+function sRegrasOp(v) { _cache['ef_regras_op'] = v; _persistir(); }
+
+function gCondutaHist(regraId, fid) {
+  const empId = currentUser?._empId || '';
+  const key = 'ef_rop_' + empId + '_' + regraId + '_' + fid;
+  if (!_cache[key]) _cache[key] = [];
+  return _cache[key];
+}
+function sCondutaHist(regraId, fid, v) {
+  const empId = currentUser?._empId || '';
+  const key = 'ef_rop_' + empId + '_' + regraId + '_' + fid;
+  _cache[key] = v; _persistir();
+}
+
+// ── Cores ──────────────────────────────────────────────────────────────
+const CONDUTA_COLORS = {
+  advertencia: { bg:'rgba(196,106,32,.12)', color:'var(--orange)', icon:'⚠️' },
+  suspensao:   { bg:'rgba(80,20,80,.12)',   color:'#7a1a7a',       icon:'🚫' },
+  demissao:    { bg:'rgba(160,10,10,.12)',  color:'#a01010',       icon:'🔴' },
+};
+
+function condutaContarRegistros(regraId, fid) {
+  return gCondutaHist(regraId, fid).filter(h => h.registrado).length;
+}
+function condutaProximaEtapa(regraId, fid) {
+  const regra = gRegrasOp().find(r => r.id === regraId);
+  if (!regra) return null;
+  const etapas = regra.etapas || [];
+  const count  = condutaContarRegistros(regraId, fid);
+  if (!etapas.length) return null;
+  return etapas[Math.min(count, etapas.length - 1)];
+}
+
+// ── Render principal ───────────────────────────────────────────────────
+function rConduta() {
+  const regras = gRegrasOp();
+  const bar = document.getElementById('conduta-tabs-bar');
+  if (bar) {
+    bar.innerHTML = regras.map(r =>
+      `<button class="vg-tab ${r.id === _condutaRegraAtiva ? 'active' : ''}" onclick="selecionarRegraOp('${r.id}',this)">🗣️ ${r.nome}</button>`
+    ).join('');
+  }
+  const emptyEl = document.getElementById('conduta-empty');
+  const panelEl = document.getElementById('conduta-panel');
+  if (!regras.length) {
+    if (emptyEl) emptyEl.style.display = '';
+    if (panelEl) panelEl.style.display = 'none';
+    return;
+  }
+  if (emptyEl) emptyEl.style.display = 'none';
+  if (panelEl) panelEl.style.display = '';
+  if (!_condutaRegraAtiva || !regras.find(r => r.id === _condutaRegraAtiva)) {
+    _condutaRegraAtiva = regras[0].id;
+    if (bar) bar.querySelectorAll('.vg-tab')[0]?.classList.add('active');
+  }
+  const regra = regras.find(r => r.id === _condutaRegraAtiva);
+  if (!regra) return;
+  const tEl = document.getElementById('conduta-regra-titulo');
+  const dEl = document.getElementById('conduta-regra-desc');
+  if (tEl) tEl.textContent = '🗣️ ' + regra.nome;
+  if (dEl) dEl.textContent = regra.descricao || 'Regra operacional personalizada.';
+  ['conduta-func-sel','conduta-vitima-sel','conduta-hist-func'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const prev = el.value;
+    const ph = id === 'conduta-vitima-sel' ? '— Não identificado / Externo —' : '— Selecione —';
+    el.innerHTML = `<option value="">${ph}</option>` +
+      gF().map(f => `<option value="${f.id}" ${f.id===prev?'selected':''}>${f.nome}</option>`).join('');
+  });
+  const dtEl = document.getElementById('conduta-data');
+  if (dtEl && !dtEl.value) dtEl.value = new Date().toISOString().slice(0,10);
+  rCondutaRulesList();
+  rCondutaHist();
+  atualizarCondutaStatus();
+}
+
+function selecionarRegraOp(id, btn) {
+  _condutaRegraAtiva = id;
+  document.querySelectorAll('#conduta-tabs-bar .vg-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  ['conduta-func-sel','conduta-vitima-sel','conduta-hist-func'].forEach(sel => {
+    const el = document.getElementById(sel); if (el) el.value = '';
+  });
+  const obs = document.getElementById('conduta-obs'); if (obs) obs.value = '';
+  const sp  = document.getElementById('conduta-status-panel'); if (sp) sp.style.display = 'none';
+  rConduta();
+}
+
+function rCondutaRulesList() {
+  const regra = gRegrasOp().find(r => r.id === _condutaRegraAtiva);
+  const c = document.getElementById('conduta-rules-list');
+  if (!c || !regra) return;
+  const etapas = regra.etapas || [];
+  if (!etapas.length) { c.innerHTML = '<div style="text-align:center;padding:16px;color:var(--text-dim);font-size:13px">Nenhuma etapa configurada.</div>'; return; }
+  c.innerHTML = etapas.map((r, i) => {
+    const col = CONDUTA_COLORS[r.tipo] || CONDUTA_COLORS.advertencia;
+    const badge = r.tipo === 'demissao' ? 'Demissão' : r.tipo === 'suspensao' ? `${r.diasSusp} dia(s) suspensão` : 'Advertência';
+    return `<div class="conduta-rule-box">
+      <div class="conduta-rule-title">
+        <span style="background:${col.bg};color:${col.color};width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0">${i+1}</span>
+        ${col.icon} ${r.label}
+      </div>
+      <div class="conduta-rule-desc">${r.descricao}</div>
+      <div class="conduta-penalty-row">
+        <span class="conduta-penalty-badge" style="background:${col.bg};color:${col.color}">${badge}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function atualizarCondutaStatus() {
+  const fid    = document.getElementById('conduta-func-sel')?.value;
+  const panel  = document.getElementById('conduta-status-panel');
+  const suspRow= document.getElementById('conduta-susp-row');
+  if (!fid || !_condutaRegraAtiva) {
+    if (panel)   panel.style.display   = 'none';
+    if (suspRow) suspRow.style.display = 'none';
+    return;
+  }
+  const etapa = condutaProximaEtapa(_condutaRegraAtiva, fid);
+  const count = condutaContarRegistros(_condutaRegraAtiva, fid);
+  const func  = gF().find(f => f.id === fid);
+  const col   = etapa ? (CONDUTA_COLORS[etapa.tipo] || CONDUTA_COLORS.advertencia) : CONDUTA_COLORS.advertencia;
+  if (suspRow) suspRow.style.display = etapa?.tipo === 'suspensao' ? '' : 'none';
+  if (etapa?.tipo === 'suspensao') { const d = document.getElementById('conduta-dias-susp'); if(d) d.value = etapa.diasSusp||1; }
+  const hist   = gCondutaHist(_condutaRegraAtiva, fid);
+  const ultimas= hist.slice(-3).reverse().map(h => {
+    const c2 = CONDUTA_COLORS[h.tipo] || CONDUTA_COLORS.advertencia;
+    return `<span style="font-size:11px;background:${c2.bg};color:${c2.color};padding:2px 8px;border-radius:12px;margin-right:4px">${c2.icon} ${h.label} — ${h.data}</span>`;
+  }).join('') || '<span style="font-size:11px;color:var(--text-dim)">Nenhum registro anterior.</span>';
+  if (panel) {
+    panel.style.display = '';
+    panel.innerHTML = `<div class="disc-alert-conduta">
+      <div><strong>${col.icon} ${func?.nome||''}</strong> — ${count} ocorrência(s) nesta regra.
+      ${etapa ? `<br><span style="font-weight:400;font-size:12px">Penalidade sugerida: <strong>${etapa.label}${etapa.tipo==='suspensao'?' ('+etapa.diasSusp+' dia(s))':''}</strong></span>` : ''}</div>
+      <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;">
+        <span style="font-size:11px;opacity:.7;margin-right:4px">Histórico:</span>${ultimas}
+      </div>
+    </div>`;
+  }
+}
+
+function registrarConduta() {
+  if (!_condutaRegraAtiva) { toast('Selecione uma regra operacional.','er'); return; }
+  const fid    = document.getElementById('conduta-func-sel')?.value;
+  const vitima = document.getElementById('conduta-vitima-sel')?.value;
+  const data   = document.getElementById('conduta-data')?.value;
+  const obs    = document.getElementById('conduta-obs')?.value?.trim();
+  if (!fid)  { toast('Selecione o funcionário.','er'); return; }
+  if (!data) { toast('Informe a data.','er'); return; }
+  if (!obs)  { toast('Informe a descrição.','er'); return; }
+  const etapa = condutaProximaEtapa(_condutaRegraAtiva, fid);
+  if (!etapa) { toast('Regra sem etapas.','er'); return; }
+  const diasS  = etapa.tipo === 'suspensao' ? (parseInt(document.getElementById('conduta-dias-susp')?.value)||1) : 0;
+  const vNome  = vitima ? gF().find(f=>f.id===vitima)?.nome : null;
+  const dataFmt= new Date(data+'T12:00:00').toLocaleDateString('pt-BR');
+  const reg = { id:uid(), tipo:etapa.tipo, label:etapa.label, diasSusp:diasS, data:dataFmt, vitima:vNome||'Não identificado', obs, registrado:true };
+  const hist = gCondutaHist(_condutaRegraAtiva, fid);
+  hist.push(reg);
+  sCondutaHist(_condutaRegraAtiva, fid, hist);
+  if (etapa.tipo==='suspensao' && diasS>0) {
+    const dt=new Date(data+'T12:00:00'), y=dt.getFullYear(), m=dt.getMonth(), d=dt.getDate();
+    const empId=currentUser?._empId||'';
+    const esc=_cache['ef_esc_'+empId]||{};
+    if(!esc[fid])esc[fid]={};if(!esc[fid][y])esc[fid][y]={};if(!esc[fid][y][m])esc[fid][y][m]={};
+    esc[fid][y][m][d]='susp'; _cache['ef_esc_'+empId]=esc; _persistir();
+  }
+  toast(`Ocorrência registrada: ${etapa.label}`,'ok');
+  document.getElementById('conduta-func-sel').value='';
+  document.getElementById('conduta-obs').value='';
+  document.getElementById('conduta-data').value=new Date().toISOString().slice(0,10);
+  const sp=document.getElementById('conduta-status-panel'); if(sp) sp.style.display='none';
+  const sr=document.getElementById('conduta-susp-row'); if(sr) sr.style.display='none';
+  rCondutaHist();
+}
+
+function imprimirConduta() {
+  if (!_condutaRegraAtiva) { toast('Selecione uma regra.','er'); return; }
+  const fid  = document.getElementById('conduta-func-sel')?.value;
+  const obs  = document.getElementById('conduta-obs')?.value?.trim();
+  const data = document.getElementById('conduta-data')?.value;
+  if (!fid) { toast('Selecione o funcionário.','er'); return; }
+  if (!obs) { toast('Informe a descrição.','er'); return; }
+  const func   = gF().find(f=>f.id===fid);
+  const regra  = gRegrasOp().find(r=>r.id===_condutaRegraAtiva);
+  const etapa  = condutaProximaEtapa(_condutaRegraAtiva, fid);
+  const vitima = document.getElementById('conduta-vitima-sel')?.value;
+  const vNome  = vitima ? gF().find(f=>f.id===vitima)?.nome : 'Não identificado';
+  const dataFmt= data ? new Date(data+'T12:00:00').toLocaleDateString('pt-BR') : new Date().toLocaleDateString('pt-BR');
+  const diasS  = etapa?.tipo==='suspensao' ? (parseInt(document.getElementById('conduta-dias-susp')?.value)||1) : 0;
+  const empresa= gEmpresas().find(e=>e.id===(currentUser?._empId||''));
+  let penTxt = !etapa||etapa.tipo==='advertencia' ? 'ADVERTÊNCIA POR ESCRITO'
+    : etapa.tipo==='suspensao' ? `SUSPENSÃO DISCIPLINAR DE ${diasS} DIA(S)` : 'COMUNICADO DE DEMISSÃO POR JUSTA CAUSA';
+  const html = `<div style="font-family:Arial,sans-serif;max-width:720px;margin:0 auto;padding:40px;color:#111;">
+    <div style="text-align:center;border-bottom:3px solid #c04a3a;padding-bottom:20px;margin-bottom:28px;">
+      <div style="font-size:22px;font-weight:900;color:#c04a3a;text-transform:uppercase;letter-spacing:2px">Comunicado — ${regra?.nome||'Regra Operacional'}</div>
+      <div style="font-size:13px;margin-top:4px;color:#555">${empresa?.nome||''}</div>
+    </div>
+    <div style="background:#fff3f3;border:2px solid #c04a3a;border-radius:8px;padding:14px 20px;margin-bottom:24px;text-align:center;">
+      <div style="font-size:15px;font-weight:800;color:#c04a3a;text-transform:uppercase;letter-spacing:1px">⚠️ ${penTxt}</div>
+    </div>
+    <p style="margin-bottom:16px;line-height:1.7">Comunicamos ao(à) funcionário(a) <strong>${func?.nome||''}</strong> que, na data de <strong>${dataFmt}</strong>, foi registrada uma ocorrência referente à regra operacional <strong>"${regra?.nome||''}"</strong>:</p>
+    <div style="background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:14px 18px;margin-bottom:20px;font-style:italic;line-height:1.6">"${obs}"</div>
+    <p style="margin-bottom:8px"><strong>Envolvido/Testemunha:</strong> ${vNome}</p>
+    ${diasS>0?`<p style="margin-bottom:8px"><strong>Suspensão:</strong> ${diasS} dia(s) sem remuneração a partir de ${dataFmt}.</p>`:''}
+    <p style="margin-bottom:20px;line-height:1.7">Este comunicado faz parte do controle disciplinar. Novas ocorrências resultarão em penalidades mais severas.</p>
+    <div style="display:flex;justify-content:space-between;margin-top:48px;gap:20px;">
+      <div style="flex:1;text-align:center;border-top:1px solid #999;padding-top:8px;font-size:12px;">Assinatura da Empresa / Gestor</div>
+      <div style="flex:1;text-align:center;border-top:1px solid #999;padding-top:8px;font-size:12px;">Assinatura do(a) Funcionário(a)</div>
+    </div>
+    <div style="margin-top:10px;text-align:center;font-size:10px;color:#aaa">Emitido em: ${new Date().toLocaleDateString('pt-BR')}</div>
+  </div>`;
+  const pa=document.getElementById('print-area'); pa.innerHTML=html; window.print(); pa.innerHTML='';
+}
+
+function rCondutaHist() {
+  const fid = document.getElementById('conduta-hist-func')?.value;
+  const c   = document.getElementById('conduta-hist-body');
+  if (!fid||!_condutaRegraAtiva||!c) { if(c) c.innerHTML='<div class="empty"><span class="ico">🗣️</span>Selecione um funcionário.</div>'; return; }
+  const hist  = gCondutaHist(_condutaRegraAtiva, fid);
+  const count = condutaContarRegistros(_condutaRegraAtiva, fid);
+  const etapa = condutaProximaEtapa(_condutaRegraAtiva, fid);
+  const func  = gF().find(f=>f.id===fid);
+  const col   = etapa ? (CONDUTA_COLORS[etapa.tipo]||CONDUTA_COLORS.advertencia) : CONDUTA_COLORS.advertencia;
+  let statusHtml = count===0
+    ? `<div class="disc-alert disc-alert-ok">✅ ${func?.nome||''} — Sem ocorrências nesta regra.</div>`
+    : `<div class="disc-alert-conduta">${col.icon} ${func?.nome||''} — ${count} ocorrência(s).${etapa?' Próxima: <strong>'+etapa.label+'</strong>':''}</div>`;
+  if (!hist.length) { c.innerHTML=statusHtml+'<div style="text-align:center;padding:20px;color:var(--text-dim);font-size:13px">Sem histórico nesta regra.</div>'; return; }
+  c.innerHTML = statusHtml + hist.slice().reverse().map((h,idx) => {
+    const realIdx=hist.length-1-idx;
+    const c2=CONDUTA_COLORS[h.tipo]||CONDUTA_COLORS.advertencia;
+    const susp=h.diasSusp?` — ${h.diasSusp} dia(s) suspensão`:'';
+    return `<div class="conduta-hist-item">
+      <div class="hist-icon">${c2.icon}</div>
+      <div class="hist-body">
+        <div class="hist-title" style="color:${c2.color}">${h.label}${susp}</div>
+        <div class="hist-date">📅 ${h.data} — Envolvido: ${h.vitima||'N/I'}</div>
+        ${h.obs?`<div class="hist-dias" style="font-style:italic;margin-top:4px">${h.obs}</div>`:''}
+      </div>
+      <button class="btn btn-danger" style="margin-left:8px;align-self:flex-start" onclick="remCondutaHist('${fid}',${realIdx})">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function remCondutaHist(fid, idx) {
+  if (!confirm('Remover este registro?')) return;
+  const hist=gCondutaHist(_condutaRegraAtiva,fid); hist.splice(idx,1);
+  sCondutaHist(_condutaRegraAtiva,fid,hist); rCondutaHist(); toast('Registro removido.','in');
+}
+
+// ── Criar / Editar Regra ───────────────────────────────────────────────
+let _editRegraId = null;
+
+function openNovaRegraModal() {
+  _editRegraId = null;
+  document.getElementById('conduta-modal-titulo').textContent = '🗣️ Nova Regra Operacional';
+  document.getElementById('conduta-regra-nome').value = '';
+  document.getElementById('conduta-regra-descricao').value = '';
+  _renderCondutaEditor([
+    {tipo:'advertencia',label:'1ª Advertência',diasSusp:0,descricao:'Primeira ocorrência — advertência escrita.'},
+    {tipo:'advertencia',label:'2ª Advertência',diasSusp:0,descricao:'Segunda ocorrência — advertência formal.'},
+    {tipo:'suspensao',label:'Suspensão (1 dia)',diasSusp:1,descricao:'Terceira ocorrência — suspensão de 1 dia.'},
+    {tipo:'demissao',label:'Demissão por Justa Causa',diasSusp:0,descricao:'Reincidência — demissão por justa causa.'},
+  ]);
+  document.getElementById('modal-conduta-rules').classList.add('open');
+  setTimeout(()=>document.getElementById('conduta-regra-nome').focus(),100);
+}
+
+function openEditRegraModal() {
+  const regra=gRegrasOp().find(r=>r.id===_condutaRegraAtiva);
+  if (!regra) return;
+  _editRegraId=regra.id;
+  document.getElementById('conduta-modal-titulo').textContent='✏️ Editar — '+regra.nome;
+  document.getElementById('conduta-regra-nome').value=regra.nome;
+  document.getElementById('conduta-regra-descricao').value=regra.descricao||'';
+  _renderCondutaEditor(regra.etapas||[]);
+  document.getElementById('modal-conduta-rules').classList.add('open');
+}
+
+function _renderCondutaEditor(etapas) {
+  document.getElementById('conduta-rules-editor').innerHTML=etapas.map((r,i)=>_condutaStepRow(r,i)).join('');
+}
+
+function _condutaStepRow(r,i) {
+  return `<div class="disc-rule-row" data-idx="${i}" style="display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:8px;background:var(--surface);">
+    <span style="font-weight:700;color:var(--text-dim);font-size:13px;min-width:20px;margin-top:10px">${i+1}</span>
+    <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+      <input type="text" value="${(r.label||'').replace(/"/g,'&quot;')}" placeholder="Título da etapa" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;width:100%">
+      <input type="text" value="${(r.descricao||'').replace(/"/g,'&quot;')}" placeholder="Descrição da penalidade" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text-dim);outline:none;width:100%">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <select onchange="this.closest('[data-idx]').querySelector('.susp-days').style.display=this.value==='suspensao'?'':'none'" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);outline:none;">
+          <option value="advertencia" ${(r.tipo||'advertencia')==='advertencia'?'selected':''}>⚠️ Advertência</option>
+          <option value="suspensao" ${r.tipo==='suspensao'?'selected':''}>🚫 Suspensão</option>
+          <option value="demissao" ${r.tipo==='demissao'?'selected':''}>🔴 Demissão</option>
+        </select>
+        <input type="number" class="susp-days" value="${r.diasSusp||1}" min="1" max="30" placeholder="Dias" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:5px 8px;width:75px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);outline:none;display:${r.tipo==='suspensao'?'':'none'}">
+      </div>
+    </div>
+    <button onclick="this.closest('[data-idx]').remove();_renumCondutaRows()" style="background:transparent;border:1px solid var(--red);color:var(--red);padding:4px 8px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:11px;margin-top:6px;white-space:nowrap;">✕</button>
+  </div>`;
+}
+
+function _renumCondutaRows() {
+  document.querySelectorAll('#conduta-rules-editor [data-idx]').forEach((row,i)=>{
+    row.dataset.idx=i; const n=row.querySelector('span'); if(n) n.textContent=i+1;
+  });
+}
+
+function addCondutaStep() {
+  const editor=document.getElementById('conduta-rules-editor');
+  const idx=editor.querySelectorAll('[data-idx]').length;
+  const div=document.createElement('div');
+  div.innerHTML=_condutaStepRow({tipo:'advertencia',label:'',descricao:'',diasSusp:1},idx);
+  editor.appendChild(div.firstElementChild);
+}
+
+function saveCondutaRules() {
+  const nome=document.getElementById('conduta-regra-nome')?.value?.trim();
+  if (!nome) { toast('Informe o nome da regra.','er'); return; }
+  const descricao=document.getElementById('conduta-regra-descricao')?.value?.trim()||'';
+  const rows=document.querySelectorAll('#conduta-rules-editor [data-idx]');
+  const etapas=[];
+  rows.forEach(row=>{
+    const inputs=row.querySelectorAll('input[type=text]');
+    const sel=row.querySelector('select');
+    const dias=row.querySelector('.susp-days');
+    const label=inputs[0]?.value?.trim();
+    if (!label) return;
+    etapas.push({tipo:sel?.value||'advertencia',label,descricao:inputs[1]?.value?.trim()||'',diasSusp:parseInt(dias?.value)||0});
+  });
+  if (!etapas.length) { toast('Adicione ao menos uma etapa.','er'); return; }
+  const regras=gRegrasOp();
+  if (_editRegraId) {
+    const idx=regras.findIndex(r=>r.id===_editRegraId);
+    if (idx>=0) { regras[idx].nome=nome; regras[idx].descricao=descricao; regras[idx].etapas=etapas; }
+  } else {
+    const novaId=uid();
+    regras.push({id:novaId,nome,descricao,etapas});
+    _condutaRegraAtiva=novaId;
+  }
+  sRegrasOp(regras);
+  closeMod('modal-conduta-rules');
+  rConduta();
+  toast(_editRegraId?'Regra atualizada!':'Regra criada com sucesso!','ok');
+}
+
+function deletarRegra() {
+  const regra=gRegrasOp().find(r=>r.id===_condutaRegraAtiva);
+  if (!regra) return;
+  if (!confirm(`Excluir a regra "${regra.nome}"? Todo o histórico será perdido.`)) return;
+  const novas=gRegrasOp().filter(r=>r.id!==_condutaRegraAtiva);
+  sRegrasOp(novas);
+  _condutaRegraAtiva=novas.length?novas[0].id:null;
+  rConduta();
+  toast('Regra excluída.','in');
+}
+
+function resetCondutaRules() {
+  toast('Use "+ Nova Regra Operacional" para criar regras personalizadas.','in');
+}
+
+// ══════════════════════════════════════════════════════════════════════
 //  COMUNICADO
 // ══════════════════════════════════════════════════════════════════════
 function abrirComunicado() {
@@ -1513,6 +2771,7 @@ function abrirComunicado() {
   sel.innerHTML = '<option value="">Selecione o funcionário…</option>' +
     gF().map(f => `<option value="${f.id}">${f.nome}</option>`).join('');
   document.getElementById('com-faltas-preview').innerHTML = '';
+  document.getElementById('com-disc-status').style.display = 'none';
   document.getElementById('com-tipo').value = 'advertencia';
   document.getElementById('com-dias-susp-row').style.display = 'none';
   document.getElementById('modal-comunicado').classList.add('open');
@@ -1521,9 +2780,74 @@ function abrirComunicado() {
     document.getElementById('com-dias-susp-row').style.display =
       document.getElementById('com-tipo').value === 'suspensao' ? '' : 'none';
   };
-  sel.onchange = () => atualizarPreviewFaltas();
+  sel.onchange = () => { atualizarDiscStatusComunicado(); atualizarPreviewFaltas(); };
   mes.onchange = () => atualizarPreviewFaltas();
   ano.onchange = () => atualizarPreviewFaltas();
+}
+
+// Atualiza o painel de situação disciplinar no modal de comunicado
+function atualizarDiscStatusComunicado() {
+  const fid = document.getElementById('com-func').value;
+  const panel = document.getElementById('com-disc-status');
+  if (!fid) { panel.style.display = 'none'; return; }
+
+  const rules  = gDiscRules();
+  const count  = discContarRegistros(fid);
+  const etapa  = discProximaEtapa(fid);
+  const func   = gF().find(f => f.id === fid);
+  const col    = DISC_COLORS[etapa.tipo] || DISC_COLORS.advertencia;
+  const isLast = count >= rules.length - 1 && rules.length > 0;
+
+  // Auto-preenche tipo e dias sugeridos
+  const tipoEl = document.getElementById('com-tipo');
+  const diasEl = document.getElementById('com-dias-susp');
+  const suspRow = document.getElementById('com-dias-susp-row');
+
+  // Mapeia para as opções do select
+  const tipoMap = { advertencia: 'advertencia', suspensao: 'suspensao', justa_causa: 'justa_causa' };
+  tipoEl.value = tipoMap[etapa.tipo] || 'advertencia';
+  if (etapa.tipo === 'suspensao') {
+    suspRow.style.display = '';
+    diasEl.value = etapa.diasSusp || 1;
+  } else {
+    suspRow.style.display = 'none';
+  }
+
+  let alertClass = 'disc-alert-warn';
+  if (etapa.tipo === 'suspensao')   alertClass = 'disc-alert-susp';
+  if (etapa.tipo === 'justa_causa') alertClass = 'disc-alert-cause';
+  if (count === 0)                  alertClass = 'disc-alert-ok';
+
+  const hist = gDiscHist(fid);
+  const histRows = hist.length ? hist.slice(-3).reverse().map(h => {
+    const c2 = DISC_COLORS[h.tipo] || DISC_COLORS.advertencia;
+    return `<span style="font-size:11px;background:${c2.bg};color:${c2.color};padding:2px 8px;border-radius:12px;margin-right:4px;">${c2.icon} ${h.label} — ${h.data}</span>`;
+  }).join('') : '<span style="font-size:11px;color:var(--text-dim)">Nenhum registro anterior.</span>';
+
+  panel.style.display = '';
+  panel.innerHTML = `
+    <div class="disc-alert ${alertClass}" style="margin-bottom:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div>
+          <strong>${col.icon} Situação de ${func?.nome || 'Funcionário'}</strong>
+          — ${count} ocorrência(s) registrada(s).
+          <br>
+          <span style="font-weight:400;font-size:12px">Próxima penalidade sugerida pela regra: <strong>${etapa.label}${etapa.tipo==='suspensao'?' ('+etapa.diasSusp+' dia(s))':''}</strong></span>
+        </div>
+      </div>
+      <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;">
+        <span style="font-size:11px;color:inherit;opacity:.7;margin-right:4px;">Histórico:</span>
+        ${histRows}
+      </div>
+    </div>`;
+
+  // Se for 2ª advertência, alerta de confirmação
+  if (count === 1) {
+    panel.innerHTML += `
+      <div style="background:rgba(196,106,32,.08);border:1px solid rgba(196,106,32,.3);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:12px;color:var(--orange);">
+        ⚠️ <strong>Atenção:</strong> Este é o <strong>2º comunicado</strong> para este funcionário. Confirme antes de emitir.
+      </div>`;
+  }
 }
 
 function atualizarPreviewFaltas() {
@@ -1577,7 +2901,7 @@ function getDadosComunicado() {
   const checks = document.querySelectorAll('.com-dia-chk:checked');
   const dias = Array.from(checks).map(c => parseInt(c.value)).sort((a,b) => a-b);
 
-  if (!dias.length) { toast('Selecione ao menos um dia de falta para o comunicado.', 'er'); return null; }
+  if (!dias.length && tipo !== 'justa_causa') { toast('Selecione ao menos um dia de falta para o comunicado.', 'er'); return null; }
   return { func, m, y, tipo, diasS, dias };
 }
 
@@ -1586,7 +2910,10 @@ function gerarHTMLComunicado(d) {
   const dataHoje = new Date().toLocaleDateString('pt-BR');
   const mesAno   = `${PT_MONTHS[m]} de ${y}`;
   const isAdv    = tipo === 'advertencia';
-  const titulo   = isAdv ? 'ADVERTÊNCIA POR FALTA SEM JUSTIFICATIVA' : 'SUSPENSÃO POR FALTA SEM JUSTIFICATIVA';
+  const isCause  = tipo === 'justa_causa';
+  const titulo   = isAdv    ? 'ADVERTÊNCIA POR FALTA SEM JUSTIFICATIVA'
+                 : isCause  ? 'COMUNICADO DE JUSTA CAUSA — FALTA INJUSTIFICADA REITERADA'
+                 :            'SUSPENSÃO POR FALTA SEM JUSTIFICATIVA';
   const diasStr  = dias.map(d => `${String(d).padStart(2,'0')}/${String(m+1).padStart(2,'0')}/${y}`).join(', ');
 
   return `
@@ -1619,6 +2946,20 @@ function gerarHTMLComunicado(d) {
   <p>Tais ausências configuram infração às normas internas da empresa e ao disposto no contrato de trabalho. Em consequência, aplicamos a presente <strong>ADVERTÊNCIA</strong>, esclarecendo que a reincidência na conduta poderá acarretar em penalidades mais severas, incluindo <strong>suspensão</strong> e, em caso de reiteração, até mesmo <strong>rescisão por justa causa</strong>, nos termos dos artigos 482 e 483 da Consolidação das Leis do Trabalho (CLT).</p>
   <br>
   <p>Pedimos que tome ciência e assine este documento, ratificando o recebimento da advertência. A recusa em assinar não invalida o presente documento, que será testemunhado.</p>
+  ` : isCause ? `
+  <p>Prezado(a) colaborador(a),</p>
+  <br>
+  <p>Por meio do presente, comunicamos que você incorreu em <strong>falta(s) reiterada(s) ao trabalho sem justificativa</strong> no mês de <strong>${mesAno}</strong>, nos seguintes dias:</p>
+  <br>
+  <p style="background:#f8d7da;border:1px solid #f5c6cb;border-radius:4px;padding:10px 14px;font-weight:700;text-align:center">${diasStr}</p>
+  <br>
+  <p>Total de faltas não justificadas neste período: <strong>${dias.length} dia(s)</strong>.</p>
+  <br>
+  <p>Considerando as advertências e/ou suspensões anteriormente aplicadas e devidamente documentadas, bem como a reiteração na conduta faltosa, fica rescindido o seu contrato de trabalho por <strong>JUSTA CAUSA</strong>, com fundamento no artigo 482, alínea "e" (desídia no desempenho das respectivas funções), da Consolidação das Leis do Trabalho (CLT).</p>
+  <br>
+  <p>O término do contrato se dá na data do recebimento deste comunicado, sendo devidas apenas as verbas rescisórias cabíveis na modalidade de demissão por justa causa, conforme legislação vigente.</p>
+  <br>
+  <p>Solicitamos que tome ciência e assine este documento, ratificando o recebimento. A recusa em assinar não invalida o presente documento, que será devidamente testemunhado.</p>
   ` : `
   <p>Prezado(a) colaborador(a),</p>
   <br>
@@ -1676,14 +3017,63 @@ function previewComunicado() {
   w.document.close();
 }
 
-function imprimirComunicado() {
+function imprimirComunicadoComRegistro() {
   const d = getDadosComunicado();
   if (!d) return;
+
+  const { func, m, y, tipo, diasS, dias } = d;
+  const rules  = gDiscRules();
+  const count  = discContarRegistros(func.id);
+  const etapa  = discProximaEtapa(func.id);
+
+  // Aviso se tipo selecionado é diferente do sugerido pela regra
+  const tipoSelecionado = tipo;
+  const tipoSugerido = etapa.tipo;
+  if (tipoSelecionado !== tipoSugerido) {
+    if (!confirm(`⚠️ Atenção: A regra disciplinar sugere "${etapa.label}" para este funcionário, mas você selecionou "${tipoSelecionado === 'advertencia' ? 'Advertência' : tipoSelecionado === 'suspensao' ? 'Suspensão' : 'Justa Causa'}".\n\nDeseja continuar mesmo assim?`)) return;
+  }
+
+  // Se 2ª advertência, pede confirmação
+  if (count === 1 && tipo === 'advertencia') {
+    if (!confirm(`Este é o 2º comunicado para ${func.nome}. Confirma a emissão da 2ª Advertência?`)) return;
+  }
+
+  // Registra no histórico disciplinar
+  const hist = gDiscHist(func.id);
+  const dataHoje = new Date().toLocaleDateString('pt-BR');
+  const mesRef   = `${PT_MONTHS[m]}/${y}`;
+  const label    = tipo === 'justa_causa' ? 'Justa Causa' :
+                   tipo === 'suspensao'   ? `Suspensão (${diasS} dia(s))` :
+                   `Advertência (${count + 1}ª)`;
+
+  hist.push({
+    registrado: true,
+    tipo,
+    label,
+    diasSusp: tipo === 'suspensao' ? diasS : 0,
+    data: dataHoje,
+    mesRef,
+    dias,
+    obs: '',
+  });
+  sDiscHist(func.id, hist);
+
+  // Imprime
   const pa = document.getElementById('print-area');
   pa.innerHTML = gerarHTMLComunicado(d);
   closeMod('modal-comunicado');
   window.print();
   setTimeout(() => pa.innerHTML = '', 1000);
+  toast(`Comunicado emitido e registrado! (${label})`, 'ok');
+
+  // Atualiza histórico disciplinar se estiver visível
+  const discFuncSel = document.getElementById('disc-hist-func');
+  if (discFuncSel && discFuncSel.value === func.id) rDiscHist();
+}
+
+function imprimirComunicado() {
+  // Mantido para compatibilidade — agora delega para a versão com registro
+  imprimirComunicadoComRegistro();
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -1715,29 +3105,52 @@ function rmFer(i) { const f = gFer(); f.splice(i, 1); sFer(f); rfer(); toast('Fe
 // ══════════════════════════════════════════════════════════════════════
 //  USUÁRIOS
 // ══════════════════════════════════════════════════════════════════════
-const PERFIL_LABEL = { admin: 'Administrador', gerente: 'Gerente', operador: 'Operador' };
+const PERFIL_LABEL = { superadmin: 'Super Admin', admin: 'Administrador', gerente: 'Gerente', operador: 'Operador' };
 
 function rUsers() {
-  const users = gU();
+  const users = gU(); // já filtrado pela empresa do usuário logado
+  const empresas = gEmpresas();
   const list  = document.getElementById('user-list');
   if (!users.length) { list.innerHTML = '<div class="empty"><span class="ico">👥</span>Nenhum usuário.</div>'; return; }
-  list.innerHTML = users.map(u => `
+  list.innerHTML = users.map(u => {
+    const empNomes = (u.empresas || []).map(eid => empresas.find(e => e.id === eid)?.nome || eid).join(', ') || '—';
+    const permsLabel = u.perfil === 'superadmin' || u.perfil === 'admin'
+      ? 'Total'
+      : ((u.perms || []).map(p => MODULOS.find(m => m.id === p)?.label?.replace(/^[^\s]+\s/,'') || p).join(', ') || 'Nenhum');
+    return `
     <div class="user-item">
-      <div>
-        <div class="uname">👤 ${u.nome || u.login} <span style="font-size:11px;color:var(--text-dim);font-weight:400">(@${u.login})</span></div>
-        <div class="urole">${PERFIL_LABEL[u.perfil] || u.perfil} — Acesso: ${(u.perms || []).length === MODULOS.length ? 'Total' : (u.perms || []).map(p => MODULOS.find(m => m.id === p)?.label || p).join(', ') || 'Nenhum'}</div>
+      <div style="flex:1;min-width:0">
+        <div class="uname">👤 ${u.nome || u.login} <span style="font-size:11px;color:var(--text-dim);font-weight:400">(@${u.login})</span>
+          ${u.perfil === 'superadmin' ? '<span class="badge b-purple" style="margin-left:6px">Super Admin</span>' : ''}
+        </div>
+        <div class="urole">${PERFIL_LABEL[u.perfil] || u.perfil} — Permissões: ${permsLabel}</div>
+        ${u.perfil !== 'superadmin' ? `<div style="font-size:11px;color:var(--text-dim);margin-top:2px">🏢 ${empNomes}</div>` : ''}
       </div>
       <div class="act-row">
         <button class="btn btn-ghost btn-sm" onclick="openUserModal('${u.id}')">✏️ Editar</button>
         ${u.id !== currentUser?.id ? `<button class="btn btn-danger" onclick="delUser('${u.id}')">🗑️</button>` : '<span class="badge b-gold">Você</span>'}
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
+}
+
+function _buildEmpresaChecks(selectedIds) {
+  const empresas = gEmpresas();
+  const el = document.getElementById('u-empresa-list');
+  if (!empresas.length) { el.innerHTML = '<span style="font-size:12px;color:var(--text-dim)">Nenhuma empresa cadastrada.</span>'; return; }
+  el.innerHTML = empresas.map(e => `
+    <label class="perm-item">
+      <input type="checkbox" id="uemp-${e.id}" value="${e.id}" ${(selectedIds||[]).includes(e.id) ? 'checked' : ''}>
+      ${e.nome}
+    </label>`).join('');
 }
 
 function openUserModal(id) {
   editUid = id || null;
   const isEd = !!id;
+  const isSuperAdmin = currentUser?.perfil === 'superadmin';
   document.getElementById('mu-title').textContent = isEd ? 'Editar Usuário' : 'Novo Usuário';
+
   // Build perms grid
   const pg = document.getElementById('perm-grid');
   pg.innerHTML = MODULOS.map(m => `
@@ -1745,26 +3158,51 @@ function openUserModal(id) {
       <input type="checkbox" id="perm-${m.id}" value="${m.id}">
       ${m.label}
     </label>`).join('');
+
+  // Mostrar seletor de empresas
+  const empRow = document.getElementById('u-empresa-row');
+  if (empRow) empRow.style.display = '';
+
+  // Opção superadmin só visível para superadmin
+  const selPerfil = document.getElementById('u-perfil');
+  // Remove opção superadmin se não for superadmin
+  Array.from(selPerfil.options).forEach(o => { if (o.value === 'superadmin') o.remove(); });
+  if (isSuperAdmin) {
+    const opt = document.createElement('option');
+    opt.value = 'superadmin'; opt.textContent = 'Super Administrador';
+    selPerfil.insertBefore(opt, selPerfil.firstChild);
+  }
+
   if (isEd) {
-    const u = gU().find(x => x.id === id);
+    const allUsers = Array.isArray(_cache['ef_users']) ? _cache['ef_users'] : [];
+    const u = allUsers.find(x => x.id === id);
+    if (!u) return;
     document.getElementById('u-login').value  = u.login;
     document.getElementById('u-senha').value  = '';
     document.getElementById('u-nome').value   = u.nome || '';
-    document.getElementById('u-perfil').value = u.perfil;
+    selPerfil.value = u.perfil;
     MODULOS.forEach(m => {
       const chk = document.getElementById('perm-' + m.id);
       if (chk) chk.checked = (u.perms || []).includes(m.id);
     });
+    _buildEmpresaChecks(u.empresas || []);
   } else {
     ['u-login','u-senha','u-nome'].forEach(i => document.getElementById(i).value = '');
-    document.getElementById('u-perfil').value = 'operador';
+    selPerfil.value = 'operador';
     MODULOS.forEach(m => { const chk = document.getElementById('perm-' + m.id); if (chk) chk.checked = false; });
+    // Se não for superadmin, pré-marca empresa atual
+    _buildEmpresaChecks(currentEmpresaId ? [currentEmpresaId] : []);
   }
-  // Admin perfil → check all
-  document.getElementById('u-perfil').onchange = () => {
-    const isAdmin = document.getElementById('u-perfil').value === 'admin';
+
+  selPerfil.onchange = () => {
+    const p = selPerfil.value;
+    const isAdmin = p === 'admin' || p === 'superadmin';
     MODULOS.forEach(m => { const chk = document.getElementById('perm-' + m.id); if (chk) chk.checked = isAdmin; });
+    if (empRow) empRow.style.display = (p === 'superadmin') ? 'none' : '';
   };
+  // Trigger inicial
+  if (empRow) empRow.style.display = (selPerfil.value === 'superadmin') ? 'none' : '';
+
   document.getElementById('modal-usuario').classList.add('open');
 }
 
@@ -1774,27 +3212,488 @@ function saveUser() {
   const nome   = document.getElementById('u-nome').value.trim();
   const perfil = document.getElementById('u-perfil').value;
   const perms  = MODULOS.map(m => m.id).filter(id => document.getElementById('perm-' + id)?.checked);
+  const empresas = gEmpresas().map(e => e.id).filter(eid => {
+    const el = document.getElementById('uemp-' + eid);
+    return el && el.checked;
+  });
+
   if (!login) { toast('Informe o usuário.', 'er'); return; }
-  const users = gU();
+
+  // Opera sempre sobre a lista global de usuários
+  const allUsers = Array.isArray(_cache['ef_users']) ? [..._cache['ef_users']] : [];
+
   if (editUid) {
-    const idx = users.findIndex(u => u.id === editUid);
+    const idx = allUsers.findIndex(u => u.id === editUid);
     if (idx >= 0) {
-      users[idx].login  = login; users[idx].nome = nome;
-      users[idx].perfil = perfil; users[idx].perms = perms;
-      if (senha) users[idx].senha = senha;
+      allUsers[idx].login   = login;
+      allUsers[idx].nome    = nome;
+      allUsers[idx].perfil  = perfil;
+      allUsers[idx].perms   = perms;
+      allUsers[idx].empresas = perfil === 'superadmin' ? [] : empresas;
+      if (senha) allUsers[idx].senha = senha;
     }
   } else {
     if (!senha) { toast('Informe a senha.', 'er'); return; }
-    if (users.find(u => u.login === login)) { toast('Usuário já existe.', 'er'); return; }
-    users.push({ id: uid(), login, senha, nome, perfil, perms });
+    if (allUsers.find(u => u.login === login)) { toast('Usuário já existe.', 'er'); return; }
+    allUsers.push({ id: uid(), login, senha, nome, perfil, perms, empresas: perfil === 'superadmin' ? [] : empresas });
   }
-  sU(users); closeMod('modal-usuario'); rUsers();
+
+  _cache['ef_users'] = allUsers;
+  _persistir();
+  closeMod('modal-usuario');
+  rUsers();
   toast(editUid ? 'Usuário atualizado!' : 'Usuário criado!', 'ok');
 }
 
 function delUser(id) {
   if (!confirm('Remover este usuário?')) return;
-  sU(gU().filter(u => u.id !== id)); rUsers(); toast('Usuário removido.', 'in');
+  const allUsers = Array.isArray(_cache['ef_users']) ? _cache['ef_users'] : [];
+  _cache['ef_users'] = allUsers.filter(u => u.id !== id);
+  _persistir();
+  rUsers();
+  toast('Usuário removido.', 'in');
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  VISÃO GERAL MULTI-EMPRESAS  (superadmin)
+// ══════════════════════════════════════════════════════════════════════
+let VGY = new Date().getFullYear(), VGM = new Date().getMonth();
+
+function vgChangeMonth(d) {
+  VGM += d;
+  if (VGM > 11) { VGM = 0; VGY++; } else if (VGM < 0) { VGM = 11; VGY--; }
+  rVisaoGeral();
+}
+function vgGoToday() {
+  VGY = new Date().getFullYear();
+  VGM = new Date().getMonth();
+  rVisaoGeral();
+}
+
+// Helpers que lêem dados de uma empresa específica (sem depender de currentEmpresaId)
+function _gFEmp(empId) {
+  const d = _cache['ef_func_' + empId];
+  return Array.isArray(d) ? JSON.parse(JSON.stringify(d)) : [];
+}
+function _gEEmp(empId) {
+  const d = _cache['ef_esc_' + empId];
+  return (d && typeof d === 'object' && !Array.isArray(d)) ? JSON.parse(JSON.stringify(d)) : {};
+}
+function _gFerEmp(empId) {
+  const d = _cache['ef_fer_' + empId];
+  return Array.isArray(d) ? JSON.parse(JSON.stringify(d)) : [];
+}
+function _getCSEmp(empId, fid, y, m, d) {
+  return _gEEmp(empId)[`${fid}_${y}${String(m+1).padStart(2,'0')}_${d}`] || null;
+}
+function _isFerEmp(empId, y, m, d) {
+  return _gFerEmp(empId).some(f => f.data === ds(y, m, d));
+}
+function _ferNomeEmp(empId, y, m, d) {
+  return (_gFerEmp(empId).find(f => f.data === ds(y, m, d)) || {}).nome || '';
+}
+function _calcRowEmp(empId, func, y, m) {
+  const total   = dim(y, m);
+  const admStr  = func.adm  || '0000-01-01';
+  const deslStr = func.desl || '9999-12-31';
+  let ausencias = 0, folgas = 0, atests = 0, decls = 0, faltas = 0, susps = 0, totalVT = 0;
+  for (let d = 1; d <= total; d++) {
+    const dateStr = ds(y, m, d);
+    if (dateStr < admStr || dateStr > deslStr) continue;
+    const st = _getCSEmp(empId, func.id, y, m, d);
+    const vt = vtNaData(func, dateStr);
+    if (!st || st === 'extra') { totalVT += vt; }
+    else if (st === 'folga')    { folgas++; ausencias++; }
+    else if (st === 'atestado') { atests++; ausencias++; }
+    else if (st === 'decl')     { decls++;  ausencias++; }
+    else if (st === 'falta')    { faltas++; ausencias++; }
+    else if (st === 'susp')     { susps++;  ausencias++; }
+  }
+  const diasContaveis = Array.from({ length: total }, (_, i) => ds(y, m, i + 1))
+    .filter(d => d >= admStr && d <= deslStr).length;
+  const trab = diasContaveis - ausencias;
+  return { trab, folgas, atests, decls, faltas, susps, valor: Math.max(0, totalVT) };
+}
+
+async function rVisaoGeral() {
+  const y = VGY, m = VGM;
+
+  // Atualiza display de mês
+  const dispEl = document.getElementById('vg-month-disp');
+  if (dispEl) dispEl.textContent = `${PT_MONTHS[m]} ${y}`;
+
+  const empresas = gEmpresas();
+  const empSel   = document.getElementById('vg-empresa-sel');
+  const statusSel= document.getElementById('vg-status-sel');
+  if (!empSel || !statusSel) return;
+
+  // Recarrega combo de empresas preservando seleção
+  const curEmpVal = empSel.value;
+  empSel.innerHTML = '<option value="">Todas as empresas</option>' +
+    empresas.map(e => `<option value="${e.id}">${e.nome}</option>`).join('');
+  if (empresas.find(e => e.id === curEmpVal)) empSel.value = curEmpVal;
+
+  const filtroEmpId  = empSel.value;
+  const filtroStatus = statusSel.value; // 'ativo' | 'todos'
+
+  const empresasFiltradas = filtroEmpId ? empresas.filter(e => e.id === filtroEmpId) : empresas;
+
+  if (!empresasFiltradas.length) {
+    document.getElementById('vg-content').innerHTML =
+      '<div class="vg-empty"><span style="font-size:32px">🏢</span><br>Nenhuma empresa cadastrada.</div>';
+    return;
+  }
+
+  // Pré-descriptografa CNPJs
+  const cnpjMap = {};
+  await Promise.all(empresasFiltradas.map(async e => {
+    const raw = e.cnpj_enc || e.cnpj || '';
+    cnpjMap[e.id] = raw ? await cryptoDecrypt(raw) : '';
+  }));
+
+  let html = '';
+
+  // ── Totalizador global (só aparece se mais de 1 empresa) ───────────
+  let totGlobal = { funcs: 0, trab: 0, folgas: 0, atests: 0, faltas: 0, susps: 0, vtTotal: 0 };
+
+  const blocos = empresasFiltradas.map(emp => {
+    let funcs = _gFEmp(emp.id);
+    if (filtroStatus === 'ativo') funcs = funcs.filter(f => f.status === 'ativo');
+
+    // Filtra funcionários que existiam no mês
+    funcs = funcs.filter(f => {
+      const admStr  = f.adm  || '0000-01-01';
+      const deslStr = f.desl || '9999-12-31';
+      const mesIni  = ds(y, m, 1);
+      const mesFim  = ds(y, m, dim(y, m));
+      return admStr <= mesFim && deslStr >= mesIni;
+    });
+
+    const rows = funcs.map(f => ({ func: f, r: _calcRowEmp(emp.id, f, y, m) }));
+
+    // KPIs da empresa
+    let totVT = 0, totFalt = 0, totAtest = 0, totFolga = 0, totDecl = 0, totSusp = 0;
+    rows.forEach(({ r }) => {
+      totVT    += r.valor;
+      totFalt  += r.faltas;
+      totAtest += r.atests;
+      totFolga += r.folgas;
+      totDecl  += r.decls;
+      totSusp  += r.susps;
+    });
+    const totAus = totFalt + totAtest + totFolga + totDecl + totSusp;
+
+    // Acumula globais
+    totGlobal.funcs   += funcs.length;
+    totGlobal.folgas  += totFolga;
+    totGlobal.atests  += totAtest;
+    totGlobal.faltas  += totFalt;
+    totGlobal.susps   += totSusp;
+    totGlobal.vtTotal += totVT;
+
+    const cnpjDisp = cnpjMap[emp.id]
+      ? `<span class="vg-empresa-cnpj">🔒 CNPJ: ${cnpjMap[emp.id]}</span>`
+      : '';
+
+    // ── Grade de escala (mini) ─────────────────────────────────────
+    const TD = dim(y, m);
+
+    let escalaTH = `<th style="text-align:left;padding:7px 14px;min-width:150px;position:sticky;left:0;z-index:4;background:var(--surface2)">Funcionário</th>`;
+    for (let d = 1; d <= TD; d++) {
+      const w = new Date(y, m, d).getDay();
+      const fer = _isFerEmp(emp.id, y, m, d);
+      const dom = w === 0, sab = w === 6;
+      let cls = fer ? 'h-fer' : dom ? 'h-dom' : sab ? 'h-sab' : '';
+      const lbl = fer
+        ? `<span style="font-size:7px;background:var(--gold);color:#fff;border-radius:2px;padding:0 2px;display:block">FER</span>${d}`
+        : `${PT_DAYS[w]}<br>${d}`;
+      escalaTH += `<th class="${cls}" style="text-align:center;padding:5px 3px;min-width:30px;font-size:10px">${lbl}</th>`;
+    }
+    escalaTH += `<th class="h-tot" style="text-align:center;min-width:50px">Trab.</th><th class="h-fal" style="text-align:center;min-width:40px">Falt.</th><th class="h-susp" style="text-align:center;min-width:40px">Susp.</th><th class="h-val" style="text-align:center;min-width:90px">Valor VT</th>`;
+
+    let escalaTR = '';
+    if (!funcs.length) {
+      escalaTR = `<tr><td colspan="${4 + TD}" style="text-align:center;padding:18px;color:var(--text-dim);font-size:12px">Nenhum funcionário no período.</td></tr>`;
+    } else {
+      rows.forEach(({ func, r }) => {
+        let cells = '';
+        const admStr = func.adm || '0000-01-01', deslStr = func.desl || '9999-12-31';
+        for (let d = 1; d <= TD; d++) {
+          const dateStr = ds(y, m, d);
+          const antesAdm = dateStr < admStr, aposDesl = dateStr > deslStr;
+          if (antesAdm || aposDesl) {
+            cells += `<td style="background:${aposDesl ? 'rgba(192,74,58,.05)' : 'var(--surface2)'};opacity:.3"></td>`;
+          } else {
+            const st = _getCSEmp(emp.id, func.id, y, m, d);
+            const sp = isDom(y, m, d) || _isFerEmp(emp.id, y, m, d);
+            let bg = '', lbl = '', color = '';
+            if (st && SCFG[st]) {
+              const styles = {
+                folga:    { bg:'rgba(58,111,152,.18)',    color:'var(--blue)',   lbl:'F'  },
+                atestado: { bg:'rgba(196,106,32,.18)',    color:'var(--orange)', lbl:'AT' },
+                decl:     { bg:'rgba(42,122,106,.18)',    color:'var(--teal)',   lbl:'DH' },
+                falta:    { bg:'rgba(192,74,58,.18)',     color:'var(--red)',    lbl:'FA' },
+                susp:     { bg:'rgba(80,20,80,.22)',      color:'#7a1a7a',       lbl:'S'  },
+                extra:    { bg:'rgba(122,74,154,.18)',    color:'var(--purple)', lbl:'T'  },
+              };
+              const s = styles[st] || {};
+              bg = s.bg; color = s.color; lbl = s.lbl || '';
+            } else if (sp) {
+              bg = 'rgba(0,0,0,.04)'; color = 'var(--text-dim)';
+            }
+            const style = bg ? `background:${bg};color:${color};` : '';
+            cells += `<td style="text-align:center;padding:0;height:28px;${style}"><span style="font-size:9px;font-weight:800">${lbl}</span></td>`;
+          }
+        }
+        const deslLabel = func.status === 'inativo'
+          ? `<span style="font-size:9px;color:var(--red);opacity:.7"> (deslig.)</span>` : '';
+        escalaTR += `<tr>
+          <td style="padding:0 14px;font-weight:600;white-space:nowrap;font-size:12px;position:sticky;left:0;background:var(--surface);z-index:2">${func.nome}${deslLabel}</td>
+          ${cells}
+          <td style="text-align:center;font-weight:700;color:var(--blue);background:rgba(58,111,152,.07)">${r.trab}</td>
+          <td style="text-align:center;font-weight:700;color:var(--red);background:rgba(192,74,58,.07)">${r.faltas || '—'}</td>
+          <td style="text-align:center;font-weight:700;color:#7a1a7a;background:rgba(80,20,80,.06)">${r.susps || '—'}</td>
+          <td style="text-align:center;font-weight:700;color:var(--green);background:rgba(58,122,74,.07);padding:0 10px;white-space:nowrap">${fmtBRL(r.valor)}</td>
+        </tr>`;
+      });
+
+      // Linha de total da empresa na escala
+      const spacers = Array(TD).fill('<td></td>').join('');
+      escalaTR += `<tr class="vg-total-row">
+        <td style="position:sticky;left:0;background:rgba(160,120,40,.07)">📊 Total — ${funcs.length} func.</td>
+        ${spacers}
+        <td style="text-align:center"></td>
+        <td style="text-align:center;color:var(--red)">${totFalt || '—'}</td>
+        <td style="text-align:center;color:#7a1a7a">${totSusp || '—'}</td>
+        <td style="text-align:center;color:var(--green);white-space:nowrap">${fmtBRL(totVT)}</td>
+      </tr>`;
+    }
+
+    return `
+    <div class="vg-empresa-block">
+      <div class="vg-empresa-hd">
+        <div>
+          <div class="vg-empresa-nome">🏢 ${emp.nome}</div>
+          ${cnpjDisp}
+          ${emp.end ? `<div style="font-size:11px;color:var(--text-dim);margin-top:3px">📍 ${emp.end}</div>` : ''}
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <span class="badge b-blue" style="font-size:12px">${funcs.length} func.</span>
+          ${totAus > 0 ? `<span class="badge b-red" style="font-size:12px">${totAus} ausências</span>` : '<span class="badge b-green" style="font-size:12px">Sem ausências</span>'}
+          <span class="badge b-gold" style="font-size:12px">${fmtBRL(totVT)}</span>
+          <button class="btn btn-ghost btn-sm" onclick="go('escala',null);setTimeout(()=>{currentEmpresaId='${emp.id}';_cache['ef_func_sel']='${emp.id}';resc();},80)" title="Ir para escala desta empresa">📅 Abrir Escala</button>
+        </div>
+      </div>
+
+      <!-- KPIs banda -->
+      <div class="vg-kpis">
+        <div class="vg-kpi vg-kpi-blue">  <div class="vk-val">${funcs.length}</div><div class="vk-lbl">Funcionários</div></div>
+        <div class="vg-kpi vg-kpi-green"> <div class="vk-val" style="font-size:15px">${fmtBRL(totVT)}</div><div class="vk-lbl">Total VT</div></div>
+        <div class="vg-kpi vg-kpi-red">   <div class="vk-val">${totFalt}</div><div class="vk-lbl">Faltas</div></div>
+        <div class="vg-kpi vg-kpi-purple"><div class="vk-val">${totSusp}</div><div class="vk-lbl">Suspensões</div></div>
+        <div class="vg-kpi vg-kpi-orange"><div class="vk-val">${totAtest}</div><div class="vk-lbl">Atestados</div></div>
+        <div class="vg-kpi vg-kpi-teal">  <div class="vk-val">${totDecl}</div><div class="vk-lbl">Decl.Horas</div></div>
+        <div class="vg-kpi vg-kpi-gold">  <div class="vk-val">${totFolga}</div><div class="vk-lbl">Folgas</div></div>
+      </div>
+
+      <!-- Abas: Escala | Resumo -->
+      <div class="vg-tabs" id="vgtabs-${emp.id}">
+        <button class="vg-tab active" onclick="vgSwitchTab('${emp.id}','escala',this)">📅 Grade de Escala</button>
+        <button class="vg-tab" onclick="vgSwitchTab('${emp.id}','resumo',this)">📊 Resumo por Funcionário</button>
+      </div>
+
+      <!-- Painel: Grade de Escala -->
+      <div class="vg-panel active" id="vgpanel-${emp.id}-escala">
+        <div class="vg-escala-wrap">
+          <table class="etable" style="min-width:100%">
+            <thead><tr>${escalaTH}</tr></thead>
+            <tbody>${escalaTR}</tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Painel: Resumo tabular -->
+      <div class="vg-panel" id="vgpanel-${emp.id}-resumo">
+        <table class="vg-sum-table">
+          <thead><tr>
+            <th>Funcionário</th><th>VT/dia</th><th>Dias Trab.</th>
+            <th>Folgas</th><th>Atestados</th><th>Decl.H</th>
+            <th>Faltas</th><th>Suspensões</th><th>Valor VT</th>
+          </tr></thead>
+          <tbody>
+            ${rows.length ? rows.map(({ func, r }) => `<tr>
+              <td style="font-weight:600">${func.nome}${func.status==='inativo'?` <span style="font-size:10px;color:var(--red)">(deslig.)</span>`:''}</td>
+              <td style="color:var(--gold);font-weight:600">${fmtBRL(vtAtual(func))}</td>
+              <td><span style="font-weight:700;color:var(--blue)">${r.trab}</span></td>
+              <td>${r.folgas > 0 ? `<span class="badge b-blue">${r.folgas}</span>` : '—'}</td>
+              <td>${r.atests > 0 ? `<span class="badge b-orange">${r.atests}</span>` : '—'}</td>
+              <td>${r.decls  > 0 ? `<span class="badge b-teal">${r.decls}</span>`  : '—'}</td>
+              <td>${r.faltas > 0 ? `<span class="badge b-red">${r.faltas}</span>`   : '<span class="badge b-green">0</span>'}</td>
+              <td>${r.susps  > 0 ? `<span class="badge b-susp">${r.susps}</span>`  : '—'}</td>
+              <td style="font-weight:700;color:var(--green)">${fmtBRL(r.valor)}</td>
+            </tr>`).join('') : `<tr><td colspan="9" style="text-align:center;padding:18px;color:var(--text-dim)">Nenhum funcionário no período.</td></tr>`}
+            ${rows.length ? `<tr class="vg-total-row">
+              <td>Total</td><td>—</td>
+              <td><span style="color:var(--blue)">${rows.reduce((s,{r})=>s+r.trab,0)}</span></td>
+              <td>${totFolga || '—'}</td><td>${totAtest || '—'}</td><td>${totDecl || '—'}</td>
+              <td>${totFalt || '—'}</td><td>${totSusp || '—'}</td>
+              <td style="color:var(--green)">${fmtBRL(totVT)}</td>
+            </tr>` : ''}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  });
+
+  // ── Bloco resumo consolidado (só quando > 1 empresa visível) ──────
+  let consolidadoHtml = '';
+  if (empresasFiltradas.length > 1) {
+    consolidadoHtml = `
+    <div class="card" style="margin-bottom:28px;border-color:var(--gold);border-width:2px">
+      <div class="card-title">📊 Consolidado — ${PT_MONTHS[m]} ${y} (${empresasFiltradas.length} empresas)</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:0">
+        <div class="kpi kpi-blue"  style="min-width:120px"><div class="val">${totGlobal.funcs}</div><div class="lbl">Total Funcionários</div></div>
+        <div class="kpi kpi-green" style="min-width:120px"><div class="val" style="font-size:18px">${fmtBRL(totGlobal.vtTotal)}</div><div class="lbl">Total VT Geral</div></div>
+        <div class="kpi kpi-red"   style="min-width:120px"><div class="val">${totGlobal.faltas}</div><div class="lbl">Total Faltas</div></div>
+        <div class="kpi kpi-purple"style="min-width:120px"><div class="val">${totGlobal.susps}</div><div class="lbl">Total Suspensões</div></div>
+        <div class="kpi kpi-orange"style="min-width:120px"><div class="val">${totGlobal.atests}</div><div class="lbl">Total Atestados</div></div>
+        <div class="kpi kpi-gold"  style="min-width:120px"><div class="val">${totGlobal.folgas}</div><div class="lbl">Total Folgas</div></div>
+      </div>
+    </div>`;
+  }
+
+  document.getElementById('vg-content').innerHTML = consolidadoHtml + blocos.join('');
+}
+
+function vgSwitchTab(empId, panel, btn) {
+  // Desativa todas as abas e painéis desta empresa
+  document.querySelectorAll(`#vgtabs-${empId} .vg-tab`).forEach(t => t.classList.remove('active'));
+  document.getElementById(`vgpanel-${empId}-escala`)?.classList.remove('active');
+  document.getElementById(`vgpanel-${empId}-resumo`)?.classList.remove('active');
+  // Ativa a selecionada
+  btn.classList.add('active');
+  document.getElementById(`vgpanel-${empId}-${panel}`)?.classList.add('active');
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  EMPRESAS
+// ══════════════════════════════════════════════════════════════════════
+async function rEmpresas() {
+  const empresas = gEmpresas();
+  const list = document.getElementById('empresa-list');
+  if (!empresas.length) { list.innerHTML = '<div class="empty"><span class="ico">🏢</span>Nenhuma empresa cadastrada.</div>'; return; }
+
+  // Pré-descriptografa todos os CNPJs
+  const cnpjMap = {};
+  await Promise.all(empresas.map(async e => {
+    const raw = e.cnpj_enc || e.cnpj || '';
+    cnpjMap[e.id] = raw ? await cryptoDecrypt(raw) : '';
+  }));
+
+  list.innerHTML = empresas.map(e => {
+    const allUsers = Array.isArray(_cache['ef_users']) ? _cache['ef_users'] : [];
+    const numUsers = allUsers.filter(u => (u.empresas || []).includes(e.id)).length;
+    const numFunc  = (Array.isArray(_cache['ef_func_' + e.id]) ? _cache['ef_func_' + e.id] : []).length;
+    const cnpjDisplay = cnpjMap[e.id] ? `<span style="color:var(--green);font-size:10px">🔒</span> CNPJ: ${cnpjMap[e.id]} — ` : '';
+    return `
+    <div class="user-item">
+      <div style="flex:1;min-width:0">
+        <div class="uname">🏢 ${e.nome}</div>
+        <div class="urole">${cnpjDisplay}${numFunc} funcionário(s) · ${numUsers} usuário(s)</div>
+        ${e.end ? `<div style="font-size:11px;color:var(--text-dim);margin-top:2px">📍 ${e.end}</div>` : ''}
+      </div>
+      <div class="act-row">
+        <button class="btn btn-ghost btn-sm" onclick="openEmpresaModal('${e.id}')">✏️ Editar</button>
+        <button class="btn btn-danger" onclick="delEmpresa('${e.id}')">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openEmpresaModal(id) {
+  editEmpId = id || null;
+  const isEd = !!id;
+  document.getElementById('me-title').textContent = isEd ? 'Editar Empresa' : 'Nova Empresa';
+  const cnpjErr = document.getElementById('emp-cnpj-err');
+  if (cnpjErr) cnpjErr.style.display = 'none';
+  if (isEd) {
+    const e = gEmpresas().find(x => x.id === id);
+    if (!e) return;
+    document.getElementById('emp-nome').value = e.nome;
+    document.getElementById('emp-end').value  = e.end  || '';
+    // Decrypt CNPJ
+    const cnpjEl = document.getElementById('emp-cnpj');
+    cnpjEl.value = '';
+    const raw = e.cnpj_enc || e.cnpj || '';
+    if (raw) {
+      cryptoDecrypt(raw).then(v => { cnpjEl.value = v; });
+    }
+  } else {
+    ['emp-nome','emp-cnpj','emp-end'].forEach(i => document.getElementById(i).value = '');
+  }
+  document.getElementById('modal-empresa').classList.add('open');
+}
+
+async function saveEmpresa() {
+  const nome    = document.getElementById('emp-nome').value.trim();
+  const cnpjRaw = document.getElementById('emp-cnpj').value.trim();
+  const end     = document.getElementById('emp-end').value.trim();
+  if (!nome) { toast('Informe o nome da empresa.', 'er'); return; }
+
+  // Validação CNPJ (se preenchido)
+  if (cnpjRaw) {
+    if (!validarCNPJ(cnpjRaw)) {
+      const err = document.getElementById('emp-cnpj-err');
+      if (err) err.style.display = '';
+      toast('CNPJ inválido. Verifique os dígitos.', 'er'); return;
+    }
+  }
+
+  // Criptografa CNPJ
+  const cnpj_enc = cnpjRaw ? await cryptoEncrypt(cnpjRaw) : '';
+
+  const empresas = gEmpresas();
+  if (editEmpId) {
+    const idx = empresas.findIndex(e => e.id === editEmpId);
+    if (idx >= 0) {
+      empresas[idx].nome     = nome;
+      empresas[idx].cnpj_enc = cnpj_enc;
+      empresas[idx].cnpj     = '';   // limpa campo legado
+      empresas[idx].end      = end;
+    }
+  } else {
+    const newId = uid();
+    empresas.push({ id: newId, nome, cnpj_enc, cnpj: '', end });
+    // Inicializa estrutura de dados da nova empresa
+    _cache['ef_func_' + newId] = [];
+    _cache['ef_fer_'  + newId] = [];
+    _cache['ef_esc_'  + newId] = {};
+  }
+  sEmpresas(empresas);
+  closeMod('modal-empresa');
+  rEmpresas();
+  toast(editEmpId ? 'Empresa atualizada!' : 'Empresa criada!', 'ok');
+}
+
+function delEmpresa(id) {
+  const e = gEmpresas().find(x => x.id === id);
+  if (!e) return;
+  if (!confirm(`Remover a empresa "${e.nome}"? Todos os dados (funcionários, escala, feriados) serão perdidos.`)) return;
+  const empresas = gEmpresas().filter(x => x.id !== id);
+  delete _cache['ef_func_' + id];
+  delete _cache['ef_fer_'  + id];
+  delete _cache['ef_esc_'  + id];
+  // Remove empresa dos usuários
+  if (Array.isArray(_cache['ef_users'])) {
+    _cache['ef_users'] = _cache['ef_users'].map(u => {
+      u.empresas = (u.empresas || []).filter(eid => eid !== id);
+      return u;
+    });
+  }
+  _cache['ef_empresas'] = empresas;
+  _persistir();
+  rEmpresas();
+  toast('Empresa removida.', 'in');
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -1818,14 +3717,11 @@ function toast(msg, type = 'in') {
 //  INIT
 // ══════════════════════════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', async function() {
-  // Carrega dados do localStorage (migração de chaves individuais) antes do seed
   _carregarLocalStorage();
 
-  // Garante tipos corretos
-  if (!Array.isArray(_cache['ef_func']))  _cache['ef_func']  = [];
-  if (!Array.isArray(_cache['ef_fer']))   _cache['ef_fer']   = [];
-  if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-  if (typeof _cache['ef_esc'] !== 'object' || Array.isArray(_cache['ef_esc'])) _cache['ef_esc'] = {};
+  // Garante tipos mínimos
+  if (!Array.isArray(_cache['ef_empresas'])) _cache['ef_empresas'] = [];
+  if (!Array.isArray(_cache['ef_users']))    _cache['ef_users']    = [];
 
   // Aplica seed (só preenche se estiver vazio)
   seed();
