@@ -239,5 +239,52 @@
   "ef_esc_bwckt2zfe8smo7fj6wx": {},
   "ef_func_r4757ib3oimo7fjujy": [],
   "ef_fer_r4757ib3oimo7fjujy": [],
-  "ef_esc_r4757ib3oimo7fjujy": {}
+  "ef_esc_r4757ib3oimo7fjujy": {},
+  "ef_disc_rules": [
+    {
+      "tipo": "advertencia",
+      "label": "1ª Advertência",
+      "diasSusp": 0,
+      "descricao": "Primeira falta injustificada — advertência escrita."
+    },
+    {
+      "tipo": "advertencia",
+      "label": "2ª Advertência",
+      "diasSusp": 0,
+      "descricao": "Segunda falta injustificada — advertência com confirmação."
+    },
+    {
+      "tipo": "advertencia",
+      "label": "3a Advertencia",
+      "diasSusp": 0,
+      "descricao": "Terceira falta injustificada"
+    },
+    {
+      "tipo": "suspensao",
+      "label": "Suspensão (1 dia)",
+      "diasSusp": 1,
+      "descricao": "Quarta falta — suspensão disciplinar de 1 dia."
+    },
+    {
+      "tipo": "suspensao",
+      "label": "Suspensão (3 dias)",
+      "diasSusp": 3,
+      "descricao": "Quinta falta — suspensão disciplinar de 3 dias."
+    },
+    {
+      "tipo": "suspensao",
+      "label": "Suspensão (5 dias)",
+      "diasSusp": 5,
+      "descricao": "Sexta falta — suspensão disciplinar de 5 dias."
+    },
+    {
+      "tipo": "justa_causa",
+      "label": "Justa Causa",
+      "diasSusp": 0,
+      "descricao": "Setima falta ou mais — demissão por justa causa (art. 482 CLT)."
+    }
+  ],
+  "ef_disc_hist__hj32odcoctbmo68w41z": [],
+  "ef_disc_hist__duoge3a3amjmo68w41z": [],
+  "ef_disc_hist__5j7i8eu9ncmmo68w41z": []
 }
