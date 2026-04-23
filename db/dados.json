@@ -276,6 +276,21 @@
       "desl": null,
       "cpf_enc": "",
       "rg_enc": ""
+    },
+    {
+      "id": "rdpv2yuy8gcmoatnv0w",
+      "nome": "DEYVILLA RUANA MODESTO DANTAS",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2026-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-01-01",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
     }
   ],
   "ef_fer_eedtw85lb7hmo7fioa1": [],
