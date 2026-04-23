@@ -201,7 +201,23 @@
       "end": "Rua Tenente Avelar, 81"
     }
   ],
-  "ef_func_eedtw85lb7hmo7fioa1": [],
+  "ef_func_eedtw85lb7hmo7fioa1": [
+    {
+      "id": "hx777n38rtmoat8462",
+      "nome": "ALINE SILVA DA COSTA",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2026-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-01-01",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
+    }
+  ],
   "ef_fer_eedtw85lb7hmo7fioa1": [],
   "ef_esc_eedtw85lb7hmo7fioa1": {},
   "ef_func_bwckt2zfe8smo7fj6wx": [],
