@@ -293,11 +293,41 @@
       "rg_enc": ""
     },
     {
-      "id": "tnnh8gw58o8moatrhvn",
+      "id": "yenu7rdsjrmoatqkwl",
       "nome": "MOISES OLIVEIRA PLATERO",
       "vtH": [
         {
           "vt": 15.4,
+          "desde": "2026-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-01-01",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
+    },
+    {
+      "id": "ds983es1kwimoats3pu",
+      "nome": "SÔNIA MARIA DOS SANTOS",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2026-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-01-01",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
+    },
+    {
+      "id": "v3aujtks4cbmoatskxn",
+      "nome": "VALDINEIA NASCIMENTO CHAGAS",
+      "vtH": [
+        {
+          "vt": 12.2,
           "desde": "2026-01-01"
         }
       ],
