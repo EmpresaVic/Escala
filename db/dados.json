@@ -150,12 +150,18 @@
       "senha": "super123",
       "nome": "Super Admin",
       "perfil": "admin",
-      "empresas": [],
+      "empresas": [
+        "eedtw85lb7hmo7fioa1",
+        "bwckt2zfe8smo7fj6wx",
+        "r4757ib3oimo7fjujy"
+      ],
       "perms": [
         "dashboard",
         "funcionarios",
         "escala",
         "feriados",
+        "disciplinar",
+        "conduta",
         "usuarios"
       ]
     },
@@ -208,6 +214,21 @@
       ],
       "empresas": [
         "bwckt2zfe8smo7fj6wx"
+      ]
+    },
+    {
+      "id": "4w9isl4voq7moaqk0vf",
+      "login": "super",
+      "senha": "super123",
+      "nome": "Super Admin",
+      "perfil": "superadmin",
+      "empresas": [],
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "usuarios"
       ]
     }
   ],
