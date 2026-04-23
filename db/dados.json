@@ -291,6 +291,21 @@
       "desl": null,
       "cpf_enc": "",
       "rg_enc": ""
+    },
+    {
+      "id": "yenu7rdsjrmoatqkwl",
+      "nome": "MOISES OLIVEIRA PLATERO",
+      "vtH": [
+        {
+          "vt": 15.4,
+          "desde": "2026-01-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-01-01",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
     }
   ],
   "ef_fer_eedtw85lb7hmo7fioa1": [],
