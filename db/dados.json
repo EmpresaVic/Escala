@@ -153,11 +153,7 @@
       "senha": "super123",
       "nome": "Super Admin",
       "perfil": "admin",
-      "empresas": [
-        "eedtw85lb7hmo7fioa1",
-        "bwckt2zfe8smo7fj6wx",
-        "r4757ib3oimo7fjujy"
-      ],
+      "empresas": [],
       "perms": [
         "dashboard",
         "funcionarios",
