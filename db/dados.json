@@ -308,7 +308,22 @@
       "descricao": "Setima falta ou mais — demissão por justa causa (art. 482 CLT)."
     }
   ],
-  "ef_disc_hist__hj32odcoctbmo68w41z": [],
+  "ef_disc_hist__hj32odcoctbmo68w41z": [
+    {
+      "registrado": true,
+      "tipo": "advertencia",
+      "label": "Advertência (1ª)",
+      "diasSusp": 0,
+      "data": "22/04/2026",
+      "mesRef": "Abril/2026",
+      "dias": [
+        4,
+        16,
+        19
+      ],
+      "obs": ""
+    }
+  ],
   "ef_disc_hist__duoge3a3amjmo68w41z": [],
   "ef_disc_hist__5j7i8eu9ncmmo68w41z": [],
   "ef_regras_op": [
