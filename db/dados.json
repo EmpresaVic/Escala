@@ -370,7 +370,12 @@
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
   "ef_esc_bwckt2zfe8smo7fj6wx": {},
   "ef_func_r4757ib3oimo7fjujy": [],
-  "ef_fer_r4757ib3oimo7fjujy": [],
+  "ef_fer_r4757ib3oimo7fjujy": [
+    {
+      "data": "2026-04-03",
+      "nome": "Paixão de Cristo"
+    }
+  ],
   "ef_esc_r4757ib3oimo7fjujy": {},
   "ef_disc_rules": [
     {
