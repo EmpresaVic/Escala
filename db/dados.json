@@ -119,7 +119,7 @@
     {
       "id": "oh6wpq7npxmo7flfsz",
       "login": "victrus",
-      "senha": "123",
+      "senha": "victrus123",
       "nome": "victrus",
       "perfil": "admin",
       "perms": [
@@ -129,8 +129,7 @@
         "escala",
         "feriados",
         "disciplinar",
-        "conduta",
-        "usuarios"
+        "conduta"
       ],
       "empresas": [
         "r4757ib3oimo7fjujy"
