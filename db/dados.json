@@ -129,11 +129,10 @@
       "login": "victrus",
       "senha": "victrus123",
       "nome": "victrus",
-      "perfil": "admin",
+      "perfil": "gerente",
       "perms": [
         "dashboard",
         "funcionarios",
-        "setores",
         "escala",
         "feriados",
         "disciplinar",
