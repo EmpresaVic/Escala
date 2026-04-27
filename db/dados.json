@@ -117,9 +117,9 @@
     {
       "id": "oh6wpq7npxmo7flfsz",
       "login": "victrus",
-      "senha": "victrus123",
+      "senha": "123",
       "nome": "victrus",
-      "perfil": "admin",
+      "perfil": "gerente",
       "perms": [
         "dashboard",
         "funcionarios",
