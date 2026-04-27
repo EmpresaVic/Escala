@@ -539,7 +539,9 @@
       "nome": "Corpus Christi"
     }
   ],
-  "ef_esc_r4757ib3oimo7fjujy": {},
+  "ef_esc_r4757ib3oimo7fjujy": {
+    "pce8rvemctmohlm4m2_202604_8": "atestado"
+  },
   "ef_disc_rules": [
     {
       "tipo": "advertencia",
