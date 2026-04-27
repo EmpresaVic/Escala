@@ -361,6 +361,21 @@
       "desl": null,
       "cpf_enc": "",
       "rg_enc": ""
+    },
+    {
+      "id": "gw23o34k41vmohp300e",
+      "nome": "RICHEL",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2026-04-13"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-04-13",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
     }
   ],
   "ef_fer_eedtw85lb7hmo7fioa1": [
