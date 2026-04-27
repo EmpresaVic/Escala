@@ -369,7 +369,23 @@
   "ef_func_bwckt2zfe8smo7fj6wx": [],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
   "ef_esc_bwckt2zfe8smo7fj6wx": {},
-  "ef_func_r4757ib3oimo7fjujy": [],
+  "ef_func_r4757ib3oimo7fjujy": [
+    {
+      "id": "95o9tyf3clvmohlhpcr",
+      "nome": "ANDREZA POLIS BISPO DA SILVA",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-07-03"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2025-07-03",
+      "desl": null,
+      "cpf_enc": "Nc0/z1L1FuJQE6l3OXnxH82sJ6nq82uRMmUFfZY1q4ewFvcQmFL+CDLy",
+      "rg_enc": ""
+    }
+  ],
   "ef_fer_r4757ib3oimo7fjujy": [
     {
       "data": "2026-04-03",
