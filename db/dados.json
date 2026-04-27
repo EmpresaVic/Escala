@@ -121,7 +121,7 @@
       "login": "victrus",
       "senha": "123",
       "nome": "victrus",
-      "perfil": "gerente",
+      "perfil": "admin",
       "perms": [
         "dashboard",
         "funcionarios",
@@ -129,7 +129,8 @@
         "escala",
         "feriados",
         "disciplinar",
-        "conduta"
+        "conduta",
+        "usuarios"
       ],
       "empresas": [
         "r4757ib3oimo7fjujy"
