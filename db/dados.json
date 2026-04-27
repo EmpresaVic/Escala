@@ -363,7 +363,12 @@
       "rg_enc": ""
     }
   ],
-  "ef_fer_eedtw85lb7hmo7fioa1": [],
+  "ef_fer_eedtw85lb7hmo7fioa1": [
+    {
+      "data": "2026-05-01",
+      "nome": "Dia do trabalho"
+    }
+  ],
   "ef_esc_eedtw85lb7hmo7fioa1": {},
   "ef_func_bwckt2zfe8smo7fj6wx": [],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
