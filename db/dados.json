@@ -102,7 +102,7 @@
       "login": "super",
       "senha": "super123",
       "nome": "Super Admin",
-      "perfil": "admin",
+      "perfil": "superadmin",
       "empresas": [],
       "perms": [
         "dashboard",
@@ -117,14 +117,17 @@
     {
       "id": "oh6wpq7npxmo7flfsz",
       "login": "victrus",
-      "senha": "123",
+      "senha": "victrus123",
       "nome": "victrus",
-      "perfil": "gerente",
+      "perfil": "admin",
       "perms": [
         "dashboard",
         "funcionarios",
+        "setores",
         "escala",
         "feriados",
+        "disciplinar",
+        "conduta",
         "usuarios"
       ],
       "empresas": [
