@@ -94,9 +94,17 @@
       "perms": [
         "dashboard",
         "funcionarios",
+        "setores",
         "escala",
         "feriados",
+        "disciplinar",
+        "conduta",
         "usuarios"
+      ],
+      "empresas": [
+        "eedtw85lb7hmo7fioa1",
+        "bwckt2zfe8smo7fj6wx",
+        "r4757ib3oimo7fjujy"
       ]
     },
     {
