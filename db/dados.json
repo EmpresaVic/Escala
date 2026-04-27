@@ -10,10 +10,12 @@
         }
       ],
       "status": "ativo",
-      "adm": "2026-04-23",
+      "adm": "2025-12-23",
       "desl": null,
       "cpf_enc": "",
-      "rg_enc": ""
+      "rg_enc": "",
+      "nasc": null,
+      "setor": null
     }
   ],
   "ef_esc": {
