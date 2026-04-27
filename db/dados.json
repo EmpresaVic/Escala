@@ -376,6 +376,21 @@
       "desl": null,
       "cpf_enc": "",
       "rg_enc": ""
+    },
+    {
+      "id": "pdpm1tisahmohp4tek",
+      "nome": "DEYVILLA DANTAS",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-08-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2025-08-01",
+      "desl": null,
+      "cpf_enc": "",
+      "rg_enc": ""
     }
   ],
   "ef_fer_eedtw85lb7hmo7fioa1": [
