@@ -700,6 +700,25 @@
           "diasSusp": 1
         }
       ]
+    },
+    {
+      "id": "3xyzu37b4wbmohw962j",
+      "nome": "Desacato",
+      "descricao": "desacato ao superior",
+      "etapas": [
+        {
+          "tipo": "suspensao",
+          "label": "Suspensão (1 dia)",
+          "descricao": "Terceira ocorrência — suspensão de 1 dia.",
+          "diasSusp": 1
+        },
+        {
+          "tipo": "demissao",
+          "label": "Demissão por Justa Causa",
+          "descricao": "Reincidência — demissão por justa causa.",
+          "diasSusp": 1
+        }
+      ]
     }
   ]
 }
