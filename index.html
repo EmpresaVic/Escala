@@ -169,6 +169,8 @@ tr:last-child td { border-bottom: none; }
 .cs-falta { background: rgba(192,74,58,.15) !important; color: var(--red); }
 .cs-extra { background: rgba(122,74,154,.15) !important; color: var(--purple); }
 .cs-susp  { background: rgba(80,20,80,.18)   !important; color: #7a1a7a; }
+.cs-ferias { background: rgba(20,140,80,.18) !important; color: #0e7a46; }
+.cs-licmat { background: rgba(200,80,160,.18) !important; color: #b0338a; }
 
 /* ── DASHBOARD CHARTS ──────────────────────────────────────────────── */
 .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
@@ -306,6 +308,9 @@ tr.inativo td { opacity: .55; }
 .conduta-penalty-row { display:flex; align-items:center; gap:8px; margin-top:8px; }
 .conduta-penalty-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
 .conduta-hist-item { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; border:1px solid var(--border); border-radius:8px; margin-bottom:8px; background:var(--surface); }
+.b-atendimento { background:rgba(58,111,152,.12); color:var(--blue); }
+.b-cozinha     { background:rgba(196,106,32,.12); color:var(--orange); }
+.b-gestao      { background:rgba(58,122,74,.12);  color:var(--green); }
 .b-conduta { background:rgba(192,74,58,.12); color:var(--red); }
 .b-conduta-susp { background:rgba(80,20,80,.12); color:#7a1a7a; }
 .b-conduta-demissao { background:rgba(80,10,10,.15); color:#a01010; }
@@ -460,20 +465,71 @@ tr.inativo td { opacity: .55; }
   <!-- FUNCIONÁRIOS -->
   <div class="page" id="page-funcionarios">
     <div class="page-title">Funcionários</div>
-    <div class="page-sub">Cadastro, histórico de VT e desligamento</div>
+    <div class="page-sub">Cadastro, histórico de VT e dados do colaborador</div>
     <div class="card">
       <div class="card-header">
         <div class="card-title" style="margin-bottom:0">Cadastro</div>
-        <button class="btn btn-gold" onclick="openFuncModal()">+ Novo Funcionário</button>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <select id="func-filtro-setor" onchange="rfunc()" style="font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;cursor:pointer;">
+            <option value="">Todos os Setores</option>
+          </select>
+          <select id="func-filtro-status" onchange="rfunc()" style="font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;cursor:pointer;">
+            <option value="">Todos os Status</option>
+            <option value="ativo">Ativos</option>
+            <option value="inativo">Inativos</option>
+          </select>
+          <button class="btn btn-gold" onclick="openFuncModal()">+ Novo Funcionário</button>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th>Nome</th><th>CPF 🔒</th><th>RG 🔒</th><th>VT Vigente</th><th>Status</th><th>Admissão</th><th>Desligamento</th><th>Ações</th>
+            <th>Nome</th><th>CPF 🔒</th><th>Nascimento</th><th>Setor</th><th>Status</th><th>Admissão</th><th>VT/dia</th><th>Ações</th>
           </tr></thead>
           <tbody id="func-tbody"></tbody>
         </table>
       </div>
+    </div>
+  </div>
+
+  <!-- SETORES -->
+  <div class="page" id="page-setores">
+    <div class="page-title">🏷️ Setores</div>
+    <div class="page-sub">Gerencie os setores da empresa (Atendimento, Cozinha e Gestão)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+      <div class="card">
+        <div class="card-title" id="setor-form-title">Novo Setor</div>
+        <div class="field"><label>Nome do Setor</label><input type="text" id="s-nome" placeholder="Ex: Atendimento"></div>
+        <div class="field">
+          <label>Ícone (emoji)</label>
+          <input type="text" id="s-icone" placeholder="🛎️" maxlength="4" style="font-size:22px;width:80px;text-align:center;">
+        </div>
+        <div class="field">
+          <label>Cor</label>
+          <select id="s-cor">
+            <option value="blue">🔵 Azul — Atendimento</option>
+            <option value="orange">🟠 Laranja — Cozinha</option>
+            <option value="green">🟢 Verde — Gestão</option>
+            <option value="gold">🟡 Dourado</option>
+            <option value="red">🔴 Vermelho</option>
+            <option value="teal">🟦 Teal</option>
+            <option value="purple">🟣 Roxo</option>
+          </select>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-gold" onclick="saveSetor()">💾 Salvar</button>
+          <button class="btn btn-ghost" onclick="cancelSetor()">Cancelar</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Setores Cadastrados</div>
+        <div id="setor-list"></div>
+      </div>
+    </div>
+    <!-- Stats por setor -->
+    <div class="card" style="margin-top:20px">
+      <div class="card-title">Funcionários por Setor</div>
+      <div id="setor-stats"></div>
     </div>
   </div>
 
@@ -499,6 +555,8 @@ tr.inativo td { opacity: .55; }
         <span class="leg-item"><span class="leg-dot" style="background:rgba(192,74,58,.15);border:1px solid var(--red)"></span>Falta</span>
         <span class="leg-item"><span class="leg-dot" style="background:rgba(80,20,80,.18);border:1px solid #7a1a7a"></span>Suspensão</span>
         <span class="leg-item"><span class="leg-dot" style="background:rgba(122,74,154,.15);border:1px solid var(--purple)"></span>Dom/Fer Trab.</span>
+        <span class="leg-item"><span class="leg-dot" style="background:rgba(20,140,80,.18);border:1px solid #0e7a46"></span>FE — Férias</span>
+        <span class="leg-item"><span class="leg-dot" style="background:rgba(200,80,160,.18);border:1px solid #b0338a"></span>LM — Lic. Maternidade</span>
       </div>
       <div id="print-hd" class="print-top" style="display:none"></div>
       <div class="escala-wrap">
@@ -734,9 +792,12 @@ tr.inativo td { opacity: .55; }
         <input type="text" id="f-cpf" placeholder="000.000.000-00" maxlength="14" oninput="maskCPF(this)">
         <span id="f-cpf-err" style="font-size:11px;color:var(--red);display:none">CPF inválido</span>
       </div>
+      <div class="field"><label>Data de Nascimento</label><input type="date" id="f-nasc"></div>
       <div class="field">
-        <label>RG <span style="color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0">(🔒 criptografado)</span></label>
-        <input type="text" id="f-rg" placeholder="00.000.000-0" maxlength="12" oninput="maskRG(this)">
+        <label>Setor</label>
+        <select id="f-setor">
+          <option value="">— Não definido —</option>
+        </select>
       </div>
       <div class="field"><label>VT por Dia (R$)</label><input type="number" id="f-vt" step="0.01" placeholder="12.20"></div>
       <div class="field"><label>Admissão</label><input type="date" id="f-admissao"></div>
@@ -911,8 +972,50 @@ tr.inativo td { opacity: .55; }
   <div class="cmenu-item" id="cm-susp" onclick="applyCell('susp')">
     <div class="cmenu-dot" style="background:rgba(80,20,80,.18);border:1px solid #7a1a7a"></div>Suspensão
   </div>
+  <div class="cmenu-item" id="cm-ferias" onclick="openIndicadorModal('ferias')">
+    <div class="cmenu-dot" style="background:rgba(20,140,80,.18);border:1px solid #0e7a46"></div>FE — Férias
+  </div>
+  <div class="cmenu-item" id="cm-licmat" onclick="openIndicadorModal('licmat')">
+    <div class="cmenu-dot" style="background:rgba(200,80,160,.18);border:1px solid #b0338a"></div>LM — Licença Maternidade
+  </div>
   <div class="cmenu-item" id="cm-extra" onclick="applyCell('extra')" style="display:none">
     <div class="cmenu-dot" style="background:rgba(122,74,154,.15);border:1px solid var(--purple)"></div>Trabalhou (Dom/Feriado)
+  </div>
+</div>
+
+<!-- ══════════════ MODAL INDICADOR FE / LM ══════════════ -->
+<div class="modal-bd" id="modal-indicador">
+  <div class="modal" style="width:480px">
+    <div class="modal-hd">
+      <h3 id="indicador-titulo">Férias</h3>
+      <button class="modal-x" onclick="closeMod('modal-indicador')">×</button>
+    </div>
+    <div id="indicador-info" style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:13px;color:var(--text-dim);line-height:1.6;"></div>
+    <div style="display:flex;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 16px;margin-bottom:16px;">
+      <span style="font-size:18px">👤</span>
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">Funcionário</div>
+        <div id="indicador-func-nome" style="font-weight:700;font-size:14px;color:var(--cream);">—</div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Data de Início</label>
+        <input type="date" id="indicador-inicio" onchange="calcIndicadorFim()">
+      </div>
+      <div class="field">
+        <label>Data de Fim (calculada)</label>
+        <input type="date" id="indicador-fim" readonly style="opacity:.7;cursor:not-allowed;">
+      </div>
+    </div>
+    <div id="indicador-preview" style="margin:10px 0 6px;font-size:12px;color:var(--text-dim);min-height:20px;"></div>
+    <div style="background:rgba(196,106,32,.08);border:1px solid rgba(196,106,32,.3);border-radius:8px;padding:12px 16px;font-size:12px;color:var(--orange);margin-bottom:4px;">
+      ⚠️ O valor do Vale Transporte será zerado em todos os dias marcados com este indicador.
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-ghost" onclick="closeMod('modal-indicador')">Cancelar</button>
+      <button class="btn btn-gold" id="indicador-confirmar" onclick="aplicarIndicador()">✓ Aplicar</button>
+    </div>
   </div>
 </div>
 
@@ -953,7 +1056,7 @@ tr.inativo td { opacity: .55; }
     <div class="field"><label>Branch</label><input type="text" id="gh-branch" placeholder="main"></div>
     <div class="field"><label>Token (ghp_...)</label><input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxx"></div>
     <div style="margin-bottom:16px;">
-      <span id="gh-test-status" style="font-size:12px;"></span>
+      <div id="gh-test-status" style="font-size:12px;line-height:1.6;padding:0 2px;word-break:break-word;min-height:18px;"></div>
     </div>
     <div class="btn-row">
       <button class="btn btn-gold" onclick="salvarGHConfig()">✓ Salvar e Conectar</button>
@@ -1125,6 +1228,16 @@ const gE   = () => { const d = _cache[_ek('ef_esc')];   return (d && typeof d ==
 const sE   = (d, cb) => DB.set(_ek('ef_esc'), d, cb);
 const gFer = () => { const d = _cache[_ek('ef_fer')];   return Array.isArray(d) ? JSON.parse(JSON.stringify(d))  : []; };
 const sFer = (d, cb) => DB.set(_ek('ef_fer'), d, cb);
+const gSetores = () => {
+  const d = _cache[_ek('ef_setores')];
+  if (Array.isArray(d) && d.length) return JSON.parse(JSON.stringify(d));
+  return [
+    { id: 'atendimento', nome: 'Atendimento', cor: 'blue',   icone: '🛎️' },
+    { id: 'cozinha',     nome: 'Cozinha',     cor: 'orange', icone: '👨‍🍳' },
+    { id: 'gestao',      nome: 'Gestão',      cor: 'green',  icone: '📊' },
+  ];
+};
+const sSetores = (d, cb) => DB.set(_ek('ef_setores'), d, cb);
 const gU   = () => {
   const allUsers = Array.isArray(_cache['ef_users']) ? JSON.parse(JSON.stringify(_cache['ef_users'])) : [];
   // Super-admin vê todos; usuários normais só da empresa atual
@@ -1153,47 +1266,101 @@ const GH = {
     return { 'Authorization': 'token ' + c.token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
   },
   read: async function() {
+    var c = GH.getCfg();
+    var resp;
     try {
-      var resp = await fetch(GH._url(), { headers: GH._headers() });
-      if (resp.status === 404) return { content: null, sha: null };
-      if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      var data = await resp.json();
-      var rawB64 = (data.content || '').replace(/\n/g,'').trim();
-      if (!rawB64) return { content: null, sha: data.sha };
-      var json = '';
-      try { json = decodeURIComponent(escape(atob(rawB64))); } catch(e) { json = atob(rawB64); }
-      json = json.trim();
-      if (!json) return { content: null, sha: data.sha };
-      var parsed = null;
-      try { parsed = JSON.parse(json); } catch(e) { return { content: null, sha: data.sha }; }
-      return { content: parsed, sha: data.sha };
-    } catch(e) { console.error('GH read error:', e); throw e; }
+      resp = await fetch(GH._url(), { headers: GH._headers() });
+    } catch(e) {
+      var netMsg = 'Falha de rede ao conectar ao GitHub ('+ e.message +'). '
+        + 'Verifique: conexao com a internet, VPN/firewall bloqueando api.github.com, ou repositorio inexistente: '
+        + c.user + '/' + c.repo;
+      console.error('GH read — rede:', e);
+      throw new Error(netMsg);
+    }
+    if (resp.status === 401) {
+      throw new Error('Token invalido ou expirado (HTTP 401). Gere um novo token em: github.com > Settings > Developer settings > Personal access tokens. O token precisa ter permissao "repo".');
+    }
+    if (resp.status === 403) {
+      var body403 = await resp.json().catch(function(){ return {}; });
+      throw new Error('Acesso negado pelo GitHub (HTTP 403). ' + (body403.message || 'Verifique se o token tem permissao de leitura e se nao atingiu o rate limit da API.'));
+    }
+    if (resp.status === 404) return { content: null, sha: null };
+    if (resp.status === 409) {
+      throw new Error('Conflito de versao no GitHub (HTTP 409). O arquivo foi modificado por outro dispositivo. Recarregue a pagina para sincronizar.');
+    }
+    if (resp.status === 422) {
+      throw new Error('Dados invalidos enviados ao GitHub (HTTP 422). Verifique repositorio e branch: ' + c.user + '/' + c.repo + ' (branch: ' + c.branch + ')');
+    }
+    if (resp.status === 429) {
+      throw new Error('Limite de requisicoes da API GitHub atingido (HTTP 429 - Rate Limit). Aguarde alguns minutos e tente novamente.');
+    }
+    if (!resp.ok) {
+      var bodyGen = await resp.json().catch(function(){ return {}; });
+      throw new Error('Erro do GitHub (HTTP ' + resp.status + '): ' + (bodyGen.message || resp.statusText || 'Erro desconhecido'));
+    }
+    var data = await resp.json();
+    var rawB64 = (data.content || '').replace(/\n/g,'').trim();
+    if (!rawB64) return { content: null, sha: data.sha };
+    var json = '';
+    try { json = decodeURIComponent(escape(atob(rawB64))); } catch(e) { json = atob(rawB64); }
+    json = json.trim();
+    if (!json) return { content: null, sha: data.sha };
+    var parsed = null;
+    try { parsed = JSON.parse(json); } catch(e) {
+      console.error('GH read - JSON invalido:', e);
+      return { content: null, sha: data.sha };
+    }
+    return { content: parsed, sha: data.sha };
   },
   write: async function(dados, sha) {
     var c = GH.getCfg();
     var json = JSON.stringify(dados, null, 2);
     var b64;
     try { b64 = btoa(unescape(encodeURIComponent(json))); } catch(e) { b64 = btoa(json); }
-    var body = { message: 'Atualização automática — ' + new Date().toLocaleString('pt-BR'), content: b64, branch: c.branch };
+    var body = { message: 'Atualizacao automatica - ' + new Date().toLocaleString('pt-BR'), content: b64, branch: c.branch };
     if (sha) body.sha = sha;
-    var resp = await fetch('https://api.github.com/repos/' + c.user + '/' + c.repo + '/contents/' + GH_FILE,
-      { method: 'PUT', headers: GH._headers(), body: JSON.stringify(body) });
+    var resp;
+    try {
+      resp = await fetch('https://api.github.com/repos/' + c.user + '/' + c.repo + '/contents/' + GH_FILE,
+        { method: 'PUT', headers: GH._headers(), body: JSON.stringify(body) });
+    } catch(e) {
+      throw new Error('Falha de rede ao salvar no GitHub (' + e.message + '). Dado salvo apenas localmente.');
+    }
     if (!resp.ok) {
-      var err = await resp.json().catch(function(){ return {}; });
-      throw new Error((err.message || 'Erro ao salvar') + ' (HTTP ' + resp.status + ')');
+      var errBody = await resp.json().catch(function(){ return {}; });
+      var hint = '';
+      if (resp.status === 401) hint = ' — Token invalido ou expirado.';
+      else if (resp.status === 409) hint = ' — Conflito: outro dispositivo modificou o arquivo. Recarregue a pagina.';
+      else if (resp.status === 422) hint = ' — SHA desatualizado. Recarregue a pagina e tente novamente.';
+      throw new Error((errBody.message || 'Erro ao salvar') + ' (HTTP ' + resp.status + ')' + hint);
     }
     var result = await resp.json();
     return result.content.sha;
   },
   test: async function() {
+    var c = GH.getCfg();
+    var resp;
     try {
-      var c = GH.getCfg();
-      var resp = await fetch('https://api.github.com/repos/' + c.user + '/' + c.repo, { headers: GH._headers() });
-      if (resp.status === 401) return { ok: false, msg: 'Token inválido ou sem permissão.' };
-      if (resp.status === 404) return { ok: false, msg: 'Repositório não encontrado.' };
-      if (!resp.ok) return { ok: false, msg: 'Erro HTTP ' + resp.status };
-      return { ok: true, msg: 'Conectado com sucesso!' };
-    } catch(e) { return { ok: false, msg: 'Erro de rede: ' + e.message }; }
+      resp = await fetch('https://api.github.com/repos/' + c.user + '/' + c.repo, { headers: GH._headers() });
+    } catch(e) {
+      return { ok: false, msg: 'Falha de rede: nao foi possivel alcançar api.github.com (' + e.message + '). Verifique sua conexao, VPN ou firewall.' };
+    }
+    if (resp.status === 401) return { ok: false, msg: 'Token invalido ou expirado (HTTP 401). Gere um novo token em github.com > Settings > Developer settings > Personal access tokens. O token precisa ter escopo "repo".' };
+    if (resp.status === 403) {
+      var b = await resp.json().catch(function(){ return {}; });
+      return { ok: false, msg: 'Acesso negado (HTTP 403): ' + (b.message || 'Verifique as permissoes do token.') };
+    }
+    if (resp.status === 404) return { ok: false, msg: 'Repositorio nao encontrado (HTTP 404). Verifique: usuario "' + c.user + '" e repositorio "' + c.repo + '" (case-sensitive).' };
+    if (resp.status === 429) return { ok: false, msg: 'Rate limit atingido (HTTP 429). Aguarde alguns minutos.' };
+    if (!resp.ok) return { ok: false, msg: 'Erro HTTP ' + resp.status + '. Tente novamente.' };
+    var branchResp;
+    try {
+      branchResp = await fetch('https://api.github.com/repos/' + c.user + '/' + c.repo + '/branches/' + c.branch, { headers: GH._headers() });
+    } catch(e) { branchResp = null; }
+    if (branchResp && branchResp.status === 404) {
+      return { ok: false, msg: 'Branch "' + c.branch + '" nao encontrada no repositorio. Verifique o nome (ex: main ou master).' };
+    }
+    return { ok: true, msg: 'Conectado com sucesso! Repositorio ' + c.user + '/' + c.repo + ' (branch: ' + c.branch + ').' };
   }
 };
 
@@ -1225,18 +1392,22 @@ const DB = {
     if (!Array.isArray(_cache['ef_empresas'])) _cache['ef_empresas'] = [];
     if (!Array.isArray(_cache['ef_users']))    _cache['ef_users']    = [];
     // Garante que o usuário super sempre existe após carregar dados
-    var superOk = _cache['ef_users'].some(function(u){ return u.login === 'super' && u.perfil === 'superadmin'; });
-    if (!superOk) {
-      _cache['ef_users'].push({ id: (Math.random().toString(36).slice(2) + Date.now().toString(36)), login: 'super', senha: 'super123', nome: 'Super Admin', perfil: 'superadmin', empresas: [], perms: ['dashboard','funcionarios','escala','feriados','usuarios'] });
-    }
+    // Garante e corrige o usuário super (perfil, senha e nome)
+    _garantirSuperUser();
     if (callback) callback(null);
   }
 };
 
 function _garantirSuperUser() {
   if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-  var existe = _cache['ef_users'].some(function(u){ return u.login === 'super' && u.perfil === 'superadmin'; });
-  if (!existe) {
+  // Corrige perfil do super caso esteja errado (dados legados)
+  var idx = _cache['ef_users'].findIndex(function(u){ return u.login === 'super'; });
+  if (idx >= 0) {
+    _cache['ef_users'][idx].perfil   = 'superadmin';
+    _cache['ef_users'][idx].senha    = _cache['ef_users'][idx].senha || 'super123';
+    _cache['ef_users'][idx].nome     = _cache['ef_users'][idx].nome  || 'Super Admin';
+    _cache['ef_users'][idx].empresas = _cache['ef_users'][idx].empresas || [];
+  } else {
     _cache['ef_users'].push({ id: (Math.random().toString(36).slice(2) + Date.now().toString(36)), login: 'super', senha: 'super123', nome: 'Super Admin', perfil: 'superadmin', empresas: [], perms: ['dashboard','funcionarios','escala','feriados','usuarios'] });
   }
 }
@@ -1357,7 +1528,13 @@ async function sincronizar() {
   setStatus('⏳ Sincronizando...', '#a07828');
   await DB.loadAll(function(err) {
     if (err) {
-      setStatus('❌ Erro: ' + err.message, '#c04a3a');
+      // Exibe mensagem detalhada no status e no toast
+      var msg = err.message || 'Erro desconhecido ao sincronizar com GitHub.';
+      setStatus('❌ GitHub: erro de leitura', '#c04a3a');
+      // Toast com primeiros 120 chars da mensagem (pode ser longa)
+      var toastMsg = msg.length > 120 ? msg.slice(0, 120) + '...' : msg;
+      toast('❌ ' + toastMsg, 'er');
+      console.error('Sincronização GitHub falhou:', msg);
     } else {
       var now = new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
       setStatus('✅ Sincronizado ' + now, '#3a7a4a');
@@ -1385,14 +1562,23 @@ async function salvarGHConfig() {
   var branch = document.getElementById('gh-branch').value.trim() || 'main';
   var token  = document.getElementById('gh-token').value.trim();
   var st = document.getElementById('gh-test-status');
-  if (!user || !repo || !token) { st.textContent = '⚠️ Preencha todos os campos.'; st.style.color = '#c04a3a'; return; }
+  if (!user || !repo || !token) {
+    st.innerHTML = '⚠️ Preencha todos os campos obrigatórios (Usuário, Repositório e Token).';
+    st.style.color = '#c04a3a'; return;
+  }
   GH.saveCfg({ user, repo, branch, token });
-  st.textContent = '⏳ Testando conexão...'; st.style.color = '#a07828';
+  st.innerHTML = '⏳ Testando conexão com GitHub...'; st.style.color = '#a07828';
   var result = await GH.test();
-  if (!result.ok) { st.textContent = '❌ ' + result.msg; st.style.color = '#c04a3a'; return; }
-  st.textContent = '✅ ' + result.msg; st.style.color = '#3a7a4a';
+  if (!result.ok) {
+    // Exibe mensagem detalhada com quebras de linha
+    st.innerHTML = result.msg.replace(/\n/g, '<br><span style="margin-left:12px">→ </span>');
+    st.style.color = '#c04a3a';
+    st.style.lineHeight = '1.6';
+    return;
+  }
+  st.innerHTML = result.msg; st.style.color = '#3a7a4a'; st.style.lineHeight = '';
   atualizarStatusLogin();
-  setTimeout(function() { fecharGHConfig(); sincronizar(); }, 1200);
+  setTimeout(function() { fecharGHConfig(); sincronizar(); }, 1400);
 }
 function limparGHConfig() {
   if (!confirm('Desconectar do GitHub? Os dados locais não serão apagados.')) return;
@@ -1407,13 +1593,14 @@ function limparGHConfig() {
 
 // ── MODULOS ───────────────────────────────────────────────────────────
 const MODULOS = [
-  { id: 'dashboard',    label: '🏠 Dashboard'      },
-  { id: 'funcionarios', label: '👤 Funcionários'    },
-  { id: 'escala',       label: '📅 Escala de Folga' },
-  { id: 'feriados',     label: '🏖️ Feriados'        },
-  { id: 'disciplinar',  label: '⚖️ Disciplinar'     },
-  { id: 'conduta',      label: '🗣️ Regra Operacional' },
-  { id: 'usuarios',     label: '👥 Usuários'        },
+  { id: 'dashboard',    label: '🏠 Dashboard'            },
+  { id: 'funcionarios', label: '👤 Funcionários'          },
+  { id: 'setores',      label: '🏷️ Setores'               },
+  { id: 'escala',       label: '📅 Escala de Folga'       },
+  { id: 'feriados',     label: '🏖️ Feriados'              },
+  { id: 'disciplinar',  label: '🔨 Registro de Punições'  },
+  { id: 'conduta',      label: '📋 Registro de Ocorrências' },
+  { id: 'usuarios',     label: '👥 Usuários'              },
 ];
 // Módulos exclusivos do superadmin
 const MOD_EMPRESAS    = { id: 'empresas',    label: '🏢 Empresas'    };
@@ -1458,14 +1645,8 @@ function seed() {
     }
   }
 
-  // Garante que o usuário super sempre existe (independente do estado dos dados)
-  if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
-  const superExists = _cache['ef_users'].some(u => u.login === 'super' && u.perfil === 'superadmin');
-  if (!superExists) {
-    _cache['ef_users'].push(
-      { id: uid(), login: 'super', senha: 'super123', nome: 'Super Admin', perfil: 'superadmin', empresas: [], perms: MODULOS.map(m => m.id) }
-    );
-  }
+  // Garante e corrige o usuário super (cobre dados legados com perfil errado)
+  _garantirSuperUser();
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -1511,6 +1692,8 @@ const SCFG = {
   falta:    { lbl: 'FA', cls: 'cs-falta',     ttl: 'Falta' },
   susp:     { lbl: 'S',  cls: 'cs-susp',     ttl: 'Suspensão' },
   extra:    { lbl: 'T',  cls: 'cs-extra',    ttl: 'Dom/Fer Trabalhado' },
+  ferias:   { lbl: 'FE', cls: 'cs-ferias',   ttl: 'Férias' },
+  licmat:   { lbl: 'LM', cls: 'cs-licmat',   ttl: 'Lic. Maternidade' },
 };
 
 function calcRow(func, y, m) {
@@ -1529,6 +1712,8 @@ function calcRow(func, y, m) {
     else if (st === 'decl')     { decls++;  ausencias++; }
     else if (st === 'falta')    { faltas++; ausencias++; }
     else if (st === 'susp')     { susps++;  ausencias++; }
+    // ferias e licmat: ausência + VT zerado (totalVT não incrementado)
+    else if (st === 'ferias' || st === 'licmat') { ausencias++; }
   }
   const diasContaveis = Array.from({ length: total }, (_, i) => ds(y, m, i + 1))
     .filter(d => d >= admStr && d <= deslStr).length;
@@ -1566,6 +1751,7 @@ async function fazerLogin() {
   btn.disabled = true;
 
   try { await DB.loadAll(function(){}); } catch(e) {}
+  _garantirSuperUser(); // garante perfil correto mesmo após carga do GitHub
 
   btn.textContent = '🔑 Entrar';
   btn.disabled = false;
@@ -1574,17 +1760,18 @@ async function fazerLogin() {
   const user = allUsers.find(u => u.login.toLowerCase() === login && u.senha === senha);
   if (!user) { err.textContent = '⚠️ Usuário ou senha incorretos.'; return; }
 
-  // Superadmin: acessa todas as empresas
+  // Superadmin: acessa o sistema com visão global (sem empresa vinculada obrigatória)
   if (user.perfil === 'superadmin') {
     _entrarSistema(user, null);
     return;
   }
 
+  // Usuários comuns: precisam ter ao menos uma empresa vinculada
   const empIds = user.empresas || [];
   const empresas = gEmpresas().filter(e => empIds.includes(e.id));
 
   if (!empresas.length) {
-    err.textContent = '⚠️ Usuário sem empresa vinculada. Contate o administrador.';
+    err.textContent = '⚠️ Usuário precisa estar atrelado a uma empresa. Contate o administrador.';
     return;
   }
 
@@ -1593,7 +1780,7 @@ async function fazerLogin() {
     return;
   }
 
-  // Múltiplas empresas: mostra combo
+  // Múltiplas empresas: mostra combo de seleção
   const sel = document.getElementById('login-empresa');
   sel.innerHTML = '<option value="">— Selecione a empresa —</option>' +
     empresas.map(e => `<option value="${e.id}">${e.nome}</option>`).join('');
@@ -1628,7 +1815,7 @@ function _entrarSistema(user, empId) {
   // Exibe empresa no header
   const emp = empId ? getEmpresa(empId) : null;
   const hEmp = document.getElementById('header-empresa-nome');
-  if (hEmp) hEmp.textContent = emp ? '🏢 ' + emp.nome : '🌐 Todas as empresas';
+  if (hEmp) hEmp.textContent = emp ? '🏢 ' + emp.nome : (user.perfil === 'superadmin' ? '🌐 Todas as empresas' : '');
 
   // Garante estrutura de dados da empresa
   if (empId) {
@@ -1671,8 +1858,8 @@ function hasPerm(modId) {
 
 function buildNav() {
   const nav = document.getElementById('main-nav');
-  const icons  = { dashboard:'🏠', funcionarios:'👤', escala:'📅', feriados:'🏖️', disciplinar:'⚖️', conduta:'🗣️', usuarios:'👥', empresas:'🏢', visaogeral:'👁️' };
-  const labels = { dashboard:'Dashboard', funcionarios:'Funcionários', escala:'Escala', feriados:'Feriados', disciplinar:'Disciplinar', conduta:'Regra Operacional', usuarios:'Usuários', empresas:'Empresas', visaogeral:'Visão Geral' };
+  const icons  = { dashboard:'🏠', funcionarios:'👤', setores:'🏷️', escala:'📅', feriados:'🏖️', disciplinar:'🔨', conduta:'📋', usuarios:'👥', empresas:'🏢', visaogeral:'👁️' };
+  const labels = { dashboard:'Dashboard', funcionarios:'Funcionários', setores:'Setores', escala:'Escala', feriados:'Feriados', disciplinar:'Reg. Punições', conduta:'Reg. Ocorrências', usuarios:'Usuários', empresas:'Empresas', visaogeral:'Visão Geral' };
   const todos = currentUser?.perfil === 'superadmin'
     ? [MOD_EMPRESAS, MOD_VISAO_GERAL, ...MODULOS]
     : MODULOS;
@@ -1699,6 +1886,7 @@ function go(pg, btn) {
   closeCM();
   if (pg === 'dashboard')    rdash();
   if (pg === 'funcionarios') rfunc();
+  if (pg === 'setores')      rSetores();
   if (pg === 'escala')       resc();
   if (pg === 'feriados')     rfer();
   if (pg === 'disciplinar')  rDisc();
@@ -1870,9 +2058,26 @@ function rdash() {
 //  FUNCIONÁRIOS
 // ══════════════════════════════════════════════════════════════════════
 async function rfunc() {
-  const funcs = gF();
+  let funcs = gF();
   const tb = document.getElementById('func-tbody');
-  if (!funcs.length) { tb.innerHTML = '<tr><td colspan="8"><div class="empty"><span class="ico">👤</span>Nenhum funcionário.</div></td></tr>'; return; }
+
+  // Populate setor filter dropdown
+  const filtroSel = document.getElementById('func-filtro-setor');
+  const setores = gSetores();
+  if (filtroSel) {
+    const prev = filtroSel.value;
+    filtroSel.innerHTML = '<option value="">Todos os Setores</option>' +
+      setores.map(s => `<option value="${s.id}" ${s.id===prev?'selected':''}>${s.icone} ${s.nome}</option>`).join('');
+    if (prev) filtroSel.value = prev;
+  }
+
+  // Apply filters
+  const filtroSetor  = filtroSel?.value || '';
+  const filtroStatus = document.getElementById('func-filtro-status')?.value || '';
+  if (filtroSetor)  funcs = funcs.filter(f => f.setor === filtroSetor);
+  if (filtroStatus) funcs = funcs.filter(f => f.status === filtroStatus);
+
+  if (!funcs.length) { tb.innerHTML = '<tr><td colspan="8"><div class="empty"><span class="ico">👤</span>Nenhum funcionário encontrado.</div></td></tr>'; return; }
 
   // Decrypt CPF para exibição
   const cpfMap = {};
@@ -1880,22 +2085,27 @@ async function rfunc() {
     cpfMap[f.id] = f.cpf_enc ? await cryptoDecrypt(f.cpf_enc) : '';
   }));
 
+  const setorMap = {};
+  setores.forEach(s => setorMap[s.id] = s);
+
   tb.innerHTML = funcs.map(f => {
     const cpfDisplay = cpfMap[f.id]
       ? `<span title="CPF descriptografado" style="font-size:11px;color:var(--green)">🔒 ${cpfMap[f.id]}</span>`
       : '<span style="font-size:11px;color:var(--text-dim)">—</span>';
-    const rgDisplay = f.rg_enc
-      ? `<span title="RG criptografado" style="font-size:11px;color:var(--text-dim)">🔒 ••••••</span>`
+    const setor = f.setor ? setorMap[f.setor] : null;
+    const setorDisplay = setor
+      ? `<span class="badge b-${setor.cor}">${setor.icone} ${setor.nome}</span>`
       : '<span style="font-size:11px;color:var(--text-dim)">—</span>';
+    const nascDisplay = f.nasc ? fmtD(f.nasc) : '<span style="color:var(--text-dim)">—</span>';
     return `
     <tr class="${f.status === 'inativo' ? 'inativo' : ''}">
       <td style="font-weight:600">${f.nome}</td>
       <td>${cpfDisplay}</td>
-      <td>${rgDisplay}</td>
-      <td style="font-weight:700;color:var(--gold)">${fmtBRL(vtAtual(f))}</td>
+      <td>${nascDisplay}</td>
+      <td>${setorDisplay}</td>
       <td><span class="badge ${f.status === 'ativo' ? 'b-green' : 'b-red'}">${f.status === 'ativo' ? 'Ativo' : 'Desligado'}</span></td>
       <td style="color:var(--text-dim);font-size:12px">${fmtD(f.adm)}</td>
-      <td style="color:var(--text-dim);font-size:12px">${fmtD(f.desl)}</td>
+      <td style="font-weight:700;color:var(--gold)">${fmtBRL(vtAtual(f))}</td>
       <td><div class="act-row">
         <button class="btn btn-ghost btn-sm" onclick="openFuncModal('${f.id}')">✏️ Editar</button>
         <button class="btn btn-danger" onclick="delFunc('${f.id}')">🗑️</button>
@@ -1912,28 +2122,35 @@ function openFuncModal(id) {
   // Reset validation
   const cpfErr = document.getElementById('f-cpf-err');
   if (cpfErr) cpfErr.style.display = 'none';
+  // Populate setor select
+  const setorSel = document.getElementById('f-setor');
+  if (setorSel) {
+    setorSel.innerHTML = '<option value="">— Não definido —</option>' +
+      gSetores().map(s => `<option value="${s.id}">${s.icone} ${s.nome}</option>`).join('');
+  }
   if (isEd) {
     const f = gF().find(x => x.id === id);
     document.getElementById('f-nome').value       = f.nome;
     document.getElementById('f-vt').value         = vtAtual(f);
     document.getElementById('f-admissao').value   = f.adm || '';
+    document.getElementById('f-nasc').value       = f.nasc || '';
     document.getElementById('f-status').value     = f.status;
     document.getElementById('f-desligamento').value = f.desl || '';
     document.getElementById('f-desl-row').style.display = f.status === 'inativo' ? '' : 'none';
+    if (setorSel) setorSel.value = f.setor || '';
     document.getElementById('f-nvt').value        = '';
     document.getElementById('f-nvt-desde').value  = today();
     // Decrypt sensitive fields
     const cpfEl = document.getElementById('f-cpf');
-    const rgEl  = document.getElementById('f-rg');
-    cpfEl.value = ''; rgEl.value = '';
+    cpfEl.value = '';
     if (f.cpf_enc) cryptoDecrypt(f.cpf_enc).then(v => { cpfEl.value = v; });
-    if (f.rg_enc)  cryptoDecrypt(f.rg_enc).then(v  => { rgEl.value  = v; });
     renderVtHist(f);
   } else {
-    ['f-nome','f-vt','f-admissao','f-desligamento','f-nvt','f-cpf','f-rg'].forEach(id => document.getElementById(id).value = '');
+    ['f-nome','f-vt','f-admissao','f-nasc','f-desligamento','f-nvt','f-cpf'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('f-admissao').value = today();
     document.getElementById('f-status').value  = 'ativo';
     document.getElementById('f-desl-row').style.display = 'none';
+    if (setorSel) setorSel.value = '';
   }
   document.getElementById('modal-func').classList.add('open');
 }
@@ -1988,9 +2205,10 @@ async function saveFunc() {
   const vt     = parseFloat(document.getElementById('f-vt').value);
   const status = document.getElementById('f-status').value;
   const adm    = document.getElementById('f-admissao').value;
+  const nasc   = document.getElementById('f-nasc').value;
   const desl   = document.getElementById('f-desligamento').value;
   const cpfRaw = document.getElementById('f-cpf').value.trim();
-  const rgRaw  = document.getElementById('f-rg').value.trim();
+  const setor  = document.getElementById('f-setor')?.value || '';
 
   if (!nome) { toast('Informe o nome.', 'er'); return; }
   if (!vt || isNaN(vt) || vt <= 0) { toast('Informe um valor de VT válido.', 'er'); return; }
@@ -2006,7 +2224,6 @@ async function saveFunc() {
 
   // Criptografa dados sensíveis
   const cpf_enc = cpfRaw ? await cryptoEncrypt(cpfRaw) : '';
-  const rg_enc  = rgRaw  ? await cryptoEncrypt(rgRaw)  : '';
 
   const funcs = gF();
   if (editFid) {
@@ -2014,13 +2231,14 @@ async function saveFunc() {
     if (idx >= 0) {
       funcs[idx].nome   = nome; funcs[idx].status = status;
       funcs[idx].adm    = adm;
+      funcs[idx].nasc   = nasc || null;
+      funcs[idx].setor  = setor || null;
       funcs[idx].desl   = status === 'inativo' ? (desl || null) : null;
       funcs[idx].cpf_enc = cpf_enc;
-      funcs[idx].rg_enc  = rg_enc;
       if (!funcs[idx].vtH || !funcs[idx].vtH.length) funcs[idx].vtH = [{ vt, desde: adm || today() }];
     }
   } else {
-    funcs.push({ id: uid(), nome, vtH: [{ vt, desde: adm || today() }], status, adm: adm || today(), desl: null, cpf_enc, rg_enc });
+    funcs.push({ id: uid(), nome, vtH: [{ vt, desde: adm || today() }], status, adm: adm || today(), nasc: nasc || null, setor: setor || null, desl: null, cpf_enc });
   }
   sF(funcs); closeMod('modal-func'); rfunc();
   toast(editFid ? 'Funcionário atualizado!' : 'Funcionário cadastrado!', 'ok');
@@ -2031,6 +2249,135 @@ function delFunc(id) {
   sF(gF().filter(f => f.id !== id));
   const e = gE(); Object.keys(e).forEach(k => { if (k.startsWith(id + '_')) delete e[k]; }); sE(e);
   rfunc(); toast('Funcionário removido.', 'in');
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  SETORES
+// ══════════════════════════════════════════════════════════════════════
+let editSetorId = null;
+
+function rSetores() {
+  const setores = gSetores();
+  const funcs   = gF();
+
+  // Populate filter in funcionarios page
+  const filtroSel = document.getElementById('func-filtro-setor');
+  if (filtroSel) {
+    const prev = filtroSel.value;
+    filtroSel.innerHTML = '<option value="">Todos os Setores</option>' +
+      setores.map(s => `<option value="${s.id}" ${s.id===prev?'selected':''}>${s.icone} ${s.nome}</option>`).join('');
+  }
+
+  // Render list
+  const list = document.getElementById('setor-list');
+  if (!list) return;
+  if (!setores.length) {
+    list.innerHTML = '<div class="empty"><span class="ico">🏷️</span>Nenhum setor cadastrado.</div>';
+  } else {
+    list.innerHTML = setores.map(s => {
+      const count = funcs.filter(f => f.setor === s.id && f.status === 'ativo').length;
+      return `<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);transition:all .18s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:24px">${s.icone}</span>
+          <div>
+            <div style="font-weight:700;font-size:14px;color:var(--cream)">${s.nome}</div>
+            <div><span class="badge b-${s.cor}" style="font-size:10px">${count} ativo(s)</span></div>
+          </div>
+        </div>
+        <div class="act-row">
+          <button class="btn btn-ghost btn-sm" onclick="editSetor('${s.id}')">✏️ Editar</button>
+          <button class="btn btn-danger" onclick="delSetor('${s.id}')">🗑️</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // Render stats
+  const stats = document.getElementById('setor-stats');
+  if (stats) {
+    if (!setores.length) { stats.innerHTML = '<div style="color:var(--text-dim);font-size:13px;text-align:center;padding:20px">Nenhum setor cadastrado.</div>'; return; }
+    const maxCount = Math.max(1, ...setores.map(s => funcs.filter(f => f.setor === s.id).length));
+    stats.innerHTML = setores.map(s => {
+      const ativos   = funcs.filter(f => f.setor === s.id && f.status === 'ativo').length;
+      const inativos = funcs.filter(f => f.setor === s.id && f.status !== 'ativo').length;
+      const total    = ativos + inativos;
+      const pct      = Math.round((total / maxCount) * 100);
+      const corMap   = { blue:'var(--blue)', orange:'var(--orange)', green:'var(--green)', gold:'var(--gold)', red:'var(--red)', teal:'var(--teal)', purple:'var(--purple)' };
+      const cor      = corMap[s.cor] || 'var(--gold)';
+      return `<div class="bar-row" style="margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:8px;min-width:160px">
+          <span style="font-size:18px">${s.icone}</span>
+          <span style="font-size:13px;font-weight:600">${s.nome}</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${pct}%;background:${cor}">
+            ${total>0?`<span class="bar-val">${total}</span>`:''}
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--text-dim);min-width:110px;text-align:right">
+          <span style="color:var(--green)">${ativos} ativo(s)</span>${inativos?' · <span style="color:var(--red)">'+inativos+' inativo(s)</span>':''}
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function editSetor(id) {
+  const s = gSetores().find(x => x.id === id);
+  if (!s) return;
+  editSetorId = id;
+  document.getElementById('s-nome').value  = s.nome;
+  document.getElementById('s-icone').value = s.icone;
+  document.getElementById('s-cor').value   = s.cor;
+  document.getElementById('setor-form-title').textContent = '✏️ Editar Setor';
+  document.getElementById('s-nome').focus();
+}
+
+function cancelSetor() {
+  editSetorId = null;
+  document.getElementById('s-nome').value  = '';
+  document.getElementById('s-icone').value = '';
+  document.getElementById('s-cor').value   = 'blue';
+  document.getElementById('setor-form-title').textContent = 'Novo Setor';
+}
+
+function saveSetor() {
+  const nome  = document.getElementById('s-nome').value.trim();
+  const icone = document.getElementById('s-icone').value.trim() || '🏷️';
+  const cor   = document.getElementById('s-cor').value;
+  if (!nome) { toast('Informe o nome do setor.', 'er'); return; }
+  const setores = gSetores();
+  if (editSetorId) {
+    const idx = setores.findIndex(s => s.id === editSetorId);
+    if (idx >= 0) { setores[idx].nome = nome; setores[idx].icone = icone; setores[idx].cor = cor; }
+  } else {
+    if (setores.find(s => s.nome.toLowerCase() === nome.toLowerCase())) { toast('Setor já existe.', 'er'); return; }
+    setores.push({ id: uid(), nome, icone, cor });
+  }
+  sSetores(setores);
+  cancelSetor();
+  rSetores();
+  toast(editSetorId ? 'Setor atualizado!' : 'Setor criado!', 'ok');
+  editSetorId = null;
+}
+
+function delSetor(id) {
+  const s = gSetores().find(x => x.id === id);
+  if (!s) return;
+  const funcs = gF();
+  const vinculados = funcs.filter(f => f.setor === id).length;
+  if (vinculados > 0) {
+    if (!confirm(`O setor "${s.nome}" possui ${vinculados} funcionário(s) vinculado(s). Ao remover, eles ficarão sem setor. Continuar?`)) return;
+    // Remove setor dos funcionários
+    const atualizados = funcs.map(f => f.setor === id ? { ...f, setor: null } : f);
+    sF(atualizados);
+  } else {
+    if (!confirm(`Remover o setor "${s.nome}"?`)) return;
+  }
+  const setores = gSetores().filter(x => x.id !== id);
+  sSetores(setores);
+  rSetores();
+  toast('Setor removido.', 'in');
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -2149,6 +2496,79 @@ function closeCM() {
 }
 document.addEventListener('click', e => { if (!e.target.closest('#cmenu') && !e.target.closest('.dcell')) closeCM(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCM(); });
+
+// ── INDICADORES FE / LM ───────────────────────────────────────────────
+let _indicadorTipo = null;
+let _indicadorFid = null, _indicadorY = null, _indicadorM = null, _indicadorD = null;
+const INDICADOR_DIAS = { ferias: 30, licmat: 120 };
+
+function openIndicadorModal(tipo) {
+  // Salva os dados da célula ANTES de closeCM() zerá-los
+  _indicadorFid = cmFid;
+  _indicadorY   = cmY;
+  _indicadorM   = cmM;
+  _indicadorD   = cmD;
+  _indicadorTipo = tipo;
+  closeCM();
+
+  if (!_indicadorFid) { toast('Selecione um dia na escala de um funcionário primeiro.', 'er'); return; }
+
+  const cfg = { ferias: { titulo: '🏖️ Férias — FE', cor: '#0e7a46' }, licmat: { titulo: '🤱 Licença Maternidade — LM', cor: '#b0338a' } };
+  const dias = INDICADOR_DIAS[tipo];
+  const c = cfg[tipo];
+  document.getElementById('indicador-titulo').textContent = c.titulo;
+  document.getElementById('indicador-titulo').style.color = c.cor;
+  document.getElementById('indicador-info').innerHTML =
+    `<strong style="color:${c.cor}">${c.titulo}</strong> — Duração padrão: <strong>${dias} dias corridos</strong>.<br>
+     O sistema marcará automaticamente todos os dias do período com o indicador <strong>${tipo === 'ferias' ? 'FE' : 'LM'}</strong> e zerará o Vale Transporte desses dias.`;
+  document.getElementById('indicador-confirmar').style.background = c.cor;
+
+  // Exibe o nome do funcionário
+  const func = gF().find(f => f.id === _indicadorFid);
+  document.getElementById('indicador-func-nome').textContent = func ? func.nome : _indicadorFid;
+
+  // Pré-preenche com a data da célula clicada
+  const d0 = ds(_indicadorY, _indicadorM, _indicadorD);
+  document.getElementById('indicador-inicio').value = d0;
+  calcIndicadorFim();
+  document.getElementById('modal-indicador').classList.add('open');
+}
+
+function calcIndicadorFim() {
+  const inicio = document.getElementById('indicador-inicio').value;
+  if (!inicio || !_indicadorTipo) { document.getElementById('indicador-fim').value = ''; document.getElementById('indicador-preview').textContent = ''; return; }
+  const dias = INDICADOR_DIAS[_indicadorTipo];
+  const dt = new Date(inicio + 'T00:00:00');
+  dt.setDate(dt.getDate() + dias - 1);
+  const fim = dt.toISOString().slice(0, 10);
+  document.getElementById('indicador-fim').value = fim;
+  document.getElementById('indicador-preview').textContent =
+    `Período: ${fmtD(inicio)} → ${fmtD(fim)} (${dias} dias)`;
+}
+
+function aplicarIndicador() {
+  if (!_indicadorTipo || !_indicadorFid) { toast('Dados do funcionário não encontrados.', 'er'); return; }
+  const inicio = document.getElementById('indicador-inicio').value;
+  const fim    = document.getElementById('indicador-fim').value;
+  if (!inicio || !fim) { toast('Informe a data de início.', 'er'); return; }
+
+  // Aplica o indicador a todos os dias do período
+  let count = 0;
+  const dtStart = new Date(inicio + 'T00:00:00');
+  const dtEnd   = new Date(fim    + 'T00:00:00');
+  for (let dt = new Date(dtStart); dt <= dtEnd; dt.setDate(dt.getDate() + 1)) {
+    const y = dt.getFullYear(), m = dt.getMonth(), d = dt.getDate();
+    setCS(_indicadorFid, y, m, d, _indicadorTipo);
+    count++;
+  }
+
+  closeMod('modal-indicador');
+  resc(); // Redesenha a tabela completamente para refletir todos os dias marcados
+
+  const lbl = _indicadorTipo === 'ferias' ? 'Férias' : 'Licença Maternidade';
+  toast(`✅ ${lbl} aplicada: ${count} dias marcados. VT zerado no período.`, 'ok');
+  _indicadorTipo = null; _indicadorFid = null;
+}
 
 // ── PRINT ─────────────────────────────────────────────────────────────
 function printEscala() { window.print(); }
