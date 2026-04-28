@@ -762,5 +762,15 @@
         }
       ]
     }
+  ],
+  "ef_pgtos_eedtw85lb7hmo7fioa1": [
+    {
+      "id": "z9nfvtxvt8qmoj9jyhs",
+      "fid": "hx777n38rtmoat8462",
+      "mesRef": "2026-04",
+      "data": "2026-04-01",
+      "valor": 300,
+      "obs": "pagamento em conta Banco do Brasil"
+    }
   ]
 }
