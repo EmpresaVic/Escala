@@ -664,7 +664,6 @@
     "pce8rvemctmohlm4m2_202604_28": "atestado",
     "pce8rvemctmohlm4m2_202604_29": "atestado",
     "pce8rvemctmohlm4m2_202604_30": "atestado",
-    "95o9tyf3clvmohlhpcr_202604_1": "folga",
     "95o9tyf3clvmohlhpcr_202604_22": "folga",
     "95o9tyf3clvmohlhpcr_202604_26": "atestado",
     "95o9tyf3clvmohlhpcr_202604_28": "falta"
@@ -782,5 +781,6 @@
       "valor": 66,
       "obs": "pagamento no banco do brasil"
     }
-  ]
+  ],
+  "ef_pgtos_r4757ib3oimo7fjujy": []
 }
