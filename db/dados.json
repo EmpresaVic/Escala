@@ -562,8 +562,10 @@
       "status": "ativo",
       "adm": "2026-04-10",
       "desl": null,
-      "cpf_enc": "xQGfn8pRLzMMQYWoZRu6N9Ukl4++yjC5yf4MuouCLo0chspdXLownhzu",
-      "rg_enc": ""
+      "cpf_enc": "vSBWx5cCcIxpF4oeAY2nZpgshvsDSWe35VZhW9XRzjD7kZqYI+00zI5Q",
+      "rg_enc": "",
+      "nasc": null,
+      "setor": "cozinha"
     },
     {
       "id": "jldxz30h4nmohm4zim",
