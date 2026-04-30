@@ -545,8 +545,10 @@
       "status": "ativo",
       "adm": "2026-02-05",
       "desl": null,
-      "cpf_enc": "jIa0dXXbneI3JaKc3q8QrV53MhRn34NQlUy2H0gJNc4LA4+jivgtmSHw",
-      "rg_enc": ""
+      "cpf_enc": "UsX6g1HY5WoBtvD20dV6Tn69C3ZxHpNUb9xLPrXgWG120aIMYcraiHx1",
+      "rg_enc": "",
+      "nasc": null,
+      "setor": "atendimento"
     },
     {
       "id": "8wfh3x75bpemohm1hn7",
