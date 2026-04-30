@@ -628,8 +628,10 @@
       "status": "ativo",
       "adm": "2026-02-07",
       "desl": null,
-      "cpf_enc": "98AuoIWylaM87QnbNcbhZAKmGyzbMCp+BGHzuMN0WW0lGJAl2zFHFOKC",
-      "rg_enc": ""
+      "cpf_enc": "fddwBNikahhw+zY3dBJYOydSuC+406G8XAUowbng0zuG5CgtCNURvCJd",
+      "rg_enc": "",
+      "nasc": null,
+      "setor": "atendimento"
     }
   ],
   "ef_fer_r4757ib3oimo7fjujy": [
