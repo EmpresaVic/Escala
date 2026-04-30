@@ -602,8 +602,10 @@
       "status": "ativo",
       "adm": "2025-10-05",
       "desl": null,
-      "cpf_enc": "pX1y3nGiCxLNaDlqNTsGCgPCZz9ML3vLFRUb3r+OM3IDdCkcpYGJ6pVH",
-      "rg_enc": ""
+      "cpf_enc": "1HCoo0Ld3Qo7BekR5qIcunHlPjPNgm94ig6mrbmU54F7xl2HJtc8A0P9",
+      "rg_enc": "",
+      "nasc": null,
+      "setor": "atendimento"
     },
     {
       "id": "xf2wzgckrqqmohmehat",
