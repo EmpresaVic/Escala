@@ -161,7 +161,7 @@
     {
       "id": "bg48hl4fk2kmo7fmjms",
       "login": "victive",
-      "senha": "123",
+      "senha": "victive123",
       "nome": "victive",
       "perfil": "gerente",
       "perms": [
@@ -901,5 +901,6 @@
       "obs": "pagamento no banco do brasil"
     }
   ],
-  "ef_pgtos_r4757ib3oimo7fjujy": []
+  "ef_pgtos_r4757ib3oimo7fjujy": [],
+  "ef_pgtos": []
 }
