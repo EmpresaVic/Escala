@@ -597,7 +597,12 @@
       "cpf_enc": ""
     }
   ],
-  "ef_fer_bwckt2zfe8smo7fj6wx": [],
+  "ef_fer_bwckt2zfe8smo7fj6wx": [
+    {
+      "data": "2026-05-01",
+      "nome": "Dia do Trabalho"
+    }
+  ],
   "ef_esc_bwckt2zfe8smo7fj6wx": {},
   "ef_func_r4757ib3oimo7fjujy": [
     {
