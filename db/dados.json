@@ -547,6 +547,22 @@
       "setor": "cozinha",
       "desl": null,
       "cpf_enc": ""
+    },
+    {
+      "id": "8l963egmtyjmootrixo",
+      "nome": "WILLIAM SANTOS SILVA",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-05-02"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2025-05-02",
+      "nasc": null,
+      "setor": "cozinha",
+      "desl": null,
+      "cpf_enc": ""
     }
   ],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
