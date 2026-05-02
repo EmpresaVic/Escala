@@ -483,6 +483,22 @@
       "setor": "atendimento",
       "desl": null,
       "cpf_enc": ""
+    },
+    {
+      "id": "vtjladkvagmoot4vxo",
+      "nome": "MARIA DA GUIA VENANCIO",
+      "vtH": [
+        {
+          "vt": 12.9,
+          "desde": "2025-02-02"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2025-02-02",
+      "nasc": null,
+      "setor": "cozinha",
+      "desl": null,
+      "cpf_enc": ""
     }
   ],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
@@ -919,5 +935,6 @@
     }
   ],
   "ef_pgtos_r4757ib3oimo7fjujy": [],
-  "ef_pgtos": []
+  "ef_pgtos": [],
+  "ef_pgtos_bwckt2zfe8smo7fj6wx": []
 }
