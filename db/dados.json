@@ -515,6 +515,22 @@
       "setor": "cozinha",
       "desl": null,
       "cpf_enc": ""
+    },
+    {
+      "id": "8kytspmmyw3mootpaci",
+      "nome": "MAYARA INGRID PEREIRA",
+      "vtH": [
+        {
+          "vt": 12.9,
+          "desde": "2024-11-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2024-11-01",
+      "nasc": null,
+      "setor": "cozinha",
+      "desl": null,
+      "cpf_enc": ""
     }
   ],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
