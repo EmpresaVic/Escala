@@ -499,6 +499,22 @@
       "setor": "cozinha",
       "desl": null,
       "cpf_enc": ""
+    },
+    {
+      "id": "351lnfynt21mooto8r9",
+      "nome": "MARIA DAS DORES GUILHERMINO",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2025-07-01"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2025-07-01",
+      "nasc": null,
+      "setor": "cozinha",
+      "desl": null,
+      "cpf_enc": ""
     }
   ],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
