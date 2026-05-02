@@ -579,6 +579,22 @@
       "setor": "atendimento",
       "desl": null,
       "cpf_enc": ""
+    },
+    {
+      "id": "67tvzij7vh3moottdko",
+      "nome": "KARINE CORREIA MAIA DA TRINDADE",
+      "vtH": [
+        {
+          "vt": 15.4,
+          "desde": "2024-05-02"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2024-05-02",
+      "nasc": null,
+      "setor": "gestao",
+      "desl": null,
+      "cpf_enc": ""
     }
   ],
   "ef_fer_bwckt2zfe8smo7fj6wx": [],
