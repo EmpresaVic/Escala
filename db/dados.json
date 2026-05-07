@@ -533,22 +533,6 @@
       "cpf_enc": ""
     },
     {
-      "id": "8ije2ghvef9mootqhhu",
-      "nome": "PABLO RODRIGUES DA CRUZ",
-      "vtH": [
-        {
-          "vt": 12.9,
-          "desde": "2026-02-02"
-        }
-      ],
-      "status": "ativo",
-      "adm": "2026-02-02",
-      "nasc": null,
-      "setor": "cozinha",
-      "desl": null,
-      "cpf_enc": ""
-    },
-    {
       "id": "8l963egmtyjmootrixo",
       "nome": "WILLIAM SANTOS SILVA",
       "vtH": [
@@ -632,7 +616,6 @@
     "8kytspmmyw3mootpaci_202605_6": "folga",
     "8kytspmmyw3mootpaci_202605_20": "folga",
     "8kytspmmyw3mootpaci_202605_27": "folga",
-    "8ije2ghvef9mootqhhu_202605_1": "folga",
     "8l963egmtyjmootrixo_202605_5": "folga",
     "he4rj704rbjmoots7rj_202605_7": "folga",
     "he4rj704rbjmoots7rj_202605_13": "folga",
