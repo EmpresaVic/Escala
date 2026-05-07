@@ -579,6 +579,22 @@
       "setor": "gestao",
       "desl": null,
       "cpf_enc": ""
+    },
+    {
+      "id": "686gp73pkq8mow018xp",
+      "nome": "MATEUS VAGNER DO NASCIMENTO DUTRA",
+      "vtH": [
+        {
+          "vt": 12.2,
+          "desde": "2026-05-06"
+        }
+      ],
+      "status": "ativo",
+      "adm": "2026-05-06",
+      "nasc": "2009-04-26",
+      "setor": "atendimento",
+      "desl": null,
+      "cpf_enc": ""
     }
   ],
   "ef_fer_bwckt2zfe8smo7fj6wx": [
