@@ -49,134 +49,64 @@
   ],
   "ef_users": [
     {
-      "id": "z2649c9v1dmo68w420",
-      "login": "admin",
-      "senha": "admin123",
-      "nome": "Administrador",
-      "perfil": "admin",
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "feriados",
-        "usuarios"
-      ]
-    },
-    {
-      "id": "vzy5u73ihfmo68w420",
-      "login": "gerente",
-      "senha": "1234",
-      "nome": "Gerente 1",
-      "perfil": "gerente",
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "escala",
-        "feriados",
-        "usuarios"
-      ]
-    },
-    {
-      "id": "mdfxn8y373dmo6aehd7",
-      "login": "teste",
-      "senha": "1234",
-      "nome": "teste",
-      "perfil": "operador",
-      "perms": [
-        "dashboard"
-      ]
-    },
-    {
-      "id": "qo0909dmknfmo6cyhjx",
-      "login": "admin123",
-      "senha": "admin123",
-      "nome": "Administrador",
-      "perfil": "admin",
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "setores",
-        "escala",
-        "feriados",
-        "disciplinar",
-        "conduta",
-        "usuarios"
-      ],
-      "empresas": [
-        "eedtw85lb7hmo7fioa1",
-        "bwckt2zfe8smo7fj6wx",
-        "r4757ib3oimo7fjujy"
-      ]
-    },
-    {
-      "id": "o8kvktbr4xfmo7fht1a",
-      "login": "super",
-      "senha": "super123",
-      "nome": "Super Admin",
+      "id": "super",
+      "nome": "super",
+      "senhaHash": "-13e7bdc3",
       "perfil": "superadmin",
       "empresas": [],
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "escala",
-        "feriados",
-        "disciplinar",
-        "conduta",
-        "usuarios"
-      ]
+      "permissoes": null
     },
     {
-      "id": "oh6wpq7npxmo7flfsz",
-      "login": "victrus",
-      "senha": "victrus123",
-      "nome": "victrus",
-      "perfil": "gerente",
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "escala",
-        "feriados",
-        "disciplinar",
-        "conduta"
-      ],
+      "id": "moujn26z5i0",
+      "nome": "admin",
+      "senhaHash": "-39c43b7d",
+      "perfil": "admin",
+      "empresas": [],
+      "permissoes": null
+    },
+    {
+      "id": "moxj1ymovfy",
+      "nome": "adminteste",
+      "senhaHash": "170842",
+      "perfil": "admin",
       "empresas": [
-        "r4757ib3oimo7fjujy"
-      ]
+        "moul7it0erg",
+        "mouljh7zm5m"
+      ],
+      "permissoes": null
     },
     {
-      "id": "bsed90ieobnmo7flzzk",
-      "login": "victria",
-      "senha": "victria123",
+      "id": "moywfak1h5y",
       "nome": "victria",
-      "perfil": "gerente",
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "escala",
-        "feriados"
-      ],
+      "senhaHash": "56cfd04c",
+      "perfil": "admin",
       "empresas": [
-        "eedtw85lb7hmo7fioa1"
-      ]
+        "moul7it0erg"
+      ],
+      "permissoes": null
     },
     {
-      "id": "bg48hl4fk2kmo7fmjms",
-      "login": "victive",
-      "senha": "victive123",
+      "id": "moywfu76bsc",
+      "nome": "victrus",
+      "senhaHash": "57811906",
+      "perfil": "admin",
+      "empresas": [
+        "mouljh7zm5m"
+      ],
+      "permissoes": null
+    },
+    {
+      "id": "moywgeq4f89",
       "nome": "victive",
-      "perfil": "gerente",
-      "perms": [
-        "dashboard",
-        "funcionarios",
-        "escala",
-        "feriados",
-        "usuarios"
-      ],
+      "senhaHash": "482d35be",
+      "perfil": "admin",
       "empresas": [
-        "bwckt2zfe8smo7fj6wx"
-      ]
+        "moxj344wwsa"
+      ],
+      "permissoes": null
     },
     {
-      "id": "4w9isl4voq7moaqk0vf",
+      "id": "7qzfto0out8moyx3nlp",
       "login": "super",
       "senha": "super123",
       "nome": "Super Admin",
@@ -1088,5 +1018,8 @@
   "ef_pgtos": [],
   "ef_pgtos_bwckt2zfe8smo7fj6wx": [],
   "ef_disc_hist_eedtw85lb7hmo7fioa1_hx777n38rtmoat8462": [],
-  "ef_disc_hist_eedtw85lb7hmo7fioa1_0hkdtwiqr1humoateddz": []
+  "ef_disc_hist_eedtw85lb7hmo7fioa1_0hkdtwiqr1humoateddz": [],
+  "ef_esc_moul7it0erg": {
+    "moujohanu54_202605_2": "folga"
+  }
 }
