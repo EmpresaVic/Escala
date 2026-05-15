@@ -62,6 +62,23 @@
         "feriados",
         "usuarios"
       ]
+    },
+    {
+      "id": "3ve860wkn35mp7kprfe",
+      "login": "victria",
+      "senha": "victria123",
+      "nome": "victria",
+      "perfil": "gerente",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "disciplinar",
+        "conduta"
+      ],
+      "empresas": [
+        "eedtw85lb7hmo7fioa1"
+      ]
     }
   ],
   "ef_empresas": [
