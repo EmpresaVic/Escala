@@ -1497,6 +1497,8 @@ const DB = {
 
 function _garantirSuperUser() {
   if (!Array.isArray(_cache['ef_users'])) _cache['ef_users'] = [];
+  // Remove entradas corrompidas (sem login ou sem senha)
+  _cache['ef_users'] = _cache['ef_users'].filter(function(u){ return u && u.login && u.senha; });
   // Corrige perfil do super caso esteja errado (dados legados)
   var idx = _cache['ef_users'].findIndex(function(u){ return u.login === 'super'; });
   if (idx >= 0) {
@@ -1849,14 +1851,18 @@ async function fazerLogin() {
   btn.textContent = '⏳ Verificando...';
   btn.disabled = true;
 
-  try { await DB.loadAll(function(){}); } catch(e) {}
+  try { await DB.loadAll(function(){}); } catch(e) {
+    err.textContent = '⚠️ Erro ao carregar dados: ' + e.message;
+  }
   _garantirSuperUser(); // garante perfil correto mesmo após carga do GitHub
 
   btn.textContent = '🔑 Entrar';
   btn.disabled = false;
 
   const allUsers = Array.isArray(_cache['ef_users']) ? _cache['ef_users'] : [];
-  const user = allUsers.find(u => u.login.toLowerCase() === login && u.senha === senha);
+  // Filtra usuários corrompidos (sem login ou senha) antes de buscar
+  const usersValidos = allUsers.filter(u => u && u.login && u.senha);
+  const user = usersValidos.find(u => u.login.toLowerCase() === login && u.senha === senha);
   if (!user) { err.textContent = '⚠️ Usuário ou senha incorretos.'; return; }
 
   // Superadmin: acessa o sistema com visão global (sem empresa vinculada obrigatória)
