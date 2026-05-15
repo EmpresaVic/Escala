@@ -96,6 +96,24 @@
       "empresas": [
         "bwckt2zfe8smo7fj6wx"
       ]
+    },
+    {
+      "id": "r00oorjmyqmp7krd1x",
+      "login": "victrus",
+      "senha": "victrus",
+      "nome": "victrus",
+      "perfil": "gerente",
+      "perms": [
+        "dashboard",
+        "funcionarios",
+        "escala",
+        "feriados",
+        "disciplinar",
+        "conduta"
+      ],
+      "empresas": [
+        "r4757ib3oimo7fjujy"
+      ]
     }
   ],
   "ef_empresas": [
