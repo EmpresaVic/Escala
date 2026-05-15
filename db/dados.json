@@ -49,63 +49,6 @@
   ],
   "ef_users": [
     {
-      "id": "super",
-      "nome": "super",
-      "senhaHash": "-13e7bdc3",
-      "perfil": "superadmin",
-      "empresas": [],
-      "permissoes": null
-    },
-    {
-      "id": "moujn26z5i0",
-      "nome": "admin",
-      "senhaHash": "-39c43b7d",
-      "perfil": "admin",
-      "empresas": [],
-      "permissoes": null
-    },
-    {
-      "id": "moxj1ymovfy",
-      "nome": "adminteste",
-      "senhaHash": "170842",
-      "perfil": "admin",
-      "empresas": [
-        "moul7it0erg",
-        "mouljh7zm5m"
-      ],
-      "permissoes": null
-    },
-    {
-      "id": "moywfak1h5y",
-      "nome": "victria",
-      "senhaHash": "56cfd04c",
-      "perfil": "admin",
-      "empresas": [
-        "moul7it0erg"
-      ],
-      "permissoes": null
-    },
-    {
-      "id": "moywfu76bsc",
-      "nome": "victrus",
-      "senhaHash": "57811906",
-      "perfil": "admin",
-      "empresas": [
-        "mouljh7zm5m"
-      ],
-      "permissoes": null
-    },
-    {
-      "id": "moywgeq4f89",
-      "nome": "victive",
-      "senhaHash": "482d35be",
-      "perfil": "admin",
-      "empresas": [
-        "moxj344wwsa"
-      ],
-      "permissoes": null
-    },
-    {
       "id": "7qzfto0out8moyx3nlp",
       "login": "super",
       "senha": "super123",
@@ -125,8 +68,9 @@
     {
       "id": "eedtw85lb7hmo7fioa1",
       "nome": "Victria Comercio de Alimentos Ltda",
-      "cnpj": "10637470000114",
-      "end": "Av Autonomistas, 1400"
+      "cnpj": "",
+      "end": "Av Autonomistas, 1400",
+      "cnpj_enc": "6+2V7PiqWuzfWQd7XUcGzH9nDvP2JvMz7IYpA9GsLohVaJdyJOalntS3"
     },
     {
       "id": "bwckt2zfe8smo7fj6wx",
